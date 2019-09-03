@@ -12,8 +12,8 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var surnameTextField: UITextField!
+    @IBOutlet weak var firstNameField: UITextField!
+    @IBOutlet weak var lastfirstNameField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -25,22 +25,22 @@ class RegisterViewController: UIViewController {
     }
 
     func chackTexField () -> Bool {
-        guard nameTextField.text != "" else {
-            showAlert(title: "Name" , message: "is empty", textField: nameTextField)
+        guard firstNameField.text != "" else {
+            showAlert(title: "Name" , message: "is empty", textField: firstNameField)
             return false
         }
-        guard !nameTextField.text!.containsEmoji else {
-            showAlert(title: "Name" , message: "conteins emoji", textField: nameTextField)
+        guard !firstNameField.text!.containsEmoji else {
+            showAlert(title: "Name" , message: "conteins emoji", textField: firstNameField)
             return false
         }
-        nameTextField?.layer.borderWidth = 0
-        nameTextField?.layer.borderColor = UIColor.red.cgColor
-        guard surnameTextField.text != "" else {
-            showAlert(title: "Surname" , message: "is empty", textField: surnameTextField)
+        firstNameField?.layer.borderWidth = 0
+        firstNameField?.layer.borderColor = UIColor.red.cgColor
+        guard lastfirstNameField.text != "" else {
+            showAlert(title: "Surname" , message: "is empty", textField: lastfirstNameField)
             return false
         }
-        surnameTextField?.layer.borderWidth = 0
-        surnameTextField?.layer.borderColor = UIColor.red.cgColor
+        lastfirstNameField?.layer.borderWidth = 0
+        lastfirstNameField?.layer.borderColor = UIColor.red.cgColor
         guard emailTextField.text != "" else {
             showAlert(title: "Email" , message: "is empty", textField: emailTextField)
             return false

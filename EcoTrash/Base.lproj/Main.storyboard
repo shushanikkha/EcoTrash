@@ -196,11 +196,9 @@
                     <connections>
                         <outlet property="confirmPTextField" destination="TmF-zt-hvk" id="ADa-ec-PFM"/>
                         <outlet property="emailTextField" destination="bKh-zY-oSR" id="arh-Vg-77s"/>
-                        <outlet property="nameTextField" destination="PRp-eU-s9n" id="3iv-mY-w5u"/>
                         <outlet property="passwordTextField" destination="V04-rc-VEn" id="TQw-mN-wtl"/>
                         <outlet property="phoneNumberTextField" destination="8o2-cv-dLC" id="rw5-nC-2OF"/>
                         <outlet property="scrollView" destination="U4p-ZD-gJN" id="nDV-Dj-tia"/>
-                        <outlet property="surnameTextField" destination="bIC-HP-o5d" id="VaV-vH-UXR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zBr-MZ-hI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
