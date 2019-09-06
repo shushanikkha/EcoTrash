@@ -8,71 +8,50 @@
 
 import UIKit
 
+protocol RegisterViewControllerDelegate {
+    func userCreted(user: User)
+}
+
 class RegisterViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var firstNameField: UITextField!
-    @IBOutlet weak var lastfirstNameField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPTextField: UITextField!
     
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var confirmPLabel: UILabel!
+    
+    @IBOutlet weak var subbmitButton: UIButton!
+    
+
+    var user: User {
+        let firstName = firstNameTextField.text!
+        let lastName = lastNameTextField.text!
+        let email = emailTextField.text!
+        let phoneNumber = phoneNumberTextField.text!
+        let password = passwordTextField.text!
+        let comfirmPasswodr = confirmPTextField.text!
+        
+        return User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, password: password, comfirmPasswodr: comfirmPasswodr)
+    }
+    
+    var checks = Array(repeating: false, count: 6)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerForKeyboardNotifications()
     }
-
-    func chackTexField () -> Bool {
-        guard firstNameField.text != "" else {
-            showAlert(title: "Name" , message: "is empty", textField: firstNameField)
-            return false
-        }
-        guard !firstNameField.text!.containsEmoji else {
-            showAlert(title: "Name" , message: "conteins emoji", textField: firstNameField)
-            return false
-        }
-        firstNameField?.layer.borderWidth = 0
-        firstNameField?.layer.borderColor = UIColor.red.cgColor
-        guard lastfirstNameField.text != "" else {
-            showAlert(title: "Surname" , message: "is empty", textField: lastfirstNameField)
-            return false
-        }
-        lastfirstNameField?.layer.borderWidth = 0
-        lastfirstNameField?.layer.borderColor = UIColor.red.cgColor
-        guard emailTextField.text != "" else {
-            showAlert(title: "Email" , message: "is empty", textField: emailTextField)
-            return false
-        }
-        guard emailTextField.text!.contains("@") else {
-            showAlert(title: "Eail" , message: "wrong mail", textField: emailTextField)
-            return false
-        }
-        emailTextField?.layer.borderWidth = 0
-        emailTextField?.layer.borderColor = UIColor.red.cgColor
-        guard phoneNumberTextField.text != "" else {
-            showAlert(title: "Phone Number " , message: "is empty", textField: phoneNumberTextField)
-            return false
-        }
-        phoneNumberTextField?.layer.borderWidth = 0
-        phoneNumberTextField?.layer.borderColor = UIColor.red.cgColor
-        guard passwordTextField.text != "" else {
-            showAlert(title: "Password" , message: "is empty", textField: passwordTextField)
-            return false
-        }
-        passwordTextField?.layer.borderWidth = 0
-        passwordTextField?.layer.borderColor = UIColor.red.cgColor
-        guard confirmPTextField.text == passwordTextField.text else {
-            showAlert(title: "Confirm Password" , message: "wrong confirm password", textField: confirmPTextField)
-            return false
-        }
-        confirmPTextField?.layer.borderWidth = 0
-        confirmPTextField?.layer.borderColor = UIColor.red.cgColor
-       
-        return true
-    }
     
+
     func showAlert(title: String?, message: String?, textField: UITextField?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -85,14 +64,196 @@ class RegisterViewController: UIViewController {
     }
     
     
-    @IBAction func subbmitTapped(_ sender: UIButton) {
-        guard chackTexField() else { return }
-            //TODO: Armen subbmit
-            print("succes")
+    private func validateTextField(text: String, predicatStyl: String) -> Bool {
+        return NSPredicate(format: "SELF MATCHES %@", predicatStyl).evaluate(with: text)
+    }
+    
+    private func configTextField(_ textField: UITextField, _ bColor: UIColor, _ bWidth: CGFloat) {
+        textField.layer.borderWidth = bWidth
+        textField.layer.borderColor = bColor.cgColor
     }
     
     
+    @IBAction func firstNameDidEnd(_ sender: UITextField) {
+        guard let text = sender.text, text != "" else {
+            firstNameLabel.text = "First Name is empty"
+            firstNameLabel.isHidden = false
+            checks[0] = false
+            configTextField(sender, .red, 1)
+            return
+        }
+        
+        guard text.count >= 3  else {
+            firstNameLabel.text = "First Name count less then 3"
+            checks[0] = false
+            configTextField(sender, .red, 1)
+            return
+        }
+
+        let predicatStyl = "[A-Z]+[A-Z0-9a-z]{3,10}"
+        guard validateTextField(text: text, predicatStyl: predicatStyl) else {
+            firstNameLabel.text = "is not valid Ex.(Adam)"
+            checks[0] = false
+            return
+        }
+        
+        checks[0] = true
+        firstNameLabel.isHidden = true
+        configTextField(sender, .black, 0.5)
+    }
     
+    @IBAction func lastNameDidEnd(_ sender: UITextField) {
+        guard let text = sender.text, text != "" else {
+            lastNameLabel.text = "Last Name is empty"
+            checks[1] = false
+            lastNameLabel.isHidden = false
+            configTextField(sender, .red, 1)
+            return
+        }
+        
+        guard text.count >= 3  else {
+            lastNameLabel.text = "Last Name count less then 3"
+            checks[1] = false
+            configTextField(sender, .red, 1)
+            return
+        }
+        
+        let predicatStyl = "[A-Z]+[A-Z0-9a-z]{3,10}"
+        guard validateTextField(text: text, predicatStyl: predicatStyl) else {
+            lastNameLabel.text = "is not valid Ex.(Poxosyan)"
+            checks[1] = false
+            return
+        }
+        
+        checks[1] = true
+        lastNameLabel.isHidden = true
+        configTextField(sender, .black, 0.5)
+    }
+    
+   
+    @IBAction func emailDidEnd(_ sender: UITextField) {
+        guard let text = sender.text, text != "" else {
+            emailLabel.text = "Email is empty"
+            checks[2] = false
+            emailLabel.isHidden = false
+            configTextField(sender, .red, 1)
+            return
+        }
+        
+        guard text.count >= 3  else {
+            emailLabel.text = "Email count less then 3"
+            checks[2] = false
+            configTextField(sender, .red, 1)
+            return
+        }
+        
+        let predicatStyl = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        guard validateTextField(text: text, predicatStyl: predicatStyl) else {
+            emailLabel.text = "is not valid Ex.(contact@onex.am)"
+            checks[2] = false
+            return
+        }
+        
+        checks[2] = true
+        emailLabel.isHidden = true
+        configTextField(sender, .black, 0.5)
+    }
+    
+    
+    @IBAction func phoneDidEnd(_ sender: UITextField) {
+        guard let text = sender.text, text != "" else {
+            phoneLabel.text = "Email is empty"
+            checks[3] = false
+            phoneLabel.isHidden = false
+            configTextField(sender, .red, 1)
+            return
+        }
+        
+        guard text.count >= 5  else {
+            phoneLabel.text = "Phone Number count less then 5"
+            checks[3] = false
+            configTextField(sender, .red, 1)
+            return
+        }
+        
+        let predicatStyl = "[0-9+]{5,}"
+        guard validateTextField(text: text, predicatStyl: predicatStyl) else {
+            phoneLabel.text = "is not valid Ex.(077777777)"
+            checks[3] = false
+            return
+        }
+        
+        checks[3] = true
+        phoneLabel.isHidden = true
+        configTextField(sender, .black, 0.5)
+    }
+    
+    
+    @IBAction func passwordDidEnd(_ sender: UITextField) {
+        guard let text = sender.text, text != "" else {
+            passwordLabel.text = "Password is empty"
+            checks[4] = false
+            passwordLabel.isHidden = false
+            configTextField(sender, .black, 1)
+            return
+        }
+        
+        guard text.count >= 6  else {
+            passwordLabel.text = "Phone Number count less then 6"
+            checks[4] = false
+            configTextField(sender, .red, 1)
+            return
+        }
+        
+        let predicatStyl = "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}"
+        guard validateTextField(text: text, predicatStyl: predicatStyl) else {
+            passwordLabel.text = "is not valid Ex.()"
+            checks[4] = false
+            return
+        }
+        
+        checks[4] = true
+        passwordLabel.isHidden = true
+        configTextField(sender, .black, 0.5)
+    }
+    
+    @IBAction func confirmPDidEnd(_ sender: UITextField) {
+        guard passwordTextField.text == confirmPTextField.text && passwordTextField.text != "" else {
+            confirmPLabel.text = "Wrong Config Password"
+            checks[5] = false
+            confirmPLabel.isHidden = false
+            configTextField(sender, .red, 1)
+            return
+        }
+        
+        checks[5] = true
+        confirmPLabel.isHidden = true
+        configTextField(sender, .black, 0.5)
+    }
+    
+    
+    @IBAction func subbmitTapped(_ sender: UIButton) {
+        firstNameDidEnd(firstNameTextField)
+        lastNameDidEnd(lastNameTextField)
+        emailDidEnd(emailTextField)
+        phoneDidEnd(phoneNumberTextField)
+        passwordDidEnd(passwordTextField)
+        confirmPDidEnd(confirmPTextField)
+        
+        var count = 0
+        
+        checks.forEach { (check) in
+            guard check == true else { return }
+            count += 1
+        }
+        guard count == 6 else { return }
+        //TODO: Armen subbmit
+        print(user)
+    }
+    
+}
+
+extension RegisterViewController {
     
     // MARK: - Kayboard notification
     func registerForKeyboardNotifications() {
@@ -125,56 +286,5 @@ class RegisterViewController: UIViewController {
     
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
-    }
-}
-
-
-extension UnicodeScalar {
-    var isEmoji: Bool {
-        switch value {
-        case 0x1F600...0x1F64F, // Emoticons
-        0x1F300...0x1F5FF, // Misc Symbols and Pictographs
-        0x1F680...0x1F6FF, // Transport and Map
-        0x1F1E6...0x1F1FF, // Regional country flags
-        0x2600...0x26FF, // Misc symbols
-        0x2700...0x27BF, // Dingbats
-        0xE0020...0xE007F, // Tags
-        0xFE00...0xFE0F, // Variation Selectors
-        0x1F900...0x1F9FF, // Supplemental Symbols and Pictographs
-        0x1F018...0x1F270, // Various asian characters
-        0x238C...0x2454, // Misc items
-        0x20D0...0x20FF: // Combining Diacritical Marks for Symbols
-            return true
-            
-        default: return false
-        }
-    }
-    
-    var isZeroWidthJoiner: Bool {
-        return value == 8205
-    }
-}
-
-
-extension String {
-    var glyphCount: Int {
-        let richText = NSAttributedString(string: self)
-        let line = CTLineCreateWithAttributedString(richText)
-        return CTLineGetGlyphCount(line)
-    }
-    
-    var isSingleEmoji: Bool {
-        return glyphCount == 1 && containsEmoji
-    }
-    
-    var containsEmoji: Bool {
-        return unicodeScalars.contains { $0.isEmoji }
-    }
-    
-    var containsOnlyEmoji: Bool {
-        return !isEmpty
-            && !unicodeScalars.contains(where: {
-                !$0.isEmoji && !$0.isZeroWidthJoiner
-            })
     }
 }
