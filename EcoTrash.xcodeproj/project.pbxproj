@@ -66,12 +66,12 @@
 				470D5507231BDFAB00B1FC27 /* LoginViewController.swift */,
 				84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */,
 				841A627C231ED6B200DA56C2 /* User.swift */,
+				F94882022321A99B00194F33 /* Company.swift */,
 				47C323CA2320184D00A62F4A /* Marker.swift */,
 				470D5509231BDFAB00B1FC27 /* Main.storyboard */,
 				470D550C231BDFAC00B1FC27 /* Assets.xcassets */,
 				470D550E231BDFAC00B1FC27 /* LaunchScreen.storyboard */,
 				470D5511231BDFAC00B1FC27 /* Info.plist */,
-				F94882022321A99B00194F33 /* Company.swift */,
 			);
 			path = EcoTrash;
 			sourceTree = "<group>";
