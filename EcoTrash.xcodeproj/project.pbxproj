@@ -20,6 +20,7 @@
 		47F7C3FD2324248800135485 /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F7C3FC2324248800135485 /* TabBarView.xib */; };
 		47F7C3FF232424BD00135485 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3FE232424BD00135485 /* TabBarView.swift */; };
 		841A627D231ED6B200DA56C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A627C231ED6B200DA56C2 /* User.swift */; };
+		841EB4522324DC0800495B87 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4512324DC0800495B87 /* MapViewController.swift */; };
 		84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84858A382322C6310010D8C8 /* CompanyListController.swift */; };
 		84858A3B2322C67E0010D8C8 /* EventListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84858A3A2322C67E0010D8C8 /* EventListController.swift */; };
 		84D08F16231C2AFC00402CE4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */; };
@@ -41,6 +42,7 @@
 		47F7C3FC2324248800135485 /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
 		47F7C3FE232424BD00135485 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		841A627C231ED6B200DA56C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		841EB4512324DC0800495B87 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		84858A382322C6310010D8C8 /* CompanyListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListController.swift; sourceTree = "<group>"; };
 		84858A3A2322C67E0010D8C8 /* EventListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListController.swift; sourceTree = "<group>"; };
 		84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				470D5507231BDFAB00B1FC27 /* LoginViewController.swift */,
 				84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */,
 				84858A382322C6310010D8C8 /* CompanyListController.swift */,
+				841EB4512324DC0800495B87 /* MapViewController.swift */,
 				84858A3A2322C67E0010D8C8 /* EventListController.swift */,
 				47F7C3F22323A07F00135485 /* CustomTabBarController.swift */,
 				47F7C3F42323A13100135485 /* AddEcoTrashController.swift */,
@@ -125,6 +128,7 @@
 				841A627C231ED6B200DA56C2 /* User.swift */,
 				47C323CA2320184D00A62F4A /* Marker.swift */,
 				47F7C3FA2323E69200135485 /* CompanyShortList.swift */,
+				F94882022321A99B00194F33 /* Company.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,6 +212,8 @@
 				47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */,
 				47F7C3F52323A13100135485 /* AddEcoTrashController.swift in Sources */,
 				47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */,
+				F94882032321A99B00194F33 /* Company.swift in Sources */,
+				841EB4522324DC0800495B87 /* MapViewController.swift in Sources */,
 				841A627D231ED6B200DA56C2 /* User.swift in Sources */,
 				47C323CB2320184D00A62F4A /* Marker.swift in Sources */,
 				84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */,

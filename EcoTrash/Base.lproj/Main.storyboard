@@ -470,10 +470,10 @@
             </objects>
             <point key="canvasLocation" x="50.724637681159422" y="2035.7142857142856"/>
         </scene>
-        <!--Add Eco Trash Controller-->
+        <!--Map View Controller-->
         <scene sceneID="soO-sE-O5f">
             <objects>
-                <viewController id="VY7-pd-sgu" customClass="AddEcoTrashController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VY7-pd-sgu" customClass="MapViewController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8oV-S5-7ih">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -488,13 +488,29 @@
                                     <segment title=""/>
                                 </segments>
                             </segmentedControl>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bho-oY-XGx">
+                                <rect key="frame" x="82" y="153" width="277" height="555"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="NxU-dD-mjK" appends="YES" id="ECv-OF-7su"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Na5-4K-HoW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" image="add" id="sv6-7N-TDg"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="sv6-7N-TDg"/>
+                    <connections>
+                        <outlet property="mapView" destination="bho-oY-XGx" id="AJf-yx-PzQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbz-aK-ljl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="NxU-dD-mjK">
+                    <connections>
+                        <action selector="addPin:" destination="VY7-pd-sgu" id="aFT-ml-yrb"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="895.6521739130435" y="2036.3839285714284"/>
         </scene>
