@@ -470,16 +470,16 @@
             </objects>
             <point key="canvasLocation" x="50.724637681159422" y="2035.7142857142856"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Add Eco Trash Controller-->
         <scene sceneID="soO-sE-O5f">
             <objects>
-                <viewController id="VY7-pd-sgu" customClass="MapViewController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VY7-pd-sgu" customClass="AddEcoTrashController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8oV-S5-7ih">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LTw-n8-W52">
-                                <rect key="frame" x="20" y="44" width="365" height="28"/>
+                                <rect key="frame" x="20" y="133" width="365" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="First"/>
@@ -488,22 +488,11 @@
                                     <segment title=""/>
                                 </segments>
                             </segmentedControl>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bho-oY-XGx">
-                                <rect key="frame" x="82" y="153" width="277" height="555"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="NxU-dD-mjK" appends="YES" id="ECv-OF-7su"/>
-                                </connections>
-                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Na5-4K-HoW"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="sv6-7N-TDg"/>
-                    <connections>
-                        <outlet property="mapView" destination="bho-oY-XGx" id="AJf-yx-PzQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbz-aK-ljl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="NxU-dD-mjK">
@@ -513,6 +502,32 @@
                 </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="895.6521739130435" y="2036.3839285714284"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="c1l-le-uDi">
+            <objects>
+                <viewController id="8iA-JU-DkB" customClass="MapViewController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t2h-lJ-MQN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DPK-cG-sht">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DPK-cG-sht" firstAttribute="leading" secondItem="U10-6b-pYi" secondAttribute="leading" id="3PH-hb-JJO"/>
+                            <constraint firstItem="DPK-cG-sht" firstAttribute="top" secondItem="t2h-lJ-MQN" secondAttribute="top" id="E4g-qA-CFP"/>
+                            <constraint firstAttribute="bottom" secondItem="DPK-cG-sht" secondAttribute="bottom" id="L8Z-E9-VO1"/>
+                            <constraint firstItem="U10-6b-pYi" firstAttribute="trailing" secondItem="DPK-cG-sht" secondAttribute="trailing" id="YeC-QW-EDZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U10-6b-pYi"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mci-Bz-bnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894.20289855072474" y="2698.6607142857142"/>
         </scene>
         <!--Event-->
         <scene sceneID="gFJ-qZ-odP">
@@ -564,21 +579,21 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="90"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RU7-Uu-1lI">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RU7-Uu-1lI">
                             <rect key="frame" x="30" y="40" width="28" height="28"/>
                             <state key="normal" image="company"/>
                             <connections>
                                 <action selector="selectedButtonTapped:" destination="DXR-nl-X2W" eventType="touchUpInside" id="ggV-lC-wJX"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcD-QR-qJ5">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcD-QR-qJ5">
                             <rect key="frame" x="91.5" y="30" width="57" height="57"/>
                             <state key="normal" image="add"/>
                             <connections>
                                 <action selector="selectedButtonTapped:" destination="DXR-nl-X2W" eventType="touchUpInside" id="OFr-6c-ER9"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdw-c4-FbG">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdw-c4-FbG">
                             <rect key="frame" x="182" y="40" width="28" height="28"/>
                             <state key="normal" image="events"/>
                             <connections>
