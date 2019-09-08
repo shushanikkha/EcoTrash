@@ -14,6 +14,7 @@
 		470D5510231BDFAC00B1FC27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470D550E231BDFAC00B1FC27 /* LaunchScreen.storyboard */; };
 		47C323CB2320184D00A62F4A /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C323CA2320184D00A62F4A /* Marker.swift */; };
 		841A627D231ED6B200DA56C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A627C231ED6B200DA56C2 /* User.swift */; };
+		841EB4522324DC0800495B87 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4512324DC0800495B87 /* MapViewController.swift */; };
 		84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84858A382322C6310010D8C8 /* CompanyListController.swift */; };
 		84858A3B2322C67E0010D8C8 /* EventListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84858A3A2322C67E0010D8C8 /* EventListController.swift */; };
 		84D08F16231C2AFC00402CE4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */; };
@@ -30,6 +31,7 @@
 		470D5511231BDFAC00B1FC27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47C323CA2320184D00A62F4A /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		841A627C231ED6B200DA56C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		841EB4512324DC0800495B87 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		84858A382322C6310010D8C8 /* CompanyListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListController.swift; sourceTree = "<group>"; };
 		84858A3A2322C67E0010D8C8 /* EventListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListController.swift; sourceTree = "<group>"; };
 		84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +75,6 @@
 				470D550C231BDFAC00B1FC27 /* Assets.xcassets */,
 				470D550E231BDFAC00B1FC27 /* LaunchScreen.storyboard */,
 				470D5511231BDFAC00B1FC27 /* Info.plist */,
-				F94882022321A99B00194F33 /* Company.swift */,
 			);
 			path = EcoTrash;
 			sourceTree = "<group>";
@@ -84,6 +85,7 @@
 				470D5507231BDFAB00B1FC27 /* LoginViewController.swift */,
 				84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */,
 				84858A382322C6310010D8C8 /* CompanyListController.swift */,
+				841EB4512324DC0800495B87 /* MapViewController.swift */,
 				84858A3A2322C67E0010D8C8 /* EventListController.swift */,
 			);
 			path = Controller;
@@ -94,6 +96,7 @@
 			children = (
 				841A627C231ED6B200DA56C2 /* User.swift */,
 				47C323CA2320184D00A62F4A /* Marker.swift */,
+				F94882022321A99B00194F33 /* Company.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				470D5508231BDFAB00B1FC27 /* LoginViewController.swift in Sources */,
 				470D5506231BDFAB00B1FC27 /* AppDelegate.swift in Sources */,
 				F94882032321A99B00194F33 /* Company.swift in Sources */,
+				841EB4522324DC0800495B87 /* MapViewController.swift in Sources */,
 				841A627D231ED6B200DA56C2 /* User.swift in Sources */,
 				47C323CB2320184D00A62F4A /* Marker.swift in Sources */,
 				84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */,
