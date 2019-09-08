@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EGn-HI-KdD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DXR-nl-X2W">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -402,10 +402,193 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5y-Z8-ygn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678" y="540"/>
+            <point key="canvasLocation" x="183" y="520"/>
+        </scene>
+        <!--Company-->
+        <scene sceneID="6g2-xe-TuP">
+            <objects>
+                <tableViewController id="Cje-Ba-ZVG" customClass="CompanyListController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="b7z-JL-PUh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompanyListTableViewCell" rowHeight="100" id="RTr-5o-Khu" customClass="CompanyListTableViewCell" customModule="EcoTrash" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RTr-5o-Khu" id="ky0-1Z-CqR">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PeF-ha-pjC">
+                                            <rect key="frame" x="20" y="10" width="80" height="79.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="PAu-7e-ouu"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoU-gQ-2Gz">
+                                            <rect key="frame" x="110" y="20" width="44.5" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="SDi-Xo-90Z"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOh-b6-SEq">
+                                            <rect key="frame" x="110" y="60" width="35.5" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="PeF-ha-pjC" firstAttribute="top" secondItem="ky0-1Z-CqR" secondAttribute="top" constant="10" id="RAL-d1-jaU"/>
+                                        <constraint firstItem="EOh-b6-SEq" firstAttribute="top" secondItem="LoU-gQ-2Gz" secondAttribute="bottom" constant="10" id="W8j-Z9-ISW"/>
+                                        <constraint firstAttribute="bottom" secondItem="PeF-ha-pjC" secondAttribute="bottom" constant="10" id="Xrz-ow-Wvl"/>
+                                        <constraint firstItem="PeF-ha-pjC" firstAttribute="leading" secondItem="ky0-1Z-CqR" secondAttribute="leading" constant="20" id="ZPZ-90-UfL"/>
+                                        <constraint firstItem="LoU-gQ-2Gz" firstAttribute="leading" secondItem="PeF-ha-pjC" secondAttribute="trailing" constant="10" id="adA-Sf-3iP"/>
+                                        <constraint firstItem="EOh-b6-SEq" firstAttribute="leading" secondItem="PeF-ha-pjC" secondAttribute="trailing" constant="10" id="c6f-pW-Afx"/>
+                                        <constraint firstItem="LoU-gQ-2Gz" firstAttribute="top" secondItem="ky0-1Z-CqR" secondAttribute="top" constant="20" id="tzR-fS-Uo2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="companyAddress" destination="EOh-b6-SEq" id="OvD-Pg-f4b"/>
+                                    <outlet property="companyImage" destination="PeF-ha-pjC" id="jKK-mw-v5x"/>
+                                    <outlet property="companyName" destination="LoU-gQ-2Gz" id="B2m-qI-Jde"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Cje-Ba-ZVG" id="VF2-Jl-Hqz"/>
+                            <outlet property="delegate" destination="Cje-Ba-ZVG" id="gRU-mA-1os"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" tag="1" title="Company" image="company" id="xdU-FR-2G7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UL8-Cr-1Tf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="50.724637681159422" y="2035.7142857142856"/>
+        </scene>
+        <!--Add Eco Trash Controller-->
+        <scene sceneID="soO-sE-O5f">
+            <objects>
+                <viewController id="VY7-pd-sgu" customClass="AddEcoTrashController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8oV-S5-7ih">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LTw-n8-W52">
+                                <rect key="frame" x="20" y="44" width="365" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title=""/>
+                                    <segment title=""/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Na5-4K-HoW"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="2" image="add" id="sv6-7N-TDg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bbz-aK-ljl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="895.6521739130435" y="2036.3839285714284"/>
+        </scene>
+        <!--Event-->
+        <scene sceneID="gFJ-qZ-odP">
+            <objects>
+                <tableViewController id="4wi-U6-ArV" customClass="EventListController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7g6-ZN-lt3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="frE-G8-pRX">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="frE-G8-pRX" id="yr6-sM-vaP">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4wi-U6-ArV" id="Hel-S9-S7M"/>
+                            <outlet property="delegate" destination="4wi-U6-ArV" id="0ia-y8-ye4"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" tag="3" title="Event" image="events" id="ZXG-io-eWj"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O9M-cv-G5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1772" y="2036"/>
+        </scene>
+        <!--Custom Tab Bar Controller-->
+        <scene sceneID="bgZ-E1-jtr">
+            <objects>
+                <tabBarController id="DXR-nl-X2W" customClass="CustomTabBarController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YF1-jZ-Ze0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <outlet property="customTabBarView" destination="2yY-dy-ZlX" id="Wla-my-qzX"/>
+                        <segue destination="Cje-Ba-ZVG" kind="relationship" relationship="viewControllers" id="YNL-v4-08c"/>
+                        <segue destination="VY7-pd-sgu" kind="relationship" relationship="viewControllers" id="wJD-tb-odO"/>
+                        <segue destination="4wi-U6-ArV" kind="relationship" relationship="viewControllers" id="gaf-Hj-GmO"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2JM-Tv-uqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="2yY-dy-ZlX">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="90"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RU7-Uu-1lI">
+                            <rect key="frame" x="30" y="40" width="28" height="28"/>
+                            <state key="normal" image="company"/>
+                            <connections>
+                                <action selector="selectedButtonTapped:" destination="DXR-nl-X2W" eventType="touchUpInside" id="ggV-lC-wJX"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcD-QR-qJ5">
+                            <rect key="frame" x="91.5" y="30" width="57" height="57"/>
+                            <state key="normal" image="add"/>
+                            <connections>
+                                <action selector="selectedButtonTapped:" destination="DXR-nl-X2W" eventType="touchUpInside" id="OFr-6c-ER9"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdw-c4-FbG">
+                            <rect key="frame" x="182" y="40" width="28" height="28"/>
+                            <state key="normal" image="events"/>
+                            <connections>
+                                <action selector="selectedButtonTapped:" destination="DXR-nl-X2W" eventType="touchUpInside" id="yy7-4k-vyi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="se5-Ad-kGU" firstAttribute="trailing" secondItem="tdw-c4-FbG" secondAttribute="trailing" constant="30" id="GR9-Te-pvB"/>
+                        <constraint firstItem="RU7-Uu-1lI" firstAttribute="top" secondItem="2yY-dy-ZlX" secondAttribute="top" constant="40" id="QaU-gC-8sH"/>
+                        <constraint firstItem="lcD-QR-qJ5" firstAttribute="top" secondItem="2yY-dy-ZlX" secondAttribute="top" constant="30" id="YSs-1Q-02z"/>
+                        <constraint firstItem="lcD-QR-qJ5" firstAttribute="centerX" secondItem="2yY-dy-ZlX" secondAttribute="centerX" id="dDm-4t-Fdx"/>
+                        <constraint firstItem="RU7-Uu-1lI" firstAttribute="leading" secondItem="se5-Ad-kGU" secondAttribute="leading" constant="30" id="lBp-q7-GVr"/>
+                        <constraint firstItem="tdw-c4-FbG" firstAttribute="top" secondItem="2yY-dy-ZlX" secondAttribute="top" constant="40" id="lhi-fe-HCN"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="se5-Ad-kGU"/>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="898" y="1288"/>
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="57" height="57"/>
+        <image name="company" width="28" height="28"/>
         <image name="eco" width="2048" height="2048"/>
+        <image name="events" width="28" height="28"/>
     </resources>
 </document>

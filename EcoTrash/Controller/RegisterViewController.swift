@@ -68,7 +68,7 @@ class RegisterViewController: UIViewController {
         return NSPredicate(format: "SELF MATCHES %@", predicatStyl).evaluate(with: text)
     }
     
-    private func configTextField(_ textField: UITextField, _ bColor: UIColor, _ bWidth: CGFloat) {
+    private func changTextField(_ textField: UITextField, _ bColor: UIColor, _ bWidth: CGFloat) {
         textField.layer.borderWidth = bWidth
         textField.layer.borderColor = bColor.cgColor
     }
@@ -79,14 +79,14 @@ class RegisterViewController: UIViewController {
             firstNameLabel.text = "First Name is empty"
             firstNameLabel.isHidden = false
             checks[0] = false
-            configTextField(sender, .red, 1)
+            changTextField(sender, .red, 1)
             return
         }
         
         guard text.count >= 3  else {
             firstNameLabel.text = "First Name count less then 3"
             checks[0] = false
-            configTextField(sender, .red, 1)
+            changTextField(sender, .red, 1)
             return
         }
 
@@ -99,7 +99,7 @@ class RegisterViewController: UIViewController {
         
         checks[0] = true
         firstNameLabel.isHidden = true
-        configTextField(sender, .black, 0.5)
+        changTextField(sender, .black, 0.5)
     }
     
     @IBAction func lastNameDidEnd(_ sender: UITextField) {
@@ -107,14 +107,14 @@ class RegisterViewController: UIViewController {
             lastNameLabel.text = "Last Name is empty"
             checks[1] = false
             lastNameLabel.isHidden = false
-            configTextField(sender, .red, 1)
+            changTextField(sender, .red, 1)
             return
         }
         
         guard text.count >= 3  else {
             lastNameLabel.text = "Last Name count less then 3"
             checks[1] = false
-            configTextField(sender, .red, 1)
+            changTextField(sender, .red, 1)
             return
         }
         
@@ -127,7 +127,7 @@ class RegisterViewController: UIViewController {
         
         checks[1] = true
         lastNameLabel.isHidden = true
-        configTextField(sender, .black, 0.5)
+        changTextField(sender, .black, 0.5)
     }
     
    
@@ -136,14 +136,14 @@ class RegisterViewController: UIViewController {
             emailLabel.text = "Email is empty"
             checks[2] = false
             emailLabel.isHidden = false
-            configTextField(sender, .red, 1)
+            changTextField(sender, .red, 1)
             return
         }
         
         guard text.count >= 3  else {
             emailLabel.text = "Email count less then 3"
             checks[2] = false
-            configTextField(sender, .red, 1)
+            changTextField(sender, .red, 1)
             return
         }
         
@@ -156,7 +156,7 @@ class RegisterViewController: UIViewController {
         
         checks[2] = true
         emailLabel.isHidden = true
-        configTextField(sender, .black, 0.5)
+        changTextField(sender, .black, 0.5)
     }
     
     
@@ -165,14 +165,14 @@ class RegisterViewController: UIViewController {
             phoneLabel.text = "Email is empty"
             checks[3] = false
             phoneLabel.isHidden = false
-            configTextField(sender, .red, 1)
+            changTextField(sender, .red, 1)
             return
         }
         
         guard text.count >= 5  else {
             phoneLabel.text = "Phone Number count less then 5"
             checks[3] = false
-            configTextField(sender, .red, 1)
+            changTextField(sender, .red, 1)
             return
         }
         
@@ -182,10 +182,10 @@ class RegisterViewController: UIViewController {
             checks[3] = false
             return
         }
-        
+    
         checks[3] = true
         phoneLabel.isHidden = true
-        configTextField(sender, .black, 0.5)
+        changTextField(sender, .black, 0.5)
     }
     
     
@@ -194,14 +194,14 @@ class RegisterViewController: UIViewController {
             passwordLabel.text = "Password is empty"
             checks[4] = false
             passwordLabel.isHidden = false
-            configTextField(sender, .black, 1)
+            changTextField(sender, .black, 1)
             return
         }
         
         guard text.count >= 6  else {
             passwordLabel.text = "Phone Number count less then 6"
             checks[4] = false
-            configTextField(sender, .red, 1)
+            changTextField(sender, .red, 1)
             return
         }
         
@@ -214,7 +214,7 @@ class RegisterViewController: UIViewController {
         
         checks[4] = true
         passwordLabel.isHidden = true
-        configTextField(sender, .black, 0.5)
+        changTextField(sender, .black, 0.5)
     }
     
     @IBAction func confirmPDidEnd(_ sender: UITextField) {
@@ -222,13 +222,13 @@ class RegisterViewController: UIViewController {
             confirmPLabel.text = "Wrong Config Password"
             checks[5] = false
             confirmPLabel.isHidden = false
-            configTextField(sender, .red, 1)
+            changTextField(sender, .red, 1)
             return
         }
         
         checks[5] = true
         confirmPLabel.isHidden = true
-        configTextField(sender, .black, 0.5)
+        changTextField(sender, .black, 0.5)
     }
     
     
