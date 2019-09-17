@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>725827038879-uqmo5f8qhiqtqfbovs6cb7qvqdopoffh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.725827038879-uqmo5f8qhiqtqfbovs6cb7qvqdopoffh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDg4wGCBFjXJQTwJv-0POf0Uft0m-XY7lc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>725827038879</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>shushankhachatryan-icloud.com.EcoTrash</string>
+	<key>PROJECT_ID</key>
+	<string>ecotrash-7b0d2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ecotrash-7b0d2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:725827038879:ios:c6bc0866b837c4b6167caa</string>
+	<key>DATABASE_URL</key>
+	<string>https://ecotrash-7b0d2.firebaseio.com</string>
+</dict>
+</plist>

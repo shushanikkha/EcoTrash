@@ -13,8 +13,12 @@
 		470D550D231BDFAC00B1FC27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 470D550C231BDFAC00B1FC27 /* Assets.xcassets */; };
 		470D5510231BDFAC00B1FC27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470D550E231BDFAC00B1FC27 /* LaunchScreen.storyboard */; };
 		47C323CB2320184D00A62F4A /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C323CA2320184D00A62F4A /* Marker.swift */; };
+		49783894EC1DC9EE8B05E0DE /* Pods_EcoTrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */; };
+		8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */; };
 		841A627D231ED6B200DA56C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A627C231ED6B200DA56C2 /* User.swift */; };
+		841EAB6E232FBB6F00D20294 /* ExtentionKyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */; };
 		841EB4522324DC0800495B87 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4512324DC0800495B87 /* MapViewController.swift */; };
+		841EB4772327978D00495B87 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4762327978D00495B87 /* UserViewModel.swift */; };
 		84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84858A382322C6310010D8C8 /* CompanyListController.swift */; };
 		84858A3B2322C67E0010D8C8 /* EventListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84858A3A2322C67E0010D8C8 /* EventListController.swift */; };
 		84D08F16231C2AFC00402CE4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */; };
@@ -30,11 +34,17 @@
 		470D550F231BDFAC00B1FC27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		470D5511231BDFAC00B1FC27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47C323CA2320184D00A62F4A /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoTrash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		841A627C231ED6B200DA56C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionKyboard.swift; sourceTree = "<group>"; };
 		841EB4512324DC0800495B87 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		841EB4762327978D00495B87 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		84858A382322C6310010D8C8 /* CompanyListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListController.swift; sourceTree = "<group>"; };
 		84858A3A2322C67E0010D8C8 /* EventListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListController.swift; sourceTree = "<group>"; };
 		84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DC6DEE3A7D05A739B12B9407 /* Pods-EcoTrash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoTrash.release.xcconfig"; path = "Target Support Files/Pods-EcoTrash/Pods-EcoTrash.release.xcconfig"; sourceTree = "<group>"; };
+		ECD456080139EDEB082324A8 /* Pods-EcoTrash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcoTrash.debug.xcconfig"; path = "Target Support Files/Pods-EcoTrash/Pods-EcoTrash.debug.xcconfig"; sourceTree = "<group>"; };
 		F94882022321A99B00194F33 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49783894EC1DC9EE8B05E0DE /* Pods_EcoTrash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +65,8 @@
 			children = (
 				470D5504231BDFAB00B1FC27 /* EcoTrash */,
 				470D5503231BDFAB00B1FC27 /* Products */,
+				4F07669190F33C01B6B1BC97 /* Pods */,
+				CC2D159499B921F83FAF4B08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,14 +82,43 @@
 			isa = PBXGroup;
 			children = (
 				470D5505231BDFAB00B1FC27 /* AppDelegate.swift */,
+				841EAB6C232FBB2800D20294 /* Extention */,
 				84858A3D2322C6D20010D8C8 /* Model */,
 				84858A3C2322C68A0010D8C8 /* Controller */,
+				841EB4752327973100495B87 /* View Model */,
 				470D5509231BDFAB00B1FC27 /* Main.storyboard */,
 				470D550C231BDFAC00B1FC27 /* Assets.xcassets */,
 				470D550E231BDFAC00B1FC27 /* LaunchScreen.storyboard */,
 				470D5511231BDFAC00B1FC27 /* Info.plist */,
+				8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */,
 			);
 			path = EcoTrash;
+			sourceTree = "<group>";
+		};
+		4F07669190F33C01B6B1BC97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ECD456080139EDEB082324A8 /* Pods-EcoTrash.debug.xcconfig */,
+				DC6DEE3A7D05A739B12B9407 /* Pods-EcoTrash.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		841EAB6C232FBB2800D20294 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		841EB4752327973100495B87 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				841EB4762327978D00495B87 /* UserViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		84858A3C2322C68A0010D8C8 /* Controller */ = {
@@ -101,6 +143,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CC2D159499B921F83FAF4B08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -108,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 470D5514231BDFAC00B1FC27 /* Build configuration list for PBXNativeTarget "EcoTrash" */;
 			buildPhases = (
+				A17473663F105F52538FD059 /* [CP] Check Pods Manifest.lock */,
 				470D54FE231BDFAB00B1FC27 /* Sources */,
 				470D54FF231BDFAB00B1FC27 /* Frameworks */,
 				470D5500231BDFAB00B1FC27 /* Resources */,
+				C72BEB272E997655EDC4B63C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				470D5510231BDFAC00B1FC27 /* LaunchScreen.storyboard in Resources */,
+				8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */,
 				470D550D231BDFAC00B1FC27 /* Assets.xcassets in Resources */,
 				470D550B231BDFAB00B1FC27 /* Main.storyboard in Resources */,
 			);
@@ -167,14 +220,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A17473663F105F52538FD059 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EcoTrash-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C72BEB272E997655EDC4B63C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EcoTrash/Pods-EcoTrash-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EcoTrash/Pods-EcoTrash-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EcoTrash/Pods-EcoTrash-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		470D54FE231BDFAB00B1FC27 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				84D08F16231C2AFC00402CE4 /* RegisterViewController.swift in Sources */,
+				841EAB6E232FBB6F00D20294 /* ExtentionKyboard.swift in Sources */,
 				470D5508231BDFAB00B1FC27 /* LoginViewController.swift in Sources */,
 				470D5506231BDFAB00B1FC27 /* AppDelegate.swift in Sources */,
+				841EB4772327978D00495B87 /* UserViewModel.swift in Sources */,
 				F94882032321A99B00194F33 /* Company.swift in Sources */,
 				841EB4522324DC0800495B87 /* MapViewController.swift in Sources */,
 				841A627D231ED6B200DA56C2 /* User.swift in Sources */,
@@ -324,6 +421,7 @@
 		};
 		470D5515231BDFAC00B1FC27 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECD456080139EDEB082324A8 /* Pods-EcoTrash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -342,6 +440,7 @@
 		};
 		470D5516231BDFAC00B1FC27 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC6DEE3A7D05A739B12B9407 /* Pods-EcoTrash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

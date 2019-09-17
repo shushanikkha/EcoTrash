@@ -87,10 +87,8 @@ extension MapViewController: CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude:
             location.coordinate.longitude)
-        //        let span = MKCoordinateSpan(latitudeDelta: 0.20, longitudeDelta: 0.20)
         let region = MKCoordinateRegion(center: center, latitudinalMeters: regionInMeters, longitudinalMeters:
             regionInMeters)
-        //        let region = MKCoordinateRegion(center: center, span: span)
         mapView.setRegion(region, animated: true)
     }
     

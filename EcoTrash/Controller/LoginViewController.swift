@@ -16,15 +16,20 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
    
-        
     }
     
     // MARK: - IBActions -
     
     @IBAction func registrationButton(_ sender: UIButton) {
+        guard let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController else { return }
+        
+        let navVC = UINavigationController(rootViewController: registerVC)
+        self.present(navVC, animated: true, completion: nil)
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
+        
     }
+    
 }
 

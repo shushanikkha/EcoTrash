@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
-protocol RegisterViewControllerDelegate {
-    func userCreted(user: User)
-}
+
 
 class RegisterViewController: UIViewController {
     
@@ -32,41 +31,27 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var subbmitButton: UIButton!
     
-
-    var user: User {
-        let firstName = firstNameTextField.text!
-        let lastName = lastNameTextField.text!
-        let email = emailTextField.text!
-        let phoneNumber = phoneNumberTextField.text!
-        let password = passwordTextField.text!
-        let comfirmPasswodr = confirmPTextField.text!
-        
-        return User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, password: password, comfirmPasswodr: comfirmPasswodr)
-    }
-    
-    var checks = Array(repeating: false, count: 6)
+    var viewModel = UserViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.refUser = Database.database().reference().child("users")
+        
+        subbmitButton.isEnabled = false
         registerForKeyboardNotifications()
     }
-    
 
-    func showAlert(title: String?, message: String?, textField: UITextField?) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-        alert.addAction(alertAction)
-        
-        self.present(alert, animated: true, completion: {
-            textField?.layer.borderWidth = 1
-            textField?.layer.borderColor = UIColor.red.cgColor
-        })
-    }
-    
-    
-    private func validateTextField(text: String, predicatStyl: String) -> Bool {
-        return NSPredicate(format: "SELF MATCHES %@", predicatStyl).evaluate(with: text)
-    }
+//    func showAlert(title: String?, message: String?, textField: UITextField?) {
+//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//        let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+//        alert.addAction(alertAction)
+//
+//        self.present(alert, animated: true, completion: {
+//            textField?.layer.borderWidth = 1
+//            textField?.layer.borderColor = UIColor.red.cgColor
+//        })
+//    }
     
     private func changTextField(_ textField: UITextField, _ bColor: UIColor, _ bWidth: CGFloat) {
         textField.layer.borderWidth = bWidth
@@ -74,217 +59,110 @@ class RegisterViewController: UIViewController {
     }
     
     
+    @IBAction func cancelAction(_ sender: UIBarButtonItem) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func firstNameEditingCanging(_ sender: Any) {
+        viewModel.firstName = firstNameTextField.text
+        subbmitButton.isEnabled = viewModel.notError()
+    }
+    
+    @IBAction func lastNameNameEditingCanging(_ sender: Any) {
+        viewModel.lastName = lastNameTextField.text
+        subbmitButton.isEnabled = viewModel.notError()
+    }
+    
+    @IBAction func emailEditingCanging(_ sender: Any) {
+        viewModel.email = emailTextField.text
+        subbmitButton.isEnabled = viewModel.notError()
+    }
+    
+    @IBAction func phoneEditingCanging(_ sender: Any) {
+        viewModel.phoneNumber = phoneNumberTextField.text
+        subbmitButton.isEnabled = viewModel.notError()
+    }
+    
+    @IBAction func passwordEditingCanging(_ sender: Any) {
+        viewModel.password = passwordTextField.text
+        subbmitButton.isEnabled = viewModel.notError()
+    }
+    
+    @IBAction func confirmPEditingCanging(_ sender: Any) {
+        viewModel.confirmPassword = confirmPTextField.text
+        subbmitButton.isEnabled = viewModel.notError()
+    }
+    
+    
     @IBAction func firstNameDidEnd(_ sender: UITextField) {
-        guard let text = sender.text, text != "" else {
-            firstNameLabel.text = "First Name is empty"
+        if let error = viewModel.isValidFirstName(sender.text) {
+            firstNameLabel.text = error
             firstNameLabel.isHidden = false
-            checks[0] = false
             changTextField(sender, .red, 1)
-            return
+        } else {
+            firstNameLabel.isHidden = true
+            changTextField(sender, .black, 0.5)
         }
-        
-        guard text.count >= 3  else {
-            firstNameLabel.text = "First Name count less then 3"
-            checks[0] = false
-            changTextField(sender, .red, 1)
-            return
-        }
-
-        let predicatStyl = "[A-Z]+[A-Z0-9a-z]{3,10}"
-        guard validateTextField(text: text, predicatStyl: predicatStyl) else {
-            firstNameLabel.text = "is not valid Ex.(Adam)"
-            checks[0] = false
-            return
-        }
-        
-        checks[0] = true
-        firstNameLabel.isHidden = true
-        changTextField(sender, .black, 0.5)
     }
     
     @IBAction func lastNameDidEnd(_ sender: UITextField) {
-        guard let text = sender.text, text != "" else {
-            lastNameLabel.text = "Last Name is empty"
-            checks[1] = false
+        if let error = viewModel.isValidLastName(sender.text) {
+            lastNameLabel.text = error
             lastNameLabel.isHidden = false
             changTextField(sender, .red, 1)
-            return
+        } else {
+            lastNameLabel.isHidden = true
+            changTextField(sender, .black, 0.5)
         }
-        
-        guard text.count >= 3  else {
-            lastNameLabel.text = "Last Name count less then 3"
-            checks[1] = false
-            changTextField(sender, .red, 1)
-            return
-        }
-        
-        let predicatStyl = "[A-Z]+[A-Z0-9a-z]{3,10}"
-        guard validateTextField(text: text, predicatStyl: predicatStyl) else {
-            lastNameLabel.text = "is not valid Ex.(Poxosyan)"
-            checks[1] = false
-            return
-        }
-        
-        checks[1] = true
-        lastNameLabel.isHidden = true
-        changTextField(sender, .black, 0.5)
     }
     
-   
     @IBAction func emailDidEnd(_ sender: UITextField) {
-        guard let text = sender.text, text != "" else {
-            emailLabel.text = "Email is empty"
-            checks[2] = false
+        if let error = viewModel.isValidEmail(sender.text) {
+            emailLabel.text = error
             emailLabel.isHidden = false
             changTextField(sender, .red, 1)
-            return
+        } else {
+            emailLabel.isHidden = true
+            changTextField(sender, .black, 0.5)
         }
-        
-        guard text.count >= 3  else {
-            emailLabel.text = "Email count less then 3"
-            checks[2] = false
-            changTextField(sender, .red, 1)
-            return
-        }
-        
-        let predicatStyl = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        guard validateTextField(text: text, predicatStyl: predicatStyl) else {
-            emailLabel.text = "is not valid Ex.(contact@onex.am)"
-            checks[2] = false
-            return
-        }
-        
-        checks[2] = true
-        emailLabel.isHidden = true
-        changTextField(sender, .black, 0.5)
     }
-    
     
     @IBAction func phoneDidEnd(_ sender: UITextField) {
-        guard let text = sender.text, text != "" else {
-            phoneLabel.text = "Email is empty"
-            checks[3] = false
+        if let error = viewModel.isValidPhone(sender.text) {
+            phoneLabel.text = error
             phoneLabel.isHidden = false
             changTextField(sender, .red, 1)
-            return
+        } else {
+            phoneLabel.isHidden = true
+            changTextField(sender, .black, 0.5)
         }
-        
-        guard text.count >= 5  else {
-            phoneLabel.text = "Phone Number count less then 5"
-            checks[3] = false
-            changTextField(sender, .red, 1)
-            return
-        }
-        
-        let predicatStyl = "[0-9+]{5,}"
-        guard validateTextField(text: text, predicatStyl: predicatStyl) else {
-            phoneLabel.text = "is not valid Ex.(077777777)"
-            checks[3] = false
-            return
-        }
-    
-        checks[3] = true
-        phoneLabel.isHidden = true
-        changTextField(sender, .black, 0.5)
     }
     
-    
     @IBAction func passwordDidEnd(_ sender: UITextField) {
-        guard let text = sender.text, text != "" else {
-            passwordLabel.text = "Password is empty"
-            checks[4] = false
+        if let error = viewModel.isValidPsaaword(sender.text) {
+            passwordLabel.text = error
             passwordLabel.isHidden = false
-            changTextField(sender, .black, 1)
-            return
-        }
-        
-        guard text.count >= 6  else {
-            passwordLabel.text = "Phone Number count less then 6"
-            checks[4] = false
             changTextField(sender, .red, 1)
-            return
+        } else {
+            passwordLabel.isHidden = true
+            changTextField(sender, .black, 0.5)
         }
-        
-        let predicatStyl = "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,}"
-        guard validateTextField(text: text, predicatStyl: predicatStyl) else {
-            passwordLabel.text = "is not valid Ex.()"
-            checks[4] = false
-            return
-        }
-        
-        checks[4] = true
-        passwordLabel.isHidden = true
-        changTextField(sender, .black, 0.5)
     }
     
     @IBAction func confirmPDidEnd(_ sender: UITextField) {
-        guard passwordTextField.text == confirmPTextField.text && passwordTextField.text != "" else {
-            confirmPLabel.text = "Wrong Config Password"
-            checks[5] = false
+        if let error = viewModel.isValidConfirmP(sender.text) {
+            confirmPLabel.text = error
             confirmPLabel.isHidden = false
             changTextField(sender, .red, 1)
-            return
+        } else {
+            confirmPLabel.isHidden = true
+            changTextField(sender, .black, 0.5)
         }
-        
-        checks[5] = true
-        confirmPLabel.isHidden = true
-        changTextField(sender, .black, 0.5)
     }
-    
     
     @IBAction func subbmitTapped(_ sender: UIButton) {
-        firstNameDidEnd(firstNameTextField)
-        lastNameDidEnd(lastNameTextField)
-        emailDidEnd(emailTextField)
-        phoneDidEnd(phoneNumberTextField)
-        passwordDidEnd(passwordTextField)
-        confirmPDidEnd(confirmPTextField)
-        
-        var count = 0
-        
-        checks.forEach { (check) in
-            guard check == true else { return }
-            count += 1
-        }
-        guard count == 6 else { return }
-        //TODO: Armen subbmit
-        print(user)
+        viewModel.addUser()
     }
     
-}
-
-extension RegisterViewController {
-    
-    // MARK: - Kayboard notification
-    func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWasShown(_ notification: NSNotification) {
-        guard let info = notification.userInfo,
-            let keyboardFrameValue = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        
-        let keyboardFrame = keyboardFrameValue.cgRectValue
-        let keyboardSize = keyboardFrame.size
-        
-        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height - 40.0, right: 0.0)
-        self.scrollView.contentInset = contentInsets
-        self.scrollView.scrollIndicatorInsets = contentInsets
-        
-        
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        self.view.addGestureRecognizer(tap)
-    }
-    
-    @objc func keyboardWillBeHidden(_ notification: NSNotification) {
-        let contentInsets = UIEdgeInsets.zero
-        self.scrollView.contentInset = contentInsets
-        self.scrollView.scrollIndicatorInsets = contentInsets
-    }
-    
-    @objc func dismissKeyboard() {
-        self.view.endEditing(true)
-    }
 }

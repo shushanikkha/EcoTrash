@@ -16,25 +16,28 @@ class User {
     var email: String
     var phoneNumber: String
     var password: String
-    var comfirmPasswodr: String
+    var confirmPassword: String
+    var id: String
     
-    init(firstName: String, lastName: String, email: String, phoneNumber: String, password: String, comfirmPasswodr: String) {
+    init(firstName: String, lastName: String, email: String, phoneNumber: String, password: String, confirmPassword: String, id: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.phoneNumber = phoneNumber
         self.password = password
-        self.comfirmPasswodr = comfirmPasswodr
+        self.confirmPassword = confirmPassword
+        self.id = id
     }
     
     func toAny() -> [String: Any] {
         return [
             "firstName": firstName,
-            "lastName": self.lastName,
-            "email": self.email,
-            "phoneNumber": self.phoneNumber,
-            "password": self.password,
-            "comfirmPasswodr": self.comfirmPasswodr,
+            "lastName": lastName,
+            "email": email,
+            "phoneNumber": phoneNumber,
+            "password": password,
+            "confirmPassword": confirmPassword,
+            "id": id
         ]
     }
     
