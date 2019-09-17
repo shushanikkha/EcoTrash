@@ -15,6 +15,12 @@
 		47C323CB2320184D00A62F4A /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C323CA2320184D00A62F4A /* Marker.swift */; };
 		49783894EC1DC9EE8B05E0DE /* Pods_EcoTrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */; };
 		8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */; };
+		47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3F22323A07F00135485 /* CustomTabBarController.swift */; };
+		47F7C3F52323A13100135485 /* AddEcoTrashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3F42323A13100135485 /* AddEcoTrashController.swift */; };
+		47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3F82323E53300135485 /* CompanyListTableViewCell.swift */; };
+		47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3FA2323E69200135485 /* CompanyShortList.swift */; };
+		47F7C3FD2324248800135485 /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F7C3FC2324248800135485 /* TabBarView.xib */; };
+		47F7C3FF232424BD00135485 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3FE232424BD00135485 /* TabBarView.swift */; };
 		841A627D231ED6B200DA56C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A627C231ED6B200DA56C2 /* User.swift */; };
 		841EAB6E232FBB6F00D20294 /* ExtentionKyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */; };
 		841EB4522324DC0800495B87 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4512324DC0800495B87 /* MapViewController.swift */; };
@@ -22,7 +28,6 @@
 		84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84858A382322C6310010D8C8 /* CompanyListController.swift */; };
 		84858A3B2322C67E0010D8C8 /* EventListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84858A3A2322C67E0010D8C8 /* EventListController.swift */; };
 		84D08F16231C2AFC00402CE4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */; };
-		F94882032321A99B00194F33 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94882022321A99B00194F33 /* Company.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,12 @@
 		47C323CA2320184D00A62F4A /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoTrash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		47F7C3F22323A07F00135485 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		47F7C3F42323A13100135485 /* AddEcoTrashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEcoTrashController.swift; sourceTree = "<group>"; };
+		47F7C3F82323E53300135485 /* CompanyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListTableViewCell.swift; sourceTree = "<group>"; };
+		47F7C3FA2323E69200135485 /* CompanyShortList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyShortList.swift; sourceTree = "<group>"; };
+		47F7C3FC2324248800135485 /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
+		47F7C3FE232424BD00135485 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		841A627C231ED6B200DA56C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionKyboard.swift; sourceTree = "<group>"; };
 		841EB4512324DC0800495B87 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +92,7 @@
 		470D5504231BDFAB00B1FC27 /* EcoTrash */ = {
 			isa = PBXGroup;
 			children = (
+				47F7C3F62323E4EF00135485 /* View */,
 				470D5505231BDFAB00B1FC27 /* AppDelegate.swift */,
 				841EAB6C232FBB2800D20294 /* Extention */,
 				84858A3D2322C6D20010D8C8 /* Model */,
@@ -119,6 +131,24 @@
 				841EB4762327978D00495B87 /* UserViewModel.swift */,
 			);
 			path = "View Model";
+            sourceTree = "<group>";
+        };
+		47F7C3F62323E4EF00135485 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				47F7C3F72323E4FC00135485 /* Cell */,
+				47F7C3FC2324248800135485 /* TabBarView.xib */,
+				47F7C3FE232424BD00135485 /* TabBarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		47F7C3F72323E4FC00135485 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				47F7C3F82323E53300135485 /* CompanyListTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		84858A3C2322C68A0010D8C8 /* Controller */ = {
@@ -129,6 +159,8 @@
 				84858A382322C6310010D8C8 /* CompanyListController.swift */,
 				841EB4512324DC0800495B87 /* MapViewController.swift */,
 				84858A3A2322C67E0010D8C8 /* EventListController.swift */,
+				47F7C3F22323A07F00135485 /* CustomTabBarController.swift */,
+				47F7C3F42323A13100135485 /* AddEcoTrashController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -138,6 +170,7 @@
 			children = (
 				841A627C231ED6B200DA56C2 /* User.swift */,
 				47C323CA2320184D00A62F4A /* Marker.swift */,
+				47F7C3FA2323E69200135485 /* CompanyShortList.swift */,
 				F94882022321A99B00194F33 /* Company.swift */,
 			);
 			path = Model;
@@ -214,6 +247,7 @@
 				470D5510231BDFAC00B1FC27 /* LaunchScreen.storyboard in Resources */,
 				8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */,
 				470D550D231BDFAC00B1FC27 /* Assets.xcassets in Resources */,
+				47F7C3FD2324248800135485 /* TabBarView.xib in Resources */,
 				470D550B231BDFAB00B1FC27 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,13 +304,18 @@
 				84D08F16231C2AFC00402CE4 /* RegisterViewController.swift in Sources */,
 				841EAB6E232FBB6F00D20294 /* ExtentionKyboard.swift in Sources */,
 				470D5508231BDFAB00B1FC27 /* LoginViewController.swift in Sources */,
+				47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */,
 				470D5506231BDFAB00B1FC27 /* AppDelegate.swift in Sources */,
 				841EB4772327978D00495B87 /* UserViewModel.swift in Sources */,
+				47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */,
+				47F7C3F52323A13100135485 /* AddEcoTrashController.swift in Sources */,
+				47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */,
 				F94882032321A99B00194F33 /* Company.swift in Sources */,
 				841EB4522324DC0800495B87 /* MapViewController.swift in Sources */,
 				841A627D231ED6B200DA56C2 /* User.swift in Sources */,
 				47C323CB2320184D00A62F4A /* Marker.swift in Sources */,
 				84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */,
+				47F7C3FF232424BD00135485 /* TabBarView.swift in Sources */,
 				84858A3B2322C67E0010D8C8 /* EventListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
