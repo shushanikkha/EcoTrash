@@ -12,8 +12,9 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
     
     var companyListController: CompanyListController!
     var eventListController: EventListController!
-    var addEcoTrashTableViewController: AddEcoTrashTableViewController!
- 
+    var addEcoTrashController: AddEcoTrashTableViewController!
+    var newsFeedController: NewsFeedTableViewController!
+    var reuseTrashTypeList: ReuseTrashTypeList!
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
 
        companyListController = CompanyListController()
         eventListController = EventListController()
-        addEcoTrashTableViewController = AddEcoTrashTableViewController()
+        addEcoTrashController = AddEcoTrashTableViewController()
 
 //        companyListController.tabBarItem.image = UIImage(named: "company")
 //        companyListController.tabBarItem.selectedImage = UIImage(named: "company")
