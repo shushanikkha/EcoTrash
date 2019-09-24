@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
-
+import FirebaseAuth
 
 
 class RegisterViewController: UIViewController {
@@ -38,6 +38,7 @@ class RegisterViewController: UIViewController {
         
         viewModel.refUser = Database.database().reference().child("users")
         
+        subbmitButton.backgroundColor = .white
         subbmitButton.isEnabled = false
         registerForKeyboardNotifications()
     }
@@ -58,6 +59,33 @@ class RegisterViewController: UIViewController {
         textField.layer.borderColor = bColor.cgColor
     }
     
+    private func validField(textField: UITextField, userType: UserType) -> String? {
+        switch userType {
+        case .firstName:
+            return viewModel.isValidFirstName(textField.text)
+        case .lastName:
+            return viewModel.isValidLastName(textField.text)
+        case .email:
+            return viewModel.isValidEmail(textField.text)
+        case .phoneNumber:
+            return viewModel.isValidPhone(textField.text)
+        case .password:
+            return viewModel.isValidPsaaword(textField.text)
+        case .confirmPassword:
+            return viewModel.isValidConfirmP(textField.text)
+        }
+    }
+    
+    private func setup(textField: UITextField, label: UILabel, userType: UserType) {
+        if let error = validField(textField: textField, userType: userType) {
+            label.text = error
+            label.isHidden = false
+            changTextField(textField, .red, 1)
+        } else {
+            label.isHidden = true
+            changTextField(textField, .black, 0.5)
+        }
+    }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         navigationController?.dismiss(animated: true, completion: nil)
@@ -96,73 +124,42 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func firstNameDidEnd(_ sender: UITextField) {
-        if let error = viewModel.isValidFirstName(sender.text) {
-            firstNameLabel.text = error
-            firstNameLabel.isHidden = false
-            changTextField(sender, .red, 1)
-        } else {
-            firstNameLabel.isHidden = true
-            changTextField(sender, .black, 0.5)
-        }
+        setup(textField: sender, label: firstNameLabel, userType: .firstName)
     }
     
     @IBAction func lastNameDidEnd(_ sender: UITextField) {
-        if let error = viewModel.isValidLastName(sender.text) {
-            lastNameLabel.text = error
-            lastNameLabel.isHidden = false
-            changTextField(sender, .red, 1)
-        } else {
-            lastNameLabel.isHidden = true
-            changTextField(sender, .black, 0.5)
-        }
+        setup(textField: sender, label: lastNameLabel, userType: .lastName)
     }
     
     @IBAction func emailDidEnd(_ sender: UITextField) {
-        if let error = viewModel.isValidEmail(sender.text) {
-            emailLabel.text = error
-            emailLabel.isHidden = false
-            changTextField(sender, .red, 1)
-        } else {
-            emailLabel.isHidden = true
-            changTextField(sender, .black, 0.5)
-        }
+        setup(textField: sender, label: emailLabel, userType: .email)
     }
     
     @IBAction func phoneDidEnd(_ sender: UITextField) {
-        if let error = viewModel.isValidPhone(sender.text) {
-            phoneLabel.text = error
-            phoneLabel.isHidden = false
-            changTextField(sender, .red, 1)
-        } else {
-            phoneLabel.isHidden = true
-            changTextField(sender, .black, 0.5)
-        }
+        setup(textField: sender, label: phoneLabel, userType: .phoneNumber)
     }
     
     @IBAction func passwordDidEnd(_ sender: UITextField) {
-        if let error = viewModel.isValidPsaaword(sender.text) {
-            passwordLabel.text = error
-            passwordLabel.isHidden = false
-            changTextField(sender, .red, 1)
-        } else {
-            passwordLabel.isHidden = true
-            changTextField(sender, .black, 0.5)
-        }
+        setup(textField: sender, label: passwordLabel, userType: .password)
     }
     
     @IBAction func confirmPDidEnd(_ sender: UITextField) {
-        if let error = viewModel.isValidConfirmP(sender.text) {
-            confirmPLabel.text = error
-            confirmPLabel.isHidden = false
-            changTextField(sender, .red, 1)
-        } else {
-            confirmPLabel.isHidden = true
-            changTextField(sender, .black, 0.5)
-        }
+        setup(textField: sender, label: confirmPLabel, userType: .confirmPassword)
     }
     
     @IBAction func subbmitTapped(_ sender: UIButton) {
-        viewModel.addUser()
+        guard viewModel.addUser() else { return }
+        Auth.auth().createUser(withEmail: viewModel.email, password: viewModel.password) { (user, error) in
+            if error != nil {
+                print("Error", error!)
+                sender.backgroundColor = .red
+            } else {
+                print("Registration succesful")
+                sender.backgroundColor = .white
+                guard let tabBarC = self.storyboard?.instantiateViewController(withIdentifier: "CustomTabBarController") else { return }
+                self.present(tabBarC, animated: true, completion: nil)
+            }
+        }
     }
     
 }

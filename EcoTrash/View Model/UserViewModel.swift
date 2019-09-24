@@ -5,30 +5,20 @@
 //  Created by Admin on 9/10/19.
 //  Copyright © 2019 Shushan Khachatryan. All rights reserved.
 //
-
+import UIKit
 import Foundation
 import FirebaseDatabase
 import FirebaseAuth
 
-class FieldView: UIView, UITextFieldDelegate {
-    
-    @IBOutlet private weak var field: UITextField!
-    @IBOutlet private weak var errorLabel: UILabel!
-    
-    var validationClosure: ((String?) -> String?)?
-    
-    var inValidate: ((Bool) -> Void)?
-    
-    var isValid: Bool {
-        guard let closure = self.validationClosure else { return false }
-        return closure(field.text) == nil
-    }
+enum UserType {
+    case firstName, lastName, email, phoneNumber, password, confirmPassword
 }
 
 class UserViewModel {
     
     weak var vc: RegisterViewController?
     var fieldViews = [FieldView]()
+    
     var firstName: String!
     var lastName: String!
     var email: String!
@@ -119,41 +109,21 @@ class UserViewModel {
     }
     
     func notError() -> Bool {
-        if let _ = isValidFirstName(firstName) {
-            return false
-        } else if let _ = isValidLastName(lastName) {
-            return false
-        } else if let _ = isValidEmail(email) {
-            return false
-        } else if let _ = isValidPhone(phoneNumber) {
-            return false
-        } else if let _ = isValidPsaaword(password) {
-            return false
-        } else if let _ = isValidConfirmP(confirmPassword) {
-            return false
-        } else {
+        guard isValidFirstName(firstName) == nil , isValidLastName(lastName) == nil , isValidEmail(email) == nil , isValidPhone(phoneNumber) == nil , isValidPsaaword(password) == nil , isValidConfirmP(confirmPassword) == nil else { return false }
             return true
-        }
     }
     
-    func addUser() {
-        guard notError() else { return }
+    func addUser() -> Bool {
+        guard notError() else { return  false }
         
         let key = refUser.childByAutoId().key
         
-        guard let id = key else { return }
+        guard let id = key else { return false }
 
         user = User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, password: password, confirmPassword: confirmPassword, id: id)
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if error != nil {
-                print(error!)
-            } else {
-                print("Registration succesful")
-            }
-        }
-        
         refUser.child(id).setValue(user.toAny())
+        
+        return true
     }
     
 

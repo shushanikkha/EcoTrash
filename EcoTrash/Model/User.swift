@@ -35,8 +35,6 @@ class User: Codable {
             "lastName": lastName,
             "email": email,
             "phoneNumber": phoneNumber,
-            "password": password,
-            "confirmPassword": confirmPassword,
             "id": id
         ]
     }

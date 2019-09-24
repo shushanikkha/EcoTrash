@@ -22,9 +22,11 @@
 		47F7C3FD2324248800135485 /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F7C3FC2324248800135485 /* TabBarView.xib */; };
 		47F7C3FF232424BD00135485 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3FE232424BD00135485 /* TabBarView.swift */; };
 		49783894EC1DC9EE8B05E0DE /* Pods_EcoTrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */; };
+		841839782334F5BD00B41974 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841839772334F5BD00B41974 /* FieldView.swift */; };
+		8418397A2334F68800B41974 /* FieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841839792334F68800B41974 /* FieldView.xib */; };
 		8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */; };
 		841A627D231ED6B200DA56C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A627C231ED6B200DA56C2 /* User.swift */; };
-		841EAB6E232FBB6F00D20294 /* ExtentionKyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */; };
+		841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EAB6D232FBB6F00D20294 /* RegisterViewControllerKyboard.swift */; };
 		841EB4522324DC0800495B87 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4512324DC0800495B87 /* MapViewController.swift */; };
 		841EB4772327978D00495B87 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4762327978D00495B87 /* UserViewModel.swift */; };
 		84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84858A382322C6310010D8C8 /* CompanyListController.swift */; };
@@ -50,9 +52,11 @@
 		47F7C3FC2324248800135485 /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
 		47F7C3FE232424BD00135485 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoTrash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		841839772334F5BD00B41974 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
+		841839792334F68800B41974 /* FieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldView.xib; sourceTree = "<group>"; };
 		8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		841A627C231ED6B200DA56C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionKyboard.swift; sourceTree = "<group>"; };
+		841EAB6D232FBB6F00D20294 /* RegisterViewControllerKyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerKyboard.swift; sourceTree = "<group>"; };
 		841EB4512324DC0800495B87 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		841EB4762327978D00495B87 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		84858A382322C6310010D8C8 /* CompanyListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListController.swift; sourceTree = "<group>"; };
@@ -96,8 +100,8 @@
 		470D5504231BDFAB00B1FC27 /* EcoTrash */ = {
 			isa = PBXGroup;
 			children = (
-				47F7C3F62323E4EF00135485 /* View */,
 				470D5505231BDFAB00B1FC27 /* AppDelegate.swift */,
+				47F7C3F62323E4EF00135485 /* View */,
 				841EAB6C232FBB2800D20294 /* Extention */,
 				84858A3D2322C6D20010D8C8 /* Model */,
 				84858A3C2322C68A0010D8C8 /* Controller */,
@@ -117,6 +121,8 @@
 				47F7C3F72323E4FC00135485 /* Cell */,
 				47F7C3FC2324248800135485 /* TabBarView.xib */,
 				47F7C3FE232424BD00135485 /* TabBarView.swift */,
+				841839792334F68800B41974 /* FieldView.xib */,
+				841839772334F5BD00B41974 /* FieldView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,7 +147,7 @@
 		841EAB6C232FBB2800D20294 /* Extention */ = {
 			isa = PBXGroup;
 			children = (
-				841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */,
+				841EAB6D232FBB6F00D20294 /* RegisterViewControllerKyboard.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -252,6 +258,7 @@
 				470D5510231BDFAC00B1FC27 /* LaunchScreen.storyboard in Resources */,
 				8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */,
 				470D550D231BDFAC00B1FC27 /* Assets.xcassets in Resources */,
+				8418397A2334F68800B41974 /* FieldView.xib in Resources */,
 				47F7C3FD2324248800135485 /* TabBarView.xib in Resources */,
 				470D550B231BDFAB00B1FC27 /* Main.storyboard in Resources */,
 			);
@@ -307,8 +314,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D08F16231C2AFC00402CE4 /* RegisterViewController.swift in Sources */,
-				841EAB6E232FBB6F00D20294 /* ExtentionKyboard.swift in Sources */,
+				841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */,
 				47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */,
+				841839782334F5BD00B41974 /* FieldView.swift in Sources */,
+				841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */,
 				470D5508231BDFAB00B1FC27 /* LoginViewController.swift in Sources */,
 				47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */,
 				470D5506231BDFAB00B1FC27 /* AppDelegate.swift in Sources */,
