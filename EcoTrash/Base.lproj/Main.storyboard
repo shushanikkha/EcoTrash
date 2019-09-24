@@ -364,7 +364,10 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="EGn-HI-KdD" id="BfM-O5-JML"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Mfq-80-lOj">
                                         <rect key="frame" x="20" y="449" width="335" height="40"/>
@@ -373,10 +376,13 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="EGn-HI-KdD" id="6ND-5e-FFy"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5m-2B-Pub">
-                                        <rect key="frame" x="166" y="685" width="83" height="30"/>
+                                        <rect key="frame" x="146" y="661" width="83" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="VfY-xm-FuX"/>
                                         </constraints>
@@ -566,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rC-gq-pdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943" y="2790"/>
+            <point key="canvasLocation" x="959" y="2735"/>
         </scene>
         <!--Event-->
         <scene sceneID="gFJ-qZ-odP">
@@ -764,7 +770,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8d4-Lt-A2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1749.5999999999999" y="2788.6699507389162"/>
+            <point key="canvasLocation" x="1772" y="2735"/>
         </scene>
     </scenes>
     <resources>

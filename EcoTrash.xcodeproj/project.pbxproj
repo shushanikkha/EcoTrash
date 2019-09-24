@@ -22,6 +22,7 @@
 		841839722334BDD300B41974 /* AddTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841839712334BDD300B41974 /* AddTViewController.swift */; };
 		841839782334F5BD00B41974 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841839772334F5BD00B41974 /* FieldView.swift */; };
 		8418397A2334F68800B41974 /* FieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841839792334F68800B41974 /* FieldView.xib */; };
+		841839D0233A845900B41974 /* AddEcoTrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841839CF233A845900B41974 /* AddEcoTrashTableViewController.swift */; };
 		8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */; };
 		841A627D231ED6B200DA56C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A627C231ED6B200DA56C2 /* User.swift */; };
 		841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EAB6D232FBB6F00D20294 /* RegisterViewControllerKyboard.swift */; };
@@ -50,6 +51,7 @@
 		841839712334BDD300B41974 /* AddTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTViewController.swift; sourceTree = "<group>"; };
 		841839772334F5BD00B41974 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
 		841839792334F68800B41974 /* FieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldView.xib; sourceTree = "<group>"; };
+		841839CF233A845900B41974 /* AddEcoTrashTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEcoTrashTableViewController.swift; sourceTree = "<group>"; };
 		8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		841A627C231ED6B200DA56C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		841EAB6D232FBB6F00D20294 /* RegisterViewControllerKyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerKyboard.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				84858A3A2322C67E0010D8C8 /* EventListController.swift */,
 				47F7C3F22323A07F00135485 /* CustomTabBarController.swift */,
 				841839712334BDD300B41974 /* AddTViewController.swift */,
+				841839CF233A845900B41974 /* AddEcoTrashTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */,
 				470D5506231BDFAB00B1FC27 /* AppDelegate.swift in Sources */,
 				841EB4772327978D00495B87 /* UserViewModel.swift in Sources */,
+				841839D0233A845900B41974 /* AddEcoTrashTableViewController.swift in Sources */,
 				47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */,
 				47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */,
 				841EB4522324DC0800495B87 /* MapViewController.swift in Sources */,
