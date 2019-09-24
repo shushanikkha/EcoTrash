@@ -12,8 +12,9 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
     
     var companyListController: CompanyListController!
     var eventListController: EventListController!
-    var addEcoTrashController: AddEcoTrashController!
- 
+    var addEcoTrashController: AddEcoTrashTableViewController!
+    var newsFeedController: NewsFeedTableViewController!
+    var reuseTrashTypeList: ReuseTrashTypeList!
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
 
        companyListController = CompanyListController()
         eventListController = EventListController()
-        addEcoTrashController = AddEcoTrashController()
+        addEcoTrashController = AddEcoTrashTableViewController()
 
 //        companyListController.tabBarItem.image = UIImage(named: "company")
 //        companyListController.tabBarItem.selectedImage = UIImage(named: "company")
@@ -45,8 +46,8 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
     
     //MARK: UITabbar Delegate
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if viewController.isKind(of: AddEcoTrashController.self) {
-            let vc =  AddEcoTrashController()
+        if viewController.isKind(of: AddEcoTrashTableViewController.self) {
+            let vc =  AddEcoTrashTableViewController()
             vc.modalPresentationStyle = .overFullScreen
             self.present(vc, animated: true, completion: nil)
             return false

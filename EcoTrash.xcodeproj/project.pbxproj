@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,15 +12,17 @@
 		470D550B231BDFAB00B1FC27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470D5509231BDFAB00B1FC27 /* Main.storyboard */; };
 		470D550D231BDFAC00B1FC27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 470D550C231BDFAC00B1FC27 /* Assets.xcassets */; };
 		470D5510231BDFAC00B1FC27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470D550E231BDFAC00B1FC27 /* LaunchScreen.storyboard */; };
-		47C323CB2320184D00A62F4A /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C323CA2320184D00A62F4A /* Marker.swift */; };
-		49783894EC1DC9EE8B05E0DE /* Pods_EcoTrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */; };
-		8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */; };
+		47C0F72923364A3600DEB8C2 /* AddEcoTrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */; };
+		47C0F72B2336687F00DEB8C2 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72A2336687F00DEB8C2 /* NewsFeedTableViewController.swift */; };
+		47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */; };
+		47C323CB2320184D00A62F4A /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C323CA2320184D00A62F4A /* Trash.swift */; };
 		47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3F22323A07F00135485 /* CustomTabBarController.swift */; };
-		47F7C3F52323A13100135485 /* AddEcoTrashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3F42323A13100135485 /* AddEcoTrashController.swift */; };
 		47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3F82323E53300135485 /* CompanyListTableViewCell.swift */; };
 		47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3FA2323E69200135485 /* CompanyShortList.swift */; };
 		47F7C3FD2324248800135485 /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F7C3FC2324248800135485 /* TabBarView.xib */; };
 		47F7C3FF232424BD00135485 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3FE232424BD00135485 /* TabBarView.swift */; };
+		49783894EC1DC9EE8B05E0DE /* Pods_EcoTrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */; };
+		8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */; };
 		841A627D231ED6B200DA56C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A627C231ED6B200DA56C2 /* User.swift */; };
 		841EAB6E232FBB6F00D20294 /* ExtentionKyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */; };
 		841EB4522324DC0800495B87 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4512324DC0800495B87 /* MapViewController.swift */; };
@@ -38,15 +40,17 @@
 		470D550C231BDFAC00B1FC27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		470D550F231BDFAC00B1FC27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		470D5511231BDFAC00B1FC27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47C323CA2320184D00A62F4A /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
-		62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoTrash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEcoTrashTableViewController.swift; sourceTree = "<group>"; };
+		47C0F72A2336687F00DEB8C2 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
+		47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseTrashTypeList.swift; sourceTree = "<group>"; };
+		47C323CA2320184D00A62F4A /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
 		47F7C3F22323A07F00135485 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		47F7C3F42323A13100135485 /* AddEcoTrashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEcoTrashController.swift; sourceTree = "<group>"; };
 		47F7C3F82323E53300135485 /* CompanyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListTableViewCell.swift; sourceTree = "<group>"; };
 		47F7C3FA2323E69200135485 /* CompanyShortList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyShortList.swift; sourceTree = "<group>"; };
 		47F7C3FC2324248800135485 /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
 		47F7C3FE232424BD00135485 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoTrash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		841A627C231ED6B200DA56C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionKyboard.swift; sourceTree = "<group>"; };
 		841EB4512324DC0800495B87 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -107,32 +111,6 @@
 			path = EcoTrash;
 			sourceTree = "<group>";
 		};
-		4F07669190F33C01B6B1BC97 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				ECD456080139EDEB082324A8 /* Pods-EcoTrash.debug.xcconfig */,
-				DC6DEE3A7D05A739B12B9407 /* Pods-EcoTrash.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		841EAB6C232FBB2800D20294 /* Extention */ = {
-			isa = PBXGroup;
-			children = (
-				841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */,
-			);
-			path = Extention;
-			sourceTree = "<group>";
-		};
-		841EB4752327973100495B87 /* View Model */ = {
-			isa = PBXGroup;
-			children = (
-				841EB4762327978D00495B87 /* UserViewModel.swift */,
-			);
-			path = "View Model";
-            sourceTree = "<group>";
-        };
 		47F7C3F62323E4EF00135485 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +129,31 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		4F07669190F33C01B6B1BC97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ECD456080139EDEB082324A8 /* Pods-EcoTrash.debug.xcconfig */,
+				DC6DEE3A7D05A739B12B9407 /* Pods-EcoTrash.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		841EAB6C232FBB2800D20294 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				841EAB6D232FBB6F00D20294 /* ExtentionKyboard.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		841EB4752327973100495B87 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				841EB4762327978D00495B87 /* UserViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		84858A3C2322C68A0010D8C8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,7 +163,9 @@
 				841EB4512324DC0800495B87 /* MapViewController.swift */,
 				84858A3A2322C67E0010D8C8 /* EventListController.swift */,
 				47F7C3F22323A07F00135485 /* CustomTabBarController.swift */,
-				47F7C3F42323A13100135485 /* AddEcoTrashController.swift */,
+				47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */,
+				47C0F72A2336687F00DEB8C2 /* NewsFeedTableViewController.swift */,
+				47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -169,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				841A627C231ED6B200DA56C2 /* User.swift */,
-				47C323CA2320184D00A62F4A /* Marker.swift */,
+				47C323CA2320184D00A62F4A /* Trash.swift */,
 				47F7C3FA2323E69200135485 /* CompanyShortList.swift */,
 				F94882022321A99B00194F33 /* Company.swift */,
 			);
@@ -303,17 +308,18 @@
 			files = (
 				84D08F16231C2AFC00402CE4 /* RegisterViewController.swift in Sources */,
 				841EAB6E232FBB6F00D20294 /* ExtentionKyboard.swift in Sources */,
+				47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */,
 				470D5508231BDFAB00B1FC27 /* LoginViewController.swift in Sources */,
 				47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */,
 				470D5506231BDFAB00B1FC27 /* AppDelegate.swift in Sources */,
 				841EB4772327978D00495B87 /* UserViewModel.swift in Sources */,
 				47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */,
-				47F7C3F52323A13100135485 /* AddEcoTrashController.swift in Sources */,
+				47C0F72923364A3600DEB8C2 /* AddEcoTrashTableViewController.swift in Sources */,
 				47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */,
-				F94882032321A99B00194F33 /* Company.swift in Sources */,
 				841EB4522324DC0800495B87 /* MapViewController.swift in Sources */,
 				841A627D231ED6B200DA56C2 /* User.swift in Sources */,
-				47C323CB2320184D00A62F4A /* Marker.swift in Sources */,
+				47C323CB2320184D00A62F4A /* Trash.swift in Sources */,
+				47C0F72B2336687F00DEB8C2 /* NewsFeedTableViewController.swift in Sources */,
 				84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */,
 				47F7C3FF232424BD00135485 /* TabBarView.swift in Sources */,
 				84858A3B2322C67E0010D8C8 /* EventListController.swift in Sources */,
@@ -464,6 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VV2KM9GK75;
 				INFOPLIST_FILE = EcoTrash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -483,6 +490,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VV2KM9GK75;
 				INFOPLIST_FILE = EcoTrash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (

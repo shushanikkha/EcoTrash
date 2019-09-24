@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreLocation
 
-class Marker: Codable {
+class Trash: Codable {
     var location: CLLocationCoordinate2D
     var creationDate: Date
     var availableDate: Date?
