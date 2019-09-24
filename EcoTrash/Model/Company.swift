@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum Type {
+enum Type: String {
     case plastic , paper , glass , other
 }
 

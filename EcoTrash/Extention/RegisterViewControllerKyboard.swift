@@ -12,7 +12,6 @@ import UIKit
 
 extension RegisterViewController: UITextFieldDelegate {
     
-    // MARK: - Kayboard notification
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
