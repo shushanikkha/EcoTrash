@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class AddEcoTrashTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -19,7 +20,6 @@ class AddEcoTrashTableViewController: UITableViewController, UIPickerViewDelegat
     @IBOutlet weak var availableAmount: UITextField!
     @IBOutlet weak var addressLabel: UILabel!
     
-    var trash: Trash?
     var pickerData = [String]()
     
     let trashTypePickerCellIndexPath = IndexPath(row: 1, section: 0)
@@ -42,19 +42,41 @@ class AddEcoTrashTableViewController: UITableViewController, UIPickerViewDelegat
             availableDatePicker.isHidden = !isAvailableDatePickerShown
         }
     }
-
+    
+    var trash: Trash?
+    
+//    var latitude = Double()
+//    var longitude = Double()
+//    var user: User?
+//    var image = UIImage()
+//
+//    var trash: Trash {
+//        var latitude = self.latitude
+//        var longitude = self.longitude
+//        var creationDate = creationDateLabel.text
+//        var availableDate = availableDateLabel.text
+//        var user = self.user
+//        var type = trashTypeLabel.text
+//        var image = self.image
+//        var amount = availableAmount.text
+//
+//        return Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: <#T##String#>, image: <#T##UIImage#>, amount: <#T##Int#>)
+//    }
+//
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.trashTypePickerView.delegate = self
         self.trashTypePickerView.dataSource = self
+        
         let midnightTodey = Calendar.current.startOfDay(for: Date())
         creationDatePicker.minimumDate = midnightTodey
         creationDatePicker.maximumDate = midnightTodey
         creationDatePicker.date = midnightTodey
+        
         updateDateViews()
         
         self.pickerData = ["Plastic", "Paper", "Glass", "Other"]
-        
     }
     
     
@@ -68,9 +90,8 @@ class AddEcoTrashTableViewController: UITableViewController, UIPickerViewDelegat
         dateFormatter.timeStyle = .medium
         creationDateLabel.text = dateFormatter.string(from: creationDatePicker.date)
         availableDateLabel.text = dateFormatter.string(from: availableDatePicker.date)
-        
+
     }
-    
     
     // MARK: - UIPickerViewDataSource -
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -94,32 +115,24 @@ class AddEcoTrashTableViewController: UITableViewController, UIPickerViewDelegat
 
    override  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch (indexPath.section, indexPath.row){
-        case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row): if isTrashTypePickerShown {
-            return 150.0
-        } else {
-            return 0.0
-            }
-        case (creationDatePickerCellIndexPath.section, creationDatePickerCellIndexPath.row): if isCreationDatePickerShown  {
-            return 216.0
-        } else {
-            return 0.0
-            }
-        case (availableDatePickerCellIndexPath.section, availableDatePickerCellIndexPath.row): if isAvailableDatePickerShown {
-            return 216.0
-        } else {
-            return 0.0
-            }
+        case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row):
+                return isTrashTypePickerShown ? 150.0 : 0.0
+        case (creationDatePickerCellIndexPath.section, creationDatePickerCellIndexPath.row):
+                return isCreationDatePickerShown ? 216.0 : 0.0
+        case (availableDatePickerCellIndexPath.section, availableDatePickerCellIndexPath.row):
+            return isAvailableDatePickerShown ? 216.0 : 0.0
         default:
             return 44.0
         }
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch (indexPath.section, indexPath.row) {
         case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row - 1):
             if isTrashTypePickerShown {
                 isTrashTypePickerShown = false
-           }  else {
+            } else {
                isTrashTypePickerShown = true
             }
             tableView.beginUpdates()
@@ -153,7 +166,26 @@ class AddEcoTrashTableViewController: UITableViewController, UIPickerViewDelegat
             break
         }
     }
+    
     // MARK: - IBActions -
+    
+    @IBAction func saveButtonTapeed(_ sender: UIButton) {
+//        guard let creationDate =
+    }
+
+    
+    @IBAction func mapButtonTapeed(_ sender: UIButton) {
+        guard let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as? MapViewController else { return }
+        
+        mapVC.setAddres = { (dict) -> () in
+            self.addressLabel.text = (dict["addres"] as! String)
+            self.trash?.latitude = (dict["latitude"] as! Double)
+            self.trash?.longitude = (dict["longitude"] as! Double)
+        }
+        
+        let navVC = UINavigationController(rootViewController: mapVC)
+        self.present(navVC, animated: true, completion: nil)
+    }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
         updateDateViews()
@@ -166,12 +198,12 @@ class AddEcoTrashTableViewController: UITableViewController, UIPickerViewDelegat
 //    @IBAction func chooseImageButton(_ sender: UIButton) {
 //        let imagePicker = UIImagePickerController()
 //        imagePicker.delegate = self
-//        
+//
 //        let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
-//        
+//
 //        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 //        alertController.addAction(cancelAction)
-//        
+//
 //        if UIImagePickerController.isSourceTypeAvailable(.camera) {
 //            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in
 //                imagePicker.sourceType = .camera
@@ -186,8 +218,8 @@ class AddEcoTrashTableViewController: UITableViewController, UIPickerViewDelegat
 //            })
 //            alertController.addAction(photoLibraryAction)
 //        }
-//        
+//
 //        present(alertController, animated: true, completion:  nil)
-//        
 //    }
+//
 }

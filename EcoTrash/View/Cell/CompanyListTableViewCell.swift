@@ -10,14 +10,17 @@ import UIKit
 
 class CompanyListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var companyImage: UIImageView!
+    @IBOutlet weak var companyImage: UIImageView?
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var companyAddress: UILabel!
     
     func updateCompanyList(with company: CompanyShortList) {
-        self.companyImage.image = company.image
         self.companyName.text = company.name
         self.companyAddress.text = company.address
+        
+        if let companyImage = companyImage {
+            companyImage.image = company.image
+        }
     }
 
 }

@@ -87,9 +87,10 @@ class MapViewController: UIViewController {
     
     @IBAction func doneAction(_ sender: Any) {
         guard let latitude = previousLocation?.coordinate.latitude,
-            let longitude = previousLocation?.coordinate.longitude else { return }
+            let longitude = previousLocation?.coordinate.longitude  else { return }
         
-        let dict = ["addres": addresLabel.text!, "latitude": latitude, "longitude": longitude] as completionHandler
+        
+        let dict = ["addres": addresLabel.text!, "latitude": latitude, "longitude": longitude ] as completionHandler
         guard let setAddres = setAddres else { return }
         
         setAddres(dict)

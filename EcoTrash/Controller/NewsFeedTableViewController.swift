@@ -9,7 +9,7 @@
 import UIKit
 
 class NewsFeedTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

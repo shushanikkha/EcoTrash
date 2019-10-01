@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+protocol FieldViewDelegate {
+    func showFieldView()
+}
 
 class FieldView: UIView, UITextFieldDelegate {
     
