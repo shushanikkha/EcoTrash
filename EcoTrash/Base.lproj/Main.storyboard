@@ -1358,41 +1358,6 @@
             </objects>
             <point key="canvasLocation" x="1771" y="1263"/>
         </scene>
-        <!--AddT View Controller-->
-        <scene sceneID="CeN-kZ-SGS">
-            <objects>
-                <viewController id="ShE-HZ-Ss7" customClass="AddTViewController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BkI-X2-dOq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pT3-cv-VrO">
-                                <rect key="frame" x="140" y="394" width="64" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="map"/>
-                                <connections>
-                                    <action selector="mapButtonTapeed:" destination="ShE-HZ-Ss7" eventType="touchUpInside" id="haS-Bg-htl"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9l-cj-KoJ">
-                                <rect key="frame" x="67" y="222" width="172" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="LpP-dx-FnM"/>
-                    </view>
-                    <connections>
-                        <outlet property="adresLabel" destination="I9l-cj-KoJ" id="2UE-yv-dES"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8d4-Lt-A2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2717" y="2731"/>
-        </scene>
         <!--AddTrash-->
         <scene sceneID="elh-FV-5zY">
             <objects>
