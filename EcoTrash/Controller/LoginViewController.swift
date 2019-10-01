@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
    
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -41,6 +41,10 @@ class LoginViewController: UIViewController {
                 self.present(tabBarC, animated: true, completion: nil)
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return self.view.endEditing(true)
     }
     
 }

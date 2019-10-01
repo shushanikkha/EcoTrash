@@ -169,7 +169,6 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
         updateDateViews()
     }
-    
 }
 
 extension AddEcoTrashTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
@@ -247,5 +246,4 @@ extension AddEcoTrashTableViewController: UICollectionViewDelegate, UICollection
         picker.dismiss(animated: true, completion: nil)
         addImageCollectionView.reloadData()
     }
-
 }

@@ -77,7 +77,7 @@ class UserViewModel {
         guard let text = text, text != "" else {
             return "Phone is empty"
         }
-        let predicatStyl = "[+]+[0-9]{5,}"
+        let predicatStyl = "[+]+[0-9]{11}"
         guard text.count >= 7 || validateTextField(text: text, predicatStyl: predicatStyl) else {
             return "Phone is not valid Ex.(077777777)"
         }

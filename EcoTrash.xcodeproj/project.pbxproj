@@ -16,7 +16,7 @@
 		471C07DB2340CFCE00995C45 /* CompanyListDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */; };
 		47361CF6234229720014E8EF /* NewsfeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47361CF5234229720014E8EF /* NewsfeedTableViewCell.swift */; };
 		47361D1A2343AD930014E8EF /* TrashImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47361D192343AD930014E8EF /* TrashImageCollectionViewCell.swift */; };
-		47C0F72923364A3600DEB8C2 /* AddEcoTrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */; };
+		47361D1B2343B7110014E8EF /* AddEcoTrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */; };
 		47C0F72B2336687F00DEB8C2 /* NewsfeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72A2336687F00DEB8C2 /* NewsfeedTableViewController.swift */; };
 		47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */; };
 		47C323CB2320184D00A62F4A /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C323CA2320184D00A62F4A /* Trash.swift */; };
@@ -314,6 +314,7 @@
 				84D08F16231C2AFC00402CE4 /* RegisterViewController.swift in Sources */,
 				841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */,
 				47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */,
+				47361D1B2343B7110014E8EF /* AddEcoTrashTableViewController.swift in Sources */,
 				471C07D9233FA98700995C45 /* AddTrashImageCell.swift in Sources */,
 				841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */,
 				470D5508231BDFAB00B1FC27 /* LoginViewController.swift in Sources */,
@@ -323,7 +324,6 @@
 				841EB4772327978D00495B87 /* UserViewModel.swift in Sources */,
 				47361D1A2343AD930014E8EF /* TrashImageCollectionViewCell.swift in Sources */,
 				47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */,
-				47C0F72923364A3600DEB8C2 /* AddEcoTrashTableViewController.swift in Sources */,
 				47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */,
 				471C07DB2340CFCE00995C45 /* CompanyListDetailsViewController.swift in Sources */,
 				841EB4522324DC0800495B87 /* MapViewController.swift in Sources */,
