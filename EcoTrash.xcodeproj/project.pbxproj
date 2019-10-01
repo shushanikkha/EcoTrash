@@ -12,18 +12,18 @@
 		470D550B231BDFAB00B1FC27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470D5509231BDFAB00B1FC27 /* Main.storyboard */; };
 		470D550D231BDFAC00B1FC27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 470D550C231BDFAC00B1FC27 /* Assets.xcassets */; };
 		470D5510231BDFAC00B1FC27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470D550E231BDFAC00B1FC27 /* LaunchScreen.storyboard */; };
-		47C0F72B2336687F00DEB8C2 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72A2336687F00DEB8C2 /* NewsFeedTableViewController.swift */; };
+		471C07D9233FA98700995C45 /* AddTrashImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C07D8233FA98700995C45 /* AddTrashImageCell.swift */; };
+		471C07DB2340CFCE00995C45 /* CompanyListDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */; };
+		47361CF6234229720014E8EF /* NewsfeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47361CF5234229720014E8EF /* NewsfeedTableViewCell.swift */; };
+		47361D1A2343AD930014E8EF /* TrashImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47361D192343AD930014E8EF /* TrashImageCollectionViewCell.swift */; };
+		47361D1B2343B7110014E8EF /* AddEcoTrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */; };
+		47C0F72B2336687F00DEB8C2 /* NewsfeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72A2336687F00DEB8C2 /* NewsfeedTableViewController.swift */; };
 		47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */; };
 		47C323CB2320184D00A62F4A /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C323CA2320184D00A62F4A /* Trash.swift */; };
 		47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3F22323A07F00135485 /* CustomTabBarController.swift */; };
 		47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3F82323E53300135485 /* CompanyListTableViewCell.swift */; };
 		47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3FA2323E69200135485 /* CompanyShortList.swift */; };
-		47F7C3FD2324248800135485 /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47F7C3FC2324248800135485 /* TabBarView.xib */; };
-		47F7C3FF232424BD00135485 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3FE232424BD00135485 /* TabBarView.swift */; };
 		49783894EC1DC9EE8B05E0DE /* Pods_EcoTrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */; };
-		841839782334F5BD00B41974 /* FieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841839772334F5BD00B41974 /* FieldView.swift */; };
-		8418397A2334F68800B41974 /* FieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841839792334F68800B41974 /* FieldView.xib */; };
-		841839D0233A845900B41974 /* AddEcoTrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841839CF233A845900B41974 /* AddEcoTrashTableViewController.swift */; };
 		8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */; };
 		841A627D231ED6B200DA56C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A627C231ED6B200DA56C2 /* User.swift */; };
 		841B8001234090780074BE9B /* TrashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B8000234090780074BE9B /* TrashViewModel.swift */; };
@@ -45,18 +45,18 @@
 		470D550C231BDFAC00B1FC27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		470D550F231BDFAC00B1FC27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		470D5511231BDFAC00B1FC27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47C0F72A2336687F00DEB8C2 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
+		471C07D8233FA98700995C45 /* AddTrashImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrashImageCell.swift; sourceTree = "<group>"; };
+		471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListDetailsViewController.swift; sourceTree = "<group>"; };
+		47361CF5234229720014E8EF /* NewsfeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedTableViewCell.swift; sourceTree = "<group>"; };
+		47361D192343AD930014E8EF /* TrashImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEcoTrashTableViewController.swift; sourceTree = "<group>"; };
+		47C0F72A2336687F00DEB8C2 /* NewsfeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedTableViewController.swift; sourceTree = "<group>"; };
 		47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseTrashTypeList.swift; sourceTree = "<group>"; };
 		47C323CA2320184D00A62F4A /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
 		47F7C3F22323A07F00135485 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		47F7C3F82323E53300135485 /* CompanyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListTableViewCell.swift; sourceTree = "<group>"; };
 		47F7C3FA2323E69200135485 /* CompanyShortList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyShortList.swift; sourceTree = "<group>"; };
-		47F7C3FC2324248800135485 /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
-		47F7C3FE232424BD00135485 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoTrash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		841839772334F5BD00B41974 /* FieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldView.swift; sourceTree = "<group>"; };
-		841839792334F68800B41974 /* FieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FieldView.xib; sourceTree = "<group>"; };
-		841839CF233A845900B41974 /* AddEcoTrashTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEcoTrashTableViewController.swift; sourceTree = "<group>"; };
 		8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		841A627C231ED6B200DA56C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		841B8000234090780074BE9B /* TrashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewModel.swift; sourceTree = "<group>"; };
@@ -124,10 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				47F7C3F72323E4FC00135485 /* Cell */,
-				47F7C3FC2324248800135485 /* TabBarView.xib */,
-				47F7C3FE232424BD00135485 /* TabBarView.swift */,
-				841839792334F68800B41974 /* FieldView.xib */,
-				841839772334F5BD00B41974 /* FieldView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -136,6 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				47F7C3F82323E53300135485 /* CompanyListTableViewCell.swift */,
+				471C07D8233FA98700995C45 /* AddTrashImageCell.swift */,
+				47361D192343AD930014E8EF /* TrashImageCollectionViewCell.swift */,
+				47361CF5234229720014E8EF /* NewsfeedTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -176,9 +175,10 @@
 				841EB4512324DC0800495B87 /* MapViewController.swift */,
 				84858A3A2322C67E0010D8C8 /* EventListController.swift */,
 				47F7C3F22323A07F00135485 /* CustomTabBarController.swift */,
-				841839CF233A845900B41974 /* AddEcoTrashTableViewController.swift */,
-				47C0F72A2336687F00DEB8C2 /* NewsFeedTableViewController.swift */,
+				47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */,
+				47C0F72A2336687F00DEB8C2 /* NewsfeedTableViewController.swift */,
 				47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */,
+				471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -265,8 +265,6 @@
 				470D5510231BDFAC00B1FC27 /* LaunchScreen.storyboard in Resources */,
 				8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */,
 				470D550D231BDFAC00B1FC27 /* Assets.xcassets in Resources */,
-				8418397A2334F68800B41974 /* FieldView.xib in Resources */,
-				47F7C3FD2324248800135485 /* TabBarView.xib in Resources */,
 				470D550B231BDFAB00B1FC27 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,23 +322,25 @@
 				841B8001234090780074BE9B /* TrashViewModel.swift in Sources */,
 				841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */,
 				47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */,
-				841839782334F5BD00B41974 /* FieldView.swift in Sources */,
+				47361D1B2343B7110014E8EF /* AddEcoTrashTableViewController.swift in Sources */,
+				471C07D9233FA98700995C45 /* AddTrashImageCell.swift in Sources */,
 				841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */,
 				841B80032340DA7C0074BE9B /* CompanyViewModel.swift in Sources */,
 				841B80052341DC7B0074BE9B /* Company.swift in Sources */,
 				470D5508231BDFAB00B1FC27 /* LoginViewController.swift in Sources */,
+				47361CF6234229720014E8EF /* NewsfeedTableViewCell.swift in Sources */,
 				47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */,
 				470D5506231BDFAB00B1FC27 /* AppDelegate.swift in Sources */,
 				841EB4772327978D00495B87 /* UserViewModel.swift in Sources */,
-				841839D0233A845900B41974 /* AddEcoTrashTableViewController.swift in Sources */,
+				47361D1A2343AD930014E8EF /* TrashImageCollectionViewCell.swift in Sources */,
 				47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */,
 				47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */,
+				471C07DB2340CFCE00995C45 /* CompanyListDetailsViewController.swift in Sources */,
 				841EB4522324DC0800495B87 /* MapViewController.swift in Sources */,
 				841A627D231ED6B200DA56C2 /* User.swift in Sources */,
 				47C323CB2320184D00A62F4A /* Trash.swift in Sources */,
-				47C0F72B2336687F00DEB8C2 /* NewsFeedTableViewController.swift in Sources */,
+				47C0F72B2336687F00DEB8C2 /* NewsfeedTableViewController.swift in Sources */,
 				84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */,
-				47F7C3FF232424BD00135485 /* TabBarView.swift in Sources */,
 				84858A3B2322C67E0010D8C8 /* EventListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,7 +17,7 @@ enum UserType {
 class UserViewModel {
     
     weak var vc: RegisterViewController?
-    var fieldViews = [FieldView]()
+   // var fieldViews = [FieldView]()
     
     var firstName: String!
     var lastName: String!

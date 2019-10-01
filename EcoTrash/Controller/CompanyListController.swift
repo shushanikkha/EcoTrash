@@ -18,6 +18,7 @@ class CompanyListController: UITableViewController {
     var ref: DatabaseReference?
     var hendler: DatabaseHandle?
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,7 +63,7 @@ class CompanyListController: UITableViewController {
                     }
                 }
                 
-                let company = Company(name: name, image: image, address: address, description: description, phone: phone, email: email, garbageType: garbageType)
+                let company = Company(image: image, name: name, description: address, email: description, phone: phone, address: email, garbageType: garbageType)
                 let companiList = CompanyShortList(name: name, image: image, address: address)
                 
                 self.companiLists.append(companiList)
