@@ -13,6 +13,7 @@ class CompanyListController: UITableViewController {
     
     private var companies = [CompanyShortList]()
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

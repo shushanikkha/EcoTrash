@@ -14,14 +14,18 @@ enum Type: String {
 }
 
 class Company {
+    var image: UIImage
     var name: String
+    var description: String
     var email: String
     var phone: String
     var address: String
     var garbageType: Type
     
-    init(name: String , email: String , phone: String , address: String , garbageType: Type) {
+    init(image: UIImage, name: String, description: String, email: String , phone: String , address: String , garbageType: Type) {
+        self.image = image
         self.name = name
+        self.description = description
         self.address = address
         self.phone = phone
         self.email = email
