@@ -8,24 +8,20 @@
 
 import UIKit
 import FirebaseDatabase
+import SDWebImage
 
 class CompanyListController: UITableViewController {
   
     private var companies = [Company]()
-    var companyList = [CompanyShortList]()
-    var closure: ((UIImage) -> Void)?
     
     var ref: DatabaseReference?
     var hendler: DatabaseHandle?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
-        
         loadDada()
-        print("companies", companies)
     }
     
     private func loadDada() {
@@ -41,59 +37,42 @@ class CompanyListController: UITableViewController {
                 let phone = dictionary["phone"] as! String
                 let email = dictionary["email"] as! String
                 let garbageType = dictionary["garbageType"] as! String
-                
                 let imageUrlString = dictionary["imageUrl"] as! String
                 
-                var image: UIImage? = nil
+                var imageUrl: URL?
                 
                 if imageUrlString != "" {
-                    guard let imageUrl = URL(string: imageUrlString) else { return }
-                    
-                    //let image = self.downloadImage(from: imageUrl)
-                    self.getImage(from: imageUrl) { (data, response, error) in
-                        
-                        guard let data = data, error == nil else { return }
-                        
-                        DispatchQueue.main.async {
-                            image = UIImage(data: data)!
-                            if let image = image, let closure = self.closure {
-                                closure(image)
-                            }
-                        }
-                    }
+                    guard let url = URL(string: imageUrlString) else { return }
+                    imageUrl = url
                 }
                 
-                let company = Company(image: image, name: name, description: address, email: description, phone: phone, address: email, garbageType: garbageType)
-                let companyList = CompanyShortList(name: name, image: image, address: address)
-                
-                self.companyList.append(companyList)
+                let company = Company(imageUrl: imageUrl, name: name, description: description, email: email, phone: phone, address: address, garbageType: garbageType)
                 self.companies.append(company)
                 self.tableView.reloadData()
             }
         })
     }
     
-    private func getImage(from url: URL, complition: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: complition).resume()
-    }
-    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(companyList.count)
-        return companyList.count
+        return companies.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let company = companyList[indexPath.row]
-//        var reuseIdentifier = "CompanyListTableViewCell"
-//        if company.image != nil {
-//            reuseIdentifier += "+image"
-//        }
-        
+        let company = companies[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyListTableViewCell", for: indexPath) as? CompanyListTableViewCell else { return UITableViewCell() }
         cell.updateCompanyList(with: company)
         return cell
+    }
+    
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let companyDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "CompanyListDetailsViewController") as? CompanyListDetailsViewController else { return }
+        companyDetailsVC.company = companies[indexPath.row]
+        let navVC = UINavigationController(rootViewController: companyDetailsVC)
+        self.present(navVC, animated: true, completion: nil)
     }
 
 

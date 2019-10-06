@@ -126,5 +126,4 @@ class UserViewModel {
         return true
     }
     
-
 }

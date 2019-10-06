@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import FirebaseDatabase
 
 enum WasteType: String, CaseIterable {
     case Plastic
@@ -27,8 +28,10 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var addImageCollectionView: UICollectionView!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     var images = [UIImage]()
-    var trash: Trash?
+    var trashViewModel = TrashViewModel()
 
     let trashTypePickerCellIndexPath = IndexPath(row: 1, section: 0)
     var isTrashTypePickerShown: Bool = false {
@@ -46,14 +49,16 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
     
     let addTrashImageIndexPath = IndexPath(row: 0, section: 4)
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.trashTypePickerView.delegate = self
         self.trashTypePickerView.dataSource = self
-
         updateDateViews()
     }
+    
+    
     
     // MARK: - Update Date Method -
     
@@ -80,16 +85,70 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        trashTypeLabel.text = WasteType.allCases[trashTypePickerView.selectedRow(inComponent: 0)].rawValue
+        trashViewModel.type = WasteType.allCases[trashTypePickerView.selectedRow(inComponent: 0)].rawValue
+        trashTypeLabel.text  = trashViewModel.type
     }
     
+    // MARK: - IBActions -
+    
+    @IBAction func saveButtonTapeed(_ sender: UIBarButtonItem) {
+        guard availableAmount.text != "", let text = availableAmount.text  else { return }
+        trashViewModel.amount = Int(text) ?? 0
+        
+        guard trashViewModel.addTrash() else { return }
+        
+        guard let newVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController else { return }
+        
+        let navVC = UINavigationController(rootViewController: newVC)
+        self.present(navVC, animated: true, completion: nil)
+        //TODO: SaveTrashddd
+        
+    }
 
+    
+    @IBAction func mapButtonTapeed(_ sender: UIButton) {
+        guard let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as? MapViewController else { return }
+        
+        mapVC.setAddres = { (dict) -> () in
+            self.trashViewModel.address = (dict["addres"] as! String)
+            self.trashViewModel.latitude = (dict["latitude"] as! Double)
+            self.trashViewModel.longitude = (dict["longitude"] as! Double)
+            
+            self.addressLabel.text = self.trashViewModel.address
+        }
+        
+        let navVC = UINavigationController(rootViewController: mapVC)
+        self.present(navVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
+        updateDateViews()
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+extension AddEcoTrashTableViewController {
     // MARK: - Table view data source
-
-   override  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    
+    override  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch (indexPath.section, indexPath.row){
         case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row):
-                return isTrashTypePickerShown ? 150.0 : 0.0
+            return isTrashTypePickerShown ? 150.0 : 0.0
         case (availableDatePickerCellIndexPath.section, availableDatePickerCellIndexPath.row):
             return isAvailableDatePickerShown ? 216.0 : 0.0
         case (addTrashImageIndexPath.section, addTrashImageIndexPath.row):
@@ -116,7 +175,7 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
             if isTrashTypePickerShown {
                 isTrashTypePickerShown = false
             } else {
-               isTrashTypePickerShown = true
+                isTrashTypePickerShown = true
             }
             tableView.beginUpdates()
             tableView.endUpdates()
@@ -134,35 +193,10 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
             break
         }
     }
-    
-    // MARK: - IBActions -
-    
-    @IBAction func saveButtonTapeed(_ sender: UIButton) {
-//        guard let creationDate =
-    }
-
-    
-    @IBAction func mapButtonTapeed(_ sender: UIButton) {
-        guard let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as? MapViewController else { return }
-        
-        mapVC.setAddres = { (dict) -> () in
-            self.addressLabel.text = (dict["addres"] as! String)
-            self.trash?.latitude = (dict["latitude"] as! Double)
-            self.trash?.longitude = (dict["longitude"] as! Double)
-        }
-        
-        let navVC = UINavigationController(rootViewController: mapVC)
-        self.present(navVC, animated: true, completion: nil)
-    }
-    
-    @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
-        updateDateViews()
-    }
 }
 
 extension AddEcoTrashTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
  
-  
     // Mark: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {

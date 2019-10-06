@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class Company {
-    var image: UIImage?
+    var imageUrl: URL?
     var name: String
     var address: String
     var description: String
@@ -19,8 +19,8 @@ class Company {
     var garbageType: String
     
 
-    init(image: UIImage?, name: String, description: String, email: String , phone: String , address: String , garbageType: String) {
-        self.image = image
+    init(imageUrl: URL?, name: String, description: String, email: String , phone: String , address: String , garbageType: String) {
+        self.imageUrl = imageUrl
         self.name = name
         self.description = description
         self.address = address
@@ -29,6 +29,8 @@ class Company {
         self.email = email
         self.garbageType = garbageType
     }
+    
+    
     
 }
 

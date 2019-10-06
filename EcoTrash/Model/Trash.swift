@@ -18,21 +18,20 @@ class Trash {
     var creationDate: String
     var availableDate: String?
     var user: User
-    var type: String // Type
-    var image: UIImage?
-    var amount: String
+    var type: String
+    var images: [UIImage]?
+    var amount: Int
     var address: String
 
-    init(latitude: Double, longitude: Double, creationDate: String, availableDate: String?,  user: User, type: String, image: UIImage, amount: String, address: String) {
+    init(latitude: Double, longitude: Double, creationDate: String, availableDate: String?,  user: User, type: String, images: [UIImage]?, amount: Int, address: String) {
         self.latitude = latitude
         self.longitude = longitude
         self.creationDate = creationDate
         self.availableDate = availableDate
         self.user = user
         self.type = type
-        self.image = image
+        self.images = images
         self.amount = amount
         self.address = address
     }
-    
 }

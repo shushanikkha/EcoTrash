@@ -11,12 +11,13 @@ import UIKit
 
 class CompanyShortList {
     var name: String
-    var image: UIImage?
+    var imageUrl: URL?
     var address: String
     
-    init(name: String, image: UIImage?, address: String) {
+    init(name: String, imageUrl: URL?, address: String) {
         self.name = name
-        self.image = image
+        self.imageUrl = imageUrl
         self.address = address
     }
+    
 }

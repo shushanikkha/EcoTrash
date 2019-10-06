@@ -35,9 +35,14 @@
 		49783894EC1DC9EE8B05E0DE /* Pods_EcoTrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */; };
 		8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */; };
 		841A627D231ED6B200DA56C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A627C231ED6B200DA56C2 /* User.swift */; };
+		841B3099234851F1001A825F /* LocationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B3098234851F1001A825F /* LocationsMapViewController.swift */; };
 		841B8001234090780074BE9B /* TrashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B8000234090780074BE9B /* TrashViewModel.swift */; };
 		841B80032340DA7C0074BE9B /* CompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B80022340DA7C0074BE9B /* CompanyViewModel.swift */; };
 		841B80052341DC7B0074BE9B /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B80042341DC7B0074BE9B /* Company.swift */; };
+		841C7B89234749D4001976E9 /* ShowMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C7B88234749D4001976E9 /* ShowMapCell.swift */; };
+		841C7B8E23475112001976E9 /* LocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C7B8D23475112001976E9 /* LocationMapView.swift */; };
+		841C7B9023477A8B001976E9 /* LocationMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841C7B8F23477A8B001976E9 /* LocationMapView.xib */; };
+		841CA7352346746000346203 /* NewsfeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841CA7342346746000346203 /* NewsfeedTableViewController.swift */; };
 		841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EAB6D232FBB6F00D20294 /* RegisterViewControllerKyboard.swift */; };
 		841EB4522324DC0800495B87 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4512324DC0800495B87 /* MapViewController.swift */; };
 		841EB4772327978D00495B87 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4762327978D00495B87 /* UserViewModel.swift */; };
@@ -77,9 +82,14 @@
 		62C19BD43F6E870F3BFBB8E5 /* Pods_EcoTrash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcoTrash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		841A627C231ED6B200DA56C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		841B3098234851F1001A825F /* LocationsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsMapViewController.swift; sourceTree = "<group>"; };
 		841B8000234090780074BE9B /* TrashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewModel.swift; sourceTree = "<group>"; };
 		841B80022340DA7C0074BE9B /* CompanyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyViewModel.swift; sourceTree = "<group>"; };
 		841B80042341DC7B0074BE9B /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		841C7B88234749D4001976E9 /* ShowMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMapCell.swift; sourceTree = "<group>"; };
+		841C7B8D23475112001976E9 /* LocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapView.swift; sourceTree = "<group>"; };
+		841C7B8F23477A8B001976E9 /* LocationMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationMapView.xib; sourceTree = "<group>"; };
+		841CA7342346746000346203 /* NewsfeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedTableViewController.swift; sourceTree = "<group>"; };
 		841EAB6D232FBB6F00D20294 /* RegisterViewControllerKyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerKyboard.swift; sourceTree = "<group>"; };
 		841EB4512324DC0800495B87 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		841EB4762327978D00495B87 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -153,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				47E0CD7B2344A80B0087185B /* XIB */,
+				841C7B8A23474FAF001976E9 /* Xib */,
 				47F7C3F72323E4FC00135485 /* Cell */,
 			);
 			path = View;
@@ -167,6 +178,7 @@
 				47361CF5234229720014E8EF /* NewsfeedTableViewCell.swift */,
 				47E0CD94234725BE0087185B /* EventListTableViewCell.swift */,
 				47E0CD9C234770120087185B /* NewsfeedDetailsImageCell.swift */,
+				841C7B88234749D4001976E9 /* ShowMapCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -178,6 +190,15 @@
 				DC6DEE3A7D05A739B12B9407 /* Pods-EcoTrash.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		841C7B8A23474FAF001976E9 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				841C7B8D23475112001976E9 /* LocationMapView.swift */,
+				841C7B8F23477A8B001976E9 /* LocationMapView.xib */,
+			);
+			path = Xib;
 			sourceTree = "<group>";
 		};
 		841EAB6C232FBB2800D20294 /* Extention */ = {
@@ -213,6 +234,9 @@
 				47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */,
 				47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */,
 				47E0CD962347493A0087185B /* NewsfeedDetailsViewController.swift */,
+				471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */,
+				841CA7342346746000346203 /* NewsfeedTableViewController.swift */,
+				841B3098234851F1001A825F /* LocationsMapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -299,6 +323,7 @@
 			files = (
 				47E0CD9B23474C760087185B /* DetailsLabelView.xib in Resources */,
 				470D5510231BDFAC00B1FC27 /* LaunchScreen.storyboard in Resources */,
+				841C7B9023477A8B001976E9 /* LocationMapView.xib in Resources */,
 				8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */,
 				47E0CD832344A9480087185B /* RegistrationView.xib in Resources */,
 				470D550D231BDFAC00B1FC27 /* Assets.xcassets in Resources */,
@@ -360,8 +385,10 @@
 				841B8001234090780074BE9B /* TrashViewModel.swift in Sources */,
 				841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */,
 				47E0CD9D234770120087185B /* NewsfeedDetailsImageCell.swift in Sources */,
+				841C7B8E23475112001976E9 /* LocationMapView.swift in Sources */,
 				47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */,
 				47361D1B2343B7110014E8EF /* AddEcoTrashTableViewController.swift in Sources */,
+				841B3099234851F1001A825F /* LocationsMapViewController.swift in Sources */,
 				471C07D9233FA98700995C45 /* AddTrashImageCell.swift in Sources */,
 				841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */,
 				841B80032340DA7C0074BE9B /* CompanyViewModel.swift in Sources */,
@@ -371,6 +398,7 @@
 				47E0CD9323460A690087185B /* EventListDetailsViewController.swift in Sources */,
 				47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */,
 				47E0CD912345E28F0087185B /* Event.swift in Sources */,
+				841CA7352346746000346203 /* NewsfeedTableViewController.swift in Sources */,
 				470D5506231BDFAB00B1FC27 /* AppDelegate.swift in Sources */,
 				841EB4772327978D00495B87 /* UserViewModel.swift in Sources */,
 				47E0CD95234725BE0087185B /* EventListTableViewCell.swift in Sources */,
@@ -382,6 +410,7 @@
 				471C07DB2340CFCE00995C45 /* CompanyListDetailsViewController.swift in Sources */,
 				841EB4522324DC0800495B87 /* MapViewController.swift in Sources */,
 				841A627D231ED6B200DA56C2 /* User.swift in Sources */,
+				841C7B89234749D4001976E9 /* ShowMapCell.swift in Sources */,
 				47C323CB2320184D00A62F4A /* Trash.swift in Sources */,
 				84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */,
 				47E0CD972347493A0087185B /* NewsfeedDetailsViewController.swift in Sources */,

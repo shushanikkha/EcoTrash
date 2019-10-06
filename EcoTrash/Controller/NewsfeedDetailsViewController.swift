@@ -78,9 +78,7 @@ class NewsfeedDetailsViewController: UIViewController {
             self.amountView = amountView
         }
         amountView?.detailsLabel.text = "Քանակ"
-        amountView?.detailsNameLabel.text = trash.amount + "  կգ"
-        
-        
+        amountView?.detailsNameLabel.text = "\(trash.amount) կգ"
       
     }
 }

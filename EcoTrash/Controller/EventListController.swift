@@ -59,7 +59,7 @@ class EventListController: UITableViewController {
     }
     
     private func sortAndUpdateEvents() {
-        sortedEvents = sortEventsByDate(events: events)
+        sortedEvents = [events]//sortEventsByDate(events: events)
         tableView.reloadData()
     }
 
