@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class TrashImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var imageView: UIImageView!

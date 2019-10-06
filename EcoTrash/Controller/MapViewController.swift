@@ -17,7 +17,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var addresLabel: UILabel!
     
     let locetionManager = CLLocationManager()
-    let regionInMeters: Double = 1000
+    let regionInMeters: Double = 10000
     
     var previousLocation: CLLocation?
     

@@ -21,8 +21,6 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
     
     @IBOutlet weak var trashTypeLabel: UILabel!
     @IBOutlet weak var trashTypePickerView: UIPickerView!
-    @IBOutlet weak var creationDateLabel: UILabel!
-    @IBOutlet weak var creationDatePicker: UIDatePicker!
     @IBOutlet weak var availableDateLabel: UILabel!
     @IBOutlet weak var availableDatePicker: UIDatePicker!
     @IBOutlet weak var availableAmount: UITextField!
@@ -39,66 +37,33 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
         }
     }
     
-    let creationDatePickerCellIndexPath = IndexPath(row: 1, section: 1)
-    var isCreationDatePickerShown: Bool = false {
-        didSet {
-            creationDatePicker.isHidden = !isCreationDatePickerShown
-        }
-    }
-    
-    let availableDatePickerCellIndexPath = IndexPath(row: 3, section: 1)
+    let availableDatePickerCellIndexPath = IndexPath(row: 1, section: 1)
     var isAvailableDatePickerShown: Bool = false {
         didSet {
             availableDatePicker.isHidden = !isAvailableDatePickerShown
         }
     }
     
-    
-//    var latitude = Double()
-//    var longitude = Double()
-//    var user: User?
-//    var image = UIImage()
-//
-//    var trash: Trash {
-//        var latitude = self.latitude
-//        var longitude = self.longitude
-//        var creationDate = creationDateLabel.text
-//        var availableDate = availableDateLabel.text
-//        var user = self.user
-//        var type = trashTypeLabel.text
-//        var image = self.image
-//        var amount = availableAmount.text
-//
-//        return Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: <#T##String#>, image: <#T##UIImage#>, amount: <#T##Int#>)
-//    }
-//
     let addTrashImageIndexPath = IndexPath(row: 0, section: 4)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.trashTypePickerView.delegate = self
         self.trashTypePickerView.dataSource = self
-        
-        let midnightTodey = Calendar.current.startOfDay(for: Date())
-        creationDatePicker.minimumDate = midnightTodey
-        creationDatePicker.maximumDate = midnightTodey
-        creationDatePicker.date = midnightTodey
-        
+
         updateDateViews()
     }
     
     // MARK: - Update Date Method -
     
     func updateDateViews() {
-        availableDatePicker.minimumDate = creationDatePicker.date
-        availableDatePicker.maximumDate = creationDatePicker.date.addingTimeInterval(864000)
+        let midnightTodey = Calendar.current.startOfDay(for: Date())
+        availableDatePicker.minimumDate = midnightTodey
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .medium
-        creationDateLabel.text = dateFormatter.string(from: creationDatePicker.date)
         availableDateLabel.text = dateFormatter.string(from: availableDatePicker.date)
-
     }
     
     // MARK: - UIPickerViewDataSource -
@@ -125,19 +90,12 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
         switch (indexPath.section, indexPath.row){
         case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row):
                 return isTrashTypePickerShown ? 150.0 : 0.0
-        case (creationDatePickerCellIndexPath.section, creationDatePickerCellIndexPath.row):
-                return isCreationDatePickerShown ? 216.0 : 0.0
         case (availableDatePickerCellIndexPath.section, availableDatePickerCellIndexPath.row):
             return isAvailableDatePickerShown ? 216.0 : 0.0
         case (addTrashImageIndexPath.section, addTrashImageIndexPath.row):
             return 100
         case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row): if isTrashTypePickerShown {
             return 150.0
-        } else {
-            return 0.0
-            }
-        case (creationDatePickerCellIndexPath.section, creationDatePickerCellIndexPath.row): if isCreationDatePickerShown  {
-            return 216.0
         } else {
             return 0.0
             }
@@ -162,25 +120,10 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
             }
             tableView.beginUpdates()
             tableView.endUpdates()
-            
-        case (creationDatePickerCellIndexPath.section, creationDatePickerCellIndexPath.row - 1):
-            if isCreationDatePickerShown {
-                isCreationDatePickerShown = false
-            } else if isAvailableDatePickerShown {
-                isAvailableDatePickerShown = false
-                isCreationDatePickerShown = true
-            } else {
-                isCreationDatePickerShown = true
-            }
-            tableView.beginUpdates()
-            tableView.endUpdates()
-            
+    
         case (availableDatePickerCellIndexPath.section, availableDatePickerCellIndexPath.row - 1):
             if isAvailableDatePickerShown {
                 isAvailableDatePickerShown = false
-            } else if isCreationDatePickerShown {
-                isCreationDatePickerShown = false
-                isAvailableDatePickerShown = true
             } else {
                 isAvailableDatePickerShown = true
             }
@@ -269,6 +212,15 @@ extension AddEcoTrashTableViewController: UICollectionViewDelegate, UICollection
         present(alertController, animated: true, completion:  nil)
     }
     
+    // MARK: - UIImagePickerControllerDelegate -
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let pickedImage = info[.originalImage] as? UIImage else { return }
+        self.images.append(pickedImage)
+        picker.dismiss(animated: true, completion: nil)
+        addImageCollectionView.reloadData()
+    }
+    
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -282,14 +234,5 @@ extension AddEcoTrashTableViewController: UICollectionViewDelegate, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashImageCollectionViewCell", for: indexPath) as? TrashImageCollectionViewCell
         cell?.setUp(with: images[indexPath.row - 1])
         return cell ?? UICollectionViewCell()
-    }
-    
-    // MARK: - UIImagePickerControllerDelegate -
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let pickedImage = info[.originalImage] as? UIImage else { return }
-        self.images.append(pickedImage)
-        picker.dismiss(animated: true, completion: nil)
-        addImageCollectionView.reloadData()
     }
 }

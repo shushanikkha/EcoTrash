@@ -12,7 +12,7 @@ import FirebaseDatabase
 class CompanyListController: UITableViewController {
   
     private var companies = [Company]()
-    var companiLists = [CompanyShortList]()
+    var companyList = [CompanyShortList]()
     var closure: ((UIImage) -> Void)?
     
     var ref: DatabaseReference?
@@ -64,9 +64,9 @@ class CompanyListController: UITableViewController {
                 }
                 
                 let company = Company(image: image, name: name, description: address, email: description, phone: phone, address: email, garbageType: garbageType)
-                let companiList = CompanyShortList(name: name, image: image, address: address)
+                let companyList = CompanyShortList(name: name, image: image, address: address)
                 
-                self.companiLists.append(companiList)
+                self.companyList.append(companyList)
                 self.companies.append(company)
                 self.tableView.reloadData()
             }
@@ -80,20 +80,21 @@ class CompanyListController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(companiLists.count)
-        return companiLists.count
+        print(companyList.count)
+        return companyList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let company = companiLists[indexPath.row]
-        var reuseIdentifier = "CompanyListTableViewCell"
-        if company.image != nil {
-            reuseIdentifier += "+image"
-        }
+       let company = companyList[indexPath.row]
+//        var reuseIdentifier = "CompanyListTableViewCell"
+//        if company.image != nil {
+//            reuseIdentifier += "+image"
+//        }
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? CompanyListTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyListTableViewCell", for: indexPath) as? CompanyListTableViewCell else { return UITableViewCell() }
         cell.updateCompanyList(with: company)
         return cell
     }
+
 
 }

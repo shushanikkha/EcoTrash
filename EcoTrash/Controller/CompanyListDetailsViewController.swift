@@ -18,13 +18,19 @@ class CompanyListDetailsViewController: UIViewController {
     @IBOutlet weak var garbageType: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+//    let company: Company?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setuoBorder()
+        setupBorder()
     
     }
-    func setuoBorder() {
+    
+    func setup(compny: Company) {
+        
+    }
+    
+  private  func setupBorder() {
         companyName.layer.cornerRadius = 6.0
         companyName.layer.borderWidth = 0.5
         companyName.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor

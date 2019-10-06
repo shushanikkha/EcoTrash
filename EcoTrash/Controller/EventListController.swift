@@ -7,84 +7,125 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import SDWebImage
+
 
 class EventListController: UITableViewController {
-
+    
+    private var events = [Event]()
+    private var sortedEvents = [[Event]]()
+    private var dateArray: [String] = []
+    private var convertedArray: [Date] = []
+    
+    var ref: DatabaseReference?
+    var hendler: DatabaseHandle?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        ref = Database.database().reference()
+        loadDada()
+    }
+    
+    private func loadDada() {
+        ref?.child("events").observeSingleEvent(of: DataEventType.value, with: { [weak self] (snapshot) in
+            guard let self = self, let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for snap in snapshot {
+                guard let dictionary = snap.value as? [String: Any] else { return }
+                
+                let name = dictionary["name"] as! String
+                let address = dictionary["address"] as! String
+                let description = dictionary["description"] as! String
+                let phone = dictionary["phone"] as! String
+                let registrationLink = dictionary["registrationLink"] as! String
+                let date = dictionary["date"] as! String
+                let image = dictionary["imageUrl"] as! String
+                
+                var imageUrl: URL?
+                
+                if image != "" {
+                    guard let url = URL(string: image) else { return }
+                    imageUrl = url
+                }
+                
+                let event = Event(imageUrl: imageUrl, name: name, description: description, phone: phone, address: address, date: date, registrationLink: registrationLink)
+                
+                self.events.append(event)
+                self.dateArray.append(date)
+                            }
+            self.sortAndUpdateEvents()
+        })
+    }
+    
+    private func sortAndUpdateEvents() {
+        sortedEvents = sortEventsByDate(events: events)
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
-
+    //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //        let header = view as! UITableViewHeaderFooterView
+    //        header.textLabel?.textColor = UIColor.black
+    //        header.textLabel?.font = UIFont(name: "ԳԱԼԻՔ ՄԻՋՈՑԱՌՈՒՄՆԵՐ", size: 38)!
+    //        if  header.textLabel?.text == "ԳԱԼԻՔ ՄԻՋՈՑԱՌՈՒՄՆԵՐ" {
+    //            return upcomingEvents.count
+    //        } else if header.textLabel?.text == "ԱՆՑԱԾ ԻՐԱԴԱՐՁՈՒԹՅՈՒՆՆԵՐ" {
+    //            return pastEvents.count
+    //        }
+    //        return 1
+    //    }
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return sortedEvents.count
     }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return sortedEvents[section].count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let event = sortedEvents[indexPath.section][indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventListTableViewCell", for: indexPath) as? EventListTableViewCell else { return UITableViewCell() }
+        cell.updateEventList(with: event)
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+//
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        guard sortedEvents.count > 1 else { return nil }
+//
+//    }
+//
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        guard sortedEvents.count > 1 else { return .zero }
+//
+//    }
+    
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let eventDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "EventListDetailsViewController") as? EventListDetailsViewController else { return }
+        eventDetailsVC.event = sortedEvents[0][indexPath.row]
+        let navVC = UINavigationController(rootViewController: eventDetailsVC)
+        self.present(navVC, animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MM, yyyy"
+        return dateFormatter
+    }()
+    
+    private func sortEventsByDate(events: [Event]) -> [[Event]] {
+        var previous = [Event]()
+        var after = [Event]()
+        events.forEach { event in
+            if let date = dateFormatter.date(from: event.date) {
+                if date > Date() {
+                    previous.append(event)
+                } else {
+                    after.append(event)
+                }
+            }
+        }
+        return [previous, after]
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

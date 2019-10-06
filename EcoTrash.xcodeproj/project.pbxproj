@@ -19,6 +19,16 @@
 		47361D1B2343B7110014E8EF /* AddEcoTrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */; };
 		47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */; };
 		47C323CB2320184D00A62F4A /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C323CA2320184D00A62F4A /* Trash.swift */; };
+		47E0CD812344A93A0087185B /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0CD802344A93A0087185B /* RegistrationView.swift */; };
+		47E0CD832344A9480087185B /* RegistrationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E0CD822344A9480087185B /* RegistrationView.xib */; };
+		47E0CD852344ACAB0087185B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0CD842344ACAB0087185B /* RegistrationViewController.swift */; };
+		47E0CD912345E28F0087185B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0CD902345E28F0087185B /* Event.swift */; };
+		47E0CD9323460A690087185B /* EventListDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0CD9223460A690087185B /* EventListDetailsViewController.swift */; };
+		47E0CD95234725BE0087185B /* EventListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0CD94234725BE0087185B /* EventListTableViewCell.swift */; };
+		47E0CD972347493A0087185B /* NewsfeedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0CD962347493A0087185B /* NewsfeedDetailsViewController.swift */; };
+		47E0CD9923474C4D0087185B /* DetailsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0CD9823474C4D0087185B /* DetailsLabelView.swift */; };
+		47E0CD9B23474C760087185B /* DetailsLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E0CD9A23474C760087185B /* DetailsLabelView.xib */; };
+		47E0CD9D234770120087185B /* NewsfeedDetailsImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0CD9C234770120087185B /* NewsfeedDetailsImageCell.swift */; };
 		47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3F22323A07F00135485 /* CustomTabBarController.swift */; };
 		47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3F82323E53300135485 /* CompanyListTableViewCell.swift */; };
 		47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F7C3FA2323E69200135485 /* CompanyShortList.swift */; };
@@ -51,6 +61,16 @@
 		47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEcoTrashTableViewController.swift; sourceTree = "<group>"; };
 		47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseTrashTypeList.swift; sourceTree = "<group>"; };
 		47C323CA2320184D00A62F4A /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
+		47E0CD802344A93A0087185B /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		47E0CD822344A9480087185B /* RegistrationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationView.xib; sourceTree = "<group>"; };
+		47E0CD842344ACAB0087185B /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		47E0CD902345E28F0087185B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		47E0CD9223460A690087185B /* EventListDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListDetailsViewController.swift; sourceTree = "<group>"; };
+		47E0CD94234725BE0087185B /* EventListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListTableViewCell.swift; sourceTree = "<group>"; };
+		47E0CD962347493A0087185B /* NewsfeedDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedDetailsViewController.swift; sourceTree = "<group>"; };
+		47E0CD9823474C4D0087185B /* DetailsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsLabelView.swift; sourceTree = "<group>"; };
+		47E0CD9A23474C760087185B /* DetailsLabelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsLabelView.xib; sourceTree = "<group>"; };
+		47E0CD9C234770120087185B /* NewsfeedDetailsImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedDetailsImageCell.swift; sourceTree = "<group>"; };
 		47F7C3F22323A07F00135485 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		47F7C3F82323E53300135485 /* CompanyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListTableViewCell.swift; sourceTree = "<group>"; };
 		47F7C3FA2323E69200135485 /* CompanyShortList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyShortList.swift; sourceTree = "<group>"; };
@@ -118,9 +138,21 @@
 			path = EcoTrash;
 			sourceTree = "<group>";
 		};
+		47E0CD7B2344A80B0087185B /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				47E0CD802344A93A0087185B /* RegistrationView.swift */,
+				47E0CD822344A9480087185B /* RegistrationView.xib */,
+				47E0CD9823474C4D0087185B /* DetailsLabelView.swift */,
+				47E0CD9A23474C760087185B /* DetailsLabelView.xib */,
+			);
+			path = XIB;
+			sourceTree = "<group>";
+		};
 		47F7C3F62323E4EF00135485 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				47E0CD7B2344A80B0087185B /* XIB */,
 				47F7C3F72323E4FC00135485 /* Cell */,
 			);
 			path = View;
@@ -133,6 +165,8 @@
 				471C07D8233FA98700995C45 /* AddTrashImageCell.swift */,
 				47361D192343AD930014E8EF /* TrashImageCollectionViewCell.swift */,
 				47361CF5234229720014E8EF /* NewsfeedTableViewCell.swift */,
+				47E0CD94234725BE0087185B /* EventListTableViewCell.swift */,
+				47E0CD9C234770120087185B /* NewsfeedDetailsImageCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -169,13 +203,16 @@
 			children = (
 				470D5507231BDFAB00B1FC27 /* LoginViewController.swift */,
 				84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */,
+				47E0CD842344ACAB0087185B /* RegistrationViewController.swift */,
+				47F7C3F22323A07F00135485 /* CustomTabBarController.swift */,
 				84858A382322C6310010D8C8 /* CompanyListController.swift */,
+				471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */,
 				841EB4512324DC0800495B87 /* MapViewController.swift */,
 				84858A3A2322C67E0010D8C8 /* EventListController.swift */,
-				47F7C3F22323A07F00135485 /* CustomTabBarController.swift */,
+				47E0CD9223460A690087185B /* EventListDetailsViewController.swift */,
 				47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */,
 				47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */,
-				471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */,
+				47E0CD962347493A0087185B /* NewsfeedDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +224,7 @@
 				47C323CA2320184D00A62F4A /* Trash.swift */,
 				47F7C3FA2323E69200135485 /* CompanyShortList.swift */,
 				841B80042341DC7B0074BE9B /* Company.swift */,
+				47E0CD902345E28F0087185B /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,8 +297,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47E0CD9B23474C760087185B /* DetailsLabelView.xib in Resources */,
 				470D5510231BDFAC00B1FC27 /* LaunchScreen.storyboard in Resources */,
 				8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */,
+				47E0CD832344A9480087185B /* RegistrationView.xib in Resources */,
 				470D550D231BDFAC00B1FC27 /* Assets.xcassets in Resources */,
 				470D550B231BDFAB00B1FC27 /* Main.storyboard in Resources */,
 			);
@@ -315,9 +355,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47E0CD9923474C4D0087185B /* DetailsLabelView.swift in Sources */,
 				84D08F16231C2AFC00402CE4 /* RegisterViewController.swift in Sources */,
 				841B8001234090780074BE9B /* TrashViewModel.swift in Sources */,
 				841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */,
+				47E0CD9D234770120087185B /* NewsfeedDetailsImageCell.swift in Sources */,
 				47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */,
 				47361D1B2343B7110014E8EF /* AddEcoTrashTableViewController.swift in Sources */,
 				471C07D9233FA98700995C45 /* AddTrashImageCell.swift in Sources */,
@@ -326,10 +368,15 @@
 				841B80052341DC7B0074BE9B /* Company.swift in Sources */,
 				470D5508231BDFAB00B1FC27 /* LoginViewController.swift in Sources */,
 				47361CF6234229720014E8EF /* NewsfeedTableViewCell.swift in Sources */,
+				47E0CD9323460A690087185B /* EventListDetailsViewController.swift in Sources */,
 				47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */,
+				47E0CD912345E28F0087185B /* Event.swift in Sources */,
 				470D5506231BDFAB00B1FC27 /* AppDelegate.swift in Sources */,
 				841EB4772327978D00495B87 /* UserViewModel.swift in Sources */,
+				47E0CD95234725BE0087185B /* EventListTableViewCell.swift in Sources */,
+				47E0CD852344ACAB0087185B /* RegistrationViewController.swift in Sources */,
 				47361D1A2343AD930014E8EF /* TrashImageCollectionViewCell.swift in Sources */,
+				47E0CD812344A93A0087185B /* RegistrationView.swift in Sources */,
 				47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */,
 				47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */,
 				471C07DB2340CFCE00995C45 /* CompanyListDetailsViewController.swift in Sources */,
@@ -337,6 +384,7 @@
 				841A627D231ED6B200DA56C2 /* User.swift in Sources */,
 				47C323CB2320184D00A62F4A /* Trash.swift in Sources */,
 				84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */,
+				47E0CD972347493A0087185B /* NewsfeedDetailsViewController.swift in Sources */,
 				84858A3B2322C67E0010D8C8 /* EventListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

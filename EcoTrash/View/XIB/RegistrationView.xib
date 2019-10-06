@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RegistrationView" customModule="EcoTrash" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="531" height="163"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uae-Ir-6LL">
+                    <rect key="frame" x="20" y="44" width="491" height="85"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="E3V-aa-hZH">
+                            <rect key="frame" x="0.0" y="0.0" width="491" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="U41-pQ-NO4"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpt-K0-pTw">
+                            <rect key="frame" x="20" y="55" width="451" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Zpt-K0-pTw" firstAttribute="top" secondItem="E3V-aa-hZH" secondAttribute="bottom" constant="5" id="2IJ-o0-xme"/>
+                        <constraint firstAttribute="bottom" secondItem="Zpt-K0-pTw" secondAttribute="bottom" id="4lg-Dc-C10"/>
+                        <constraint firstItem="E3V-aa-hZH" firstAttribute="top" secondItem="uae-Ir-6LL" secondAttribute="top" id="9PP-Ij-eat"/>
+                        <constraint firstAttribute="trailing" secondItem="E3V-aa-hZH" secondAttribute="trailing" id="LVm-KX-yry"/>
+                        <constraint firstItem="Zpt-K0-pTw" firstAttribute="leading" secondItem="uae-Ir-6LL" secondAttribute="leading" constant="20" id="aqE-aC-nff"/>
+                        <constraint firstItem="E3V-aa-hZH" firstAttribute="leading" secondItem="uae-Ir-6LL" secondAttribute="leading" id="lng-Z1-KUi"/>
+                        <constraint firstAttribute="trailing" secondItem="Zpt-K0-pTw" secondAttribute="trailing" constant="20" id="sRR-77-gpG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uae-Ir-6LL" secondAttribute="bottom" id="QVd-xK-dND"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uae-Ir-6LL" secondAttribute="trailing" constant="20" id="YIS-rv-gsa"/>
+                <constraint firstItem="uae-Ir-6LL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="nm7-yE-soh"/>
+                <constraint firstItem="uae-Ir-6LL" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="oh4-xY-M81"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="contentView" destination="uae-Ir-6LL" id="Z3a-Ik-5mj"/>
+                <outlet property="errorLabel" destination="Zpt-K0-pTw" id="2yL-Oj-Pcv"/>
+                <outlet property="registrationTextField" destination="E3V-aa-hZH" id="3nl-KV-EGx"/>
+            </connections>
+            <point key="canvasLocation" x="222.46376811594206" y="-139.62053571428569"/>
+        </view>
+    </objects>
+</document>
