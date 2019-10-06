@@ -7,20 +7,22 @@
 //
 
 import UIKit
+import SDWebImage
+
 
 class CompanyListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var companyImage: UIImageView?
+    @IBOutlet weak var companyImage: UIImageView!
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var companyAddress: UILabel!
     
-    func updateCompanyList(with company: CompanyShortList) {
+    func updateCompanyList(with company: Company) {
         self.companyName.text = company.name
         self.companyAddress.text = company.address
-        
-        if let companyImage = companyImage {
-            companyImage.image = company.image
+                
+        if let imageUrl = company.imageUrl {
+            self.companyImage.sd_setImage(with: imageUrl, completed: nil)
         }
     }
-
+    
 }

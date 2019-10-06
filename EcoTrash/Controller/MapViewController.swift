@@ -27,7 +27,6 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         chackLocationServices()
-        
     }
     
     private func setupLocationManager() {
@@ -89,7 +88,6 @@ class MapViewController: UIViewController {
         guard let latitude = previousLocation?.coordinate.latitude,
             let longitude = previousLocation?.coordinate.longitude  else { return }
         
-        
         let dict = ["addres": addresLabel.text!, "latitude": latitude, "longitude": longitude ] as completionHandler
         guard let setAddres = setAddres else { return }
         
@@ -106,14 +104,14 @@ class MapViewController: UIViewController {
 
 
 extension MapViewController: CLLocationManagerDelegate, MKMapViewDelegate {
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let location = locations.last else { return }
-//        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude:
-//            location.coordinate.longitude)
-//        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionInMeters, longitudinalMeters:
-//            regionInMeters)
-//        mapView.setRegion(region, animated: true)
-//    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude:
+            location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionInMeters, longitudinalMeters:
+            regionInMeters)
+        mapView.setRegion(region, animated: true)
+    }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         chackLocationAuthorisation()

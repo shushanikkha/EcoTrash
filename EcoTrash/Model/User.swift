@@ -19,7 +19,7 @@ class User: Codable {
     var confirmPassword: String
     var id: String
     
-    init(firstName: String, lastName: String, email: String, phoneNumber: String, password: String, confirmPassword: String, id: String) {
+    init(firstName: String, lastName: String, email: String, phoneNumber: String, password: String = "", confirmPassword: String = "", id: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
@@ -28,7 +28,7 @@ class User: Codable {
         self.confirmPassword = confirmPassword
         self.id = id
     }
-    
+
     func toAny() -> [String: Any] {
         return [
             "firstName": firstName,

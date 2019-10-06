@@ -10,41 +10,60 @@ import UIKit
 
 class CompanyListDetailsViewController: UIViewController {
     
-    @IBOutlet weak var companyImage: UIImageView!
-    @IBOutlet weak var companyName: UILabel!
-    @IBOutlet weak var companyAddress: UILabel!
-    @IBOutlet weak var companyPhone: UILabel!
-    @IBOutlet weak var companyEmail: UILabel!
-    @IBOutlet weak var garbageType: UILabel!
+    @IBOutlet weak var companyImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var garbageTypeLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    var company: Company?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setuoBorder()
-    
+        setupBorder()
+        setup()
     }
-    func setuoBorder() {
-        companyName.layer.cornerRadius = 6.0
-        companyName.layer.borderWidth = 0.5
-        companyName.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        companyAddress.layer.cornerRadius = 6.0
-        companyAddress.layer.borderWidth = 0.5
-        companyAddress.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        companyPhone.layer.cornerRadius = 6.0
-        companyPhone.layer.borderWidth = 0.5
-        companyPhone.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        companyEmail.layer.cornerRadius = 6.0
-        companyEmail.layer.borderWidth = 0.5
-        companyEmail.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        garbageType.layer.cornerRadius = 6.0
-        garbageType.layer.borderWidth = 0.5
-        garbageType.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
+    
+  
+    
+    func setupBorder() {
+        nameLabel.layer.cornerRadius = 6.0
+        nameLabel.layer.borderWidth = 0.5
+        nameLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
+        addressLabel.layer.cornerRadius = 6.0
+        addressLabel.layer.borderWidth = 0.5
+        addressLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
+        phoneLabel.layer.cornerRadius = 6.0
+        phoneLabel.layer.borderWidth = 0.5
+        phoneLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
+        emailLabel.layer.cornerRadius = 6.0
+        emailLabel.layer.borderWidth = 0.5
+        emailLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
+        garbageTypeLabel.layer.cornerRadius = 6.0
+        garbageTypeLabel.layer.borderWidth = 0.5
+        garbageTypeLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
         descriptionTextView.layer.cornerRadius = 6.0
         descriptionTextView.layer.borderWidth = 0.5
         descriptionTextView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        
     }
+
+    func setup() {
+        guard let company = company else { return }
+        nameLabel.text = company.name
+        addressLabel.text = company.address
+        phoneLabel.text = company.phone
+        emailLabel.text = company.email
+        garbageTypeLabel.text = company.garbageType
+        descriptionTextView.text = company.description
+        
+        if let imageUrl = company.imageUrl {
+            companyImageView.sd_setImage(with: imageUrl, completed: nil)
+        }
+    }
+    
+    
     @IBAction private func cancelAction() {
         navigationController?.dismiss(animated: true, completion: nil)
     }

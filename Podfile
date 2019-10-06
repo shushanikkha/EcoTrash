@@ -8,6 +8,7 @@ target 'EcoTrash' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'SwiftKeychainWrapper'
+  pod 'SDWebImage'
 
 
 end
