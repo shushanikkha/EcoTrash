@@ -17,7 +17,11 @@
 		47361CF6234229720014E8EF /* NewsfeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47361CF5234229720014E8EF /* NewsfeedTableViewCell.swift */; };
 		47361D1A2343AD930014E8EF /* TrashImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47361D192343AD930014E8EF /* TrashImageCollectionViewCell.swift */; };
 		47361D1B2343B7110014E8EF /* AddEcoTrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */; };
-		47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */; };
+		4737FE87234B9AEB00FD72B2 /* DetailsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737FE86234B9AEB00FD72B2 /* DetailsTextView.swift */; };
+		4737FE89234B9B0700FD72B2 /* DetailsTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4737FE88234B9B0700FD72B2 /* DetailsTextView.xib */; };
+		4737FE8B2353255700FD72B2 /* RecycleWasteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737FE8A2353255700FD72B2 /* RecycleWasteViewController.swift */; };
+		4737FE8D235326DA00FD72B2 /* RecycleWasteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737FE8C235326DA00FD72B2 /* RecycleWasteTableViewCell.swift */; };
+		4737FE8F2353305500FD72B2 /* RecycleWaste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737FE8E2353305500FD72B2 /* RecycleWaste.swift */; };
 		47C323CB2320184D00A62F4A /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C323CA2320184D00A62F4A /* Trash.swift */; };
 		47E0CD812344A93A0087185B /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0CD802344A93A0087185B /* RegistrationView.swift */; };
 		47E0CD832344A9480087185B /* RegistrationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E0CD822344A9480087185B /* RegistrationView.xib */; };
@@ -63,8 +67,12 @@
 		471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListDetailsViewController.swift; sourceTree = "<group>"; };
 		47361CF5234229720014E8EF /* NewsfeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedTableViewCell.swift; sourceTree = "<group>"; };
 		47361D192343AD930014E8EF /* TrashImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		4737FE86234B9AEB00FD72B2 /* DetailsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTextView.swift; sourceTree = "<group>"; };
+		4737FE88234B9B0700FD72B2 /* DetailsTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsTextView.xib; sourceTree = "<group>"; };
+		4737FE8A2353255700FD72B2 /* RecycleWasteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleWasteViewController.swift; sourceTree = "<group>"; };
+		4737FE8C235326DA00FD72B2 /* RecycleWasteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleWasteTableViewCell.swift; sourceTree = "<group>"; };
+		4737FE8E2353305500FD72B2 /* RecycleWaste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleWaste.swift; sourceTree = "<group>"; };
 		47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEcoTrashTableViewController.swift; sourceTree = "<group>"; };
-		47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseTrashTypeList.swift; sourceTree = "<group>"; };
 		47C323CA2320184D00A62F4A /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
 		47E0CD802344A93A0087185B /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		47E0CD822344A9480087185B /* RegistrationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationView.xib; sourceTree = "<group>"; };
@@ -155,6 +163,10 @@
 				47E0CD822344A9480087185B /* RegistrationView.xib */,
 				47E0CD9823474C4D0087185B /* DetailsLabelView.swift */,
 				47E0CD9A23474C760087185B /* DetailsLabelView.xib */,
+				841C7B8D23475112001976E9 /* LocationMapView.swift */,
+				841C7B8F23477A8B001976E9 /* LocationMapView.xib */,
+				4737FE86234B9AEB00FD72B2 /* DetailsTextView.swift */,
+				4737FE88234B9B0700FD72B2 /* DetailsTextView.xib */,
 			);
 			path = XIB;
 			sourceTree = "<group>";
@@ -163,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				47E0CD7B2344A80B0087185B /* XIB */,
-				841C7B8A23474FAF001976E9 /* Xib */,
 				47F7C3F72323E4FC00135485 /* Cell */,
 			);
 			path = View;
@@ -179,6 +190,7 @@
 				47E0CD94234725BE0087185B /* EventListTableViewCell.swift */,
 				47E0CD9C234770120087185B /* NewsfeedDetailsImageCell.swift */,
 				841C7B88234749D4001976E9 /* ShowMapCell.swift */,
+				4737FE8C235326DA00FD72B2 /* RecycleWasteTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -190,15 +202,6 @@
 				DC6DEE3A7D05A739B12B9407 /* Pods-EcoTrash.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		841C7B8A23474FAF001976E9 /* Xib */ = {
-			isa = PBXGroup;
-			children = (
-				841C7B8D23475112001976E9 /* LocationMapView.swift */,
-				841C7B8F23477A8B001976E9 /* LocationMapView.xib */,
-			);
-			path = Xib;
 			sourceTree = "<group>";
 		};
 		841EAB6C232FBB2800D20294 /* Extention */ = {
@@ -228,15 +231,14 @@
 				47F7C3F22323A07F00135485 /* CustomTabBarController.swift */,
 				84858A382322C6310010D8C8 /* CompanyListController.swift */,
 				471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */,
-				841EB4512324DC0800495B87 /* MapViewController.swift */,
 				84858A3A2322C67E0010D8C8 /* EventListController.swift */,
 				47E0CD9223460A690087185B /* EventListDetailsViewController.swift */,
-				47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */,
-				47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */,
-				47E0CD962347493A0087185B /* NewsfeedDetailsViewController.swift */,
-				471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */,
 				841CA7342346746000346203 /* NewsfeedTableViewController.swift */,
+				47E0CD962347493A0087185B /* NewsfeedDetailsViewController.swift */,
 				841B3098234851F1001A825F /* LocationsMapViewController.swift */,
+				47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */,
+				841EB4512324DC0800495B87 /* MapViewController.swift */,
+				4737FE8A2353255700FD72B2 /* RecycleWasteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -249,6 +251,7 @@
 				47F7C3FA2323E69200135485 /* CompanyShortList.swift */,
 				841B80042341DC7B0074BE9B /* Company.swift */,
 				47E0CD902345E28F0087185B /* Event.swift */,
+				4737FE8E2353305500FD72B2 /* RecycleWaste.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			files = (
 				47E0CD9B23474C760087185B /* DetailsLabelView.xib in Resources */,
 				470D5510231BDFAC00B1FC27 /* LaunchScreen.storyboard in Resources */,
+				4737FE89234B9B0700FD72B2 /* DetailsTextView.xib in Resources */,
 				841C7B9023477A8B001976E9 /* LocationMapView.xib in Resources */,
 				8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */,
 				47E0CD832344A9480087185B /* RegistrationView.xib in Resources */,
@@ -386,7 +390,6 @@
 				841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */,
 				47E0CD9D234770120087185B /* NewsfeedDetailsImageCell.swift in Sources */,
 				841C7B8E23475112001976E9 /* LocationMapView.swift in Sources */,
-				47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */,
 				47361D1B2343B7110014E8EF /* AddEcoTrashTableViewController.swift in Sources */,
 				841B3099234851F1001A825F /* LocationsMapViewController.swift in Sources */,
 				471C07D9233FA98700995C45 /* AddTrashImageCell.swift in Sources */,
@@ -396,16 +399,19 @@
 				470D5508231BDFAB00B1FC27 /* LoginViewController.swift in Sources */,
 				47361CF6234229720014E8EF /* NewsfeedTableViewCell.swift in Sources */,
 				47E0CD9323460A690087185B /* EventListDetailsViewController.swift in Sources */,
+				4737FE8D235326DA00FD72B2 /* RecycleWasteTableViewCell.swift in Sources */,
 				47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */,
 				47E0CD912345E28F0087185B /* Event.swift in Sources */,
 				841CA7352346746000346203 /* NewsfeedTableViewController.swift in Sources */,
 				470D5506231BDFAB00B1FC27 /* AppDelegate.swift in Sources */,
 				841EB4772327978D00495B87 /* UserViewModel.swift in Sources */,
 				47E0CD95234725BE0087185B /* EventListTableViewCell.swift in Sources */,
+				4737FE87234B9AEB00FD72B2 /* DetailsTextView.swift in Sources */,
 				47E0CD852344ACAB0087185B /* RegistrationViewController.swift in Sources */,
 				47361D1A2343AD930014E8EF /* TrashImageCollectionViewCell.swift in Sources */,
 				47E0CD812344A93A0087185B /* RegistrationView.swift in Sources */,
 				47F7C3FB2323E69200135485 /* CompanyShortList.swift in Sources */,
+				4737FE8B2353255700FD72B2 /* RecycleWasteViewController.swift in Sources */,
 				47F7C3F92323E53300135485 /* CompanyListTableViewCell.swift in Sources */,
 				471C07DB2340CFCE00995C45 /* CompanyListDetailsViewController.swift in Sources */,
 				841EB4522324DC0800495B87 /* MapViewController.swift in Sources */,
@@ -414,6 +420,7 @@
 				47C323CB2320184D00A62F4A /* Trash.swift in Sources */,
 				84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */,
 				47E0CD972347493A0087185B /* NewsfeedDetailsViewController.swift in Sources */,
+				4737FE8F2353305500FD72B2 /* RecycleWaste.swift in Sources */,
 				84858A3B2322C67E0010D8C8 /* EventListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

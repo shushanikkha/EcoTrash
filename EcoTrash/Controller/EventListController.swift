@@ -40,6 +40,7 @@ class EventListController: UITableViewController {
                 let phone = dictionary["phone"] as! String
                 let registrationLink = dictionary["registrationLink"] as! String
                 let date = dictionary["date"] as! String
+                let time = dictionary["time"] as! String
                 let image = dictionary["imageUrl"] as! String
                 
                 var imageUrl: URL?
@@ -49,32 +50,21 @@ class EventListController: UITableViewController {
                     imageUrl = url
                 }
                 
-                let event = Event(imageUrl: imageUrl, name: name, description: description, phone: phone, address: address, date: date, registrationLink: registrationLink)
+                let event = Event(imageUrl: imageUrl, name: name, description: description, phone: phone, address: address, date: date, time: time, registrationLink: registrationLink)
                 
                 self.events.append(event)
                 self.dateArray.append(date)
-                            }
+            }
             self.sortAndUpdateEvents()
         })
     }
     
     private func sortAndUpdateEvents() {
-        sortedEvents = [events]//sortEventsByDate(events: events)
+        sortedEvents = self.sortEventsByDate(events: self.events)
         tableView.reloadData()
     }
 
     // MARK: - Table view data source
-    //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //        let header = view as! UITableViewHeaderFooterView
-    //        header.textLabel?.textColor = UIColor.black
-    //        header.textLabel?.font = UIFont(name: "ԳԱԼԻՔ ՄԻՋՈՑԱՌՈՒՄՆԵՐ", size: 38)!
-    //        if  header.textLabel?.text == "ԳԱԼԻՔ ՄԻՋՈՑԱՌՈՒՄՆԵՐ" {
-    //            return upcomingEvents.count
-    //        } else if header.textLabel?.text == "ԱՆՑԱԾ ԻՐԱԴԱՐՁՈՒԹՅՈՒՆՆԵՐ" {
-    //            return pastEvents.count
-    //        }
-    //        return 1
-    //    }
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sortedEvents.count
     }
@@ -88,16 +78,19 @@ class EventListController: UITableViewController {
         cell.updateEventList(with: event)
         return cell
     }
-//
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        guard sortedEvents.count > 1 else { return nil }
-//
-//    }
-//
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        guard sortedEvents.count > 1 else { return .zero }
-//
-//    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.text = titleForSection(section)
+        let view = UIView()
+        
+        return view
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 32
+    }
     
     // MARK: - Table view delegate
     
@@ -108,17 +101,16 @@ class EventListController: UITableViewController {
         self.present(navVC, animated: true, completion: nil)
     }
     
-    lazy var dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MM, yyyy"
-        return dateFormatter
-    }()
+    private func titleForSection(_ section: Int) -> String {
+        return "Title"
+    }
     
     private func sortEventsByDate(events: [Event]) -> [[Event]] {
         var previous = [Event]()
         var after = [Event]()
+        let events = events.sorted(by: >)
         events.forEach { event in
-            if let date = dateFormatter.date(from: event.date) {
+            if let date = event.formattedDate {
                 if date > Date() {
                     previous.append(event)
                 } else {
@@ -127,5 +119,15 @@ class EventListController: UITableViewController {
             }
         }
         return [previous, after]
+    }
+}
+
+extension Event: Comparable {
+    static func < (lhs: Event, rhs: Event) -> Bool {
+        return lhs.formattedDate?.timeIntervalSinceNow ?? 0 < rhs.formattedDate?.timeIntervalSinceNow ?? 0
+    }
+    
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        return lhs.name == rhs.name
     }
 }

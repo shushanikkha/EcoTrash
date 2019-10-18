@@ -33,53 +33,63 @@ class NewsfeedDetailsViewController: UIViewController {
     
     private func setupDetailsLabels() {
          guard let trash = trash else { return }
-        let width = UIScreen.main.bounds.size.width - 20
-        if let addressView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView {
-            detailsStackView.addSubview(addressView)
-            let frame = CGRect(x: 0, y: 100, width: width, height: 50)
+        let width = Int(UIScreen.main.bounds.size.width) - 20
+        let height = 50
+        let x = 0
+        var y = 100
+        if let addressView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView, !trash.address.isEmpty  {
+            let frame = CGRect(x: x, y: y, width: width, height: height)
+            y += height
             addressView.frame = frame
+            addressView.detailsLabel.text = "Հասցե"
+            addressView.detailsNameLabel.text = trash.address
+            detailsStackView.addSubview(addressView)
             self.addressView = addressView
         }
-        addressView?.detailsLabel.text = "Հասցե"
-        addressView?.detailsNameLabel.text = trash.address
-        
-        
-        if let creationDateView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView {
-            detailsStackView.addSubview(creationDateView)
-            let frame = CGRect(x: 0, y: 170, width: width, height: 50)
+      
+        if let creationDateView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView, !trash.creationDate.isEmpty {
+            let frame = CGRect(x: x, y: y, width: width, height: height)
+            y += height
             creationDateView.frame = frame
+            creationDateView.detailsLabel.text = "Ստեղծվել է"
+            creationDateView.detailsNameLabel.text = trash.creationDate
+             detailsStackView.addSubview(creationDateView)
             self.creationDateView = creationDateView
         }
-        creationDateView?.detailsLabel.text = "Ստեղծվել է"
-        creationDateView?.detailsNameLabel.text = trash.creationDate
         
-        if let availableDateView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView {
-            detailsStackView.addSubview(availableDateView)
-            let frame = CGRect(x: 0, y: 240, width: width, height: 50)
+        if let availableDateView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView, !trash.availableDate!.isEmpty {
+            let frame = CGRect(x: x, y: y, width: width, height: height)
+            y += height
             availableDateView.frame = frame
+            availableDateView.detailsLabel.text = "Հասանելի է"
+            availableDateView.detailsNameLabel.text = trash.availableDate
+            detailsStackView.addSubview(availableDateView)
             self.availableDateView = availableDateView
         }
-        availableDateView?.detailsLabel.text = "Հասանելի է"
-        availableDateView?.detailsNameLabel.text = trash.availableDate
         
-        if let wasteTypeView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView {
-            detailsStackView.addSubview(wasteTypeView)
-            let frame = CGRect(x: 0, y: 310, width: width, height: 50)
+        if let wasteTypeView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView, !trash.type.isEmpty {
+            let frame = CGRect(x: x, y: y, width: width, height: height)
+            y += height
             wasteTypeView.frame = frame
+            wasteTypeView.detailsLabel.text = "Տեսակ"
+            wasteTypeView.detailsNameLabel.text = trash.type
+              detailsStackView.addSubview(wasteTypeView)
             self.wasteTypeView = wasteTypeView
         }
-        wasteTypeView?.detailsLabel.text = "Տեսակ"
-        wasteTypeView?.detailsNameLabel.text = trash.type
         
         if let amountView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView {
-            detailsStackView.addSubview(amountView)
-            let frame = CGRect(x: 0, y: 380, width: width, height: 50)
+            let frame = CGRect(x: x, y: y, width: width, height: height)
             amountView.frame = frame
+            amountView.detailsLabel.text = "Քանակ"
+            amountView.detailsNameLabel.text = "\(trash.amount) կգ"
+             detailsStackView.addSubview(amountView)
             self.amountView = amountView
         }
-        amountView?.detailsLabel.text = "Քանակ"
-        amountView?.detailsNameLabel.text = "\(trash.amount) կգ"
       
+    }
+    
+    @IBAction private func cancelAction() {
+        navigationController?.dismiss(animated: true, completion: nil)
     }
 }
 

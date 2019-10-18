@@ -15,6 +15,8 @@ enum WasteType: String, CaseIterable {
     case Papaer
     case Glass
     case Metal
+    case Battery
+    case Polyethylene
     case Other
 }
 
@@ -125,19 +127,6 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
         updateDateViews()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -18,7 +18,7 @@ class NewsfeedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Nefsfeed"
+        navigationItem.title = "Newsfeed"
         
         ref = Database.database().reference()
         loadTrash()
@@ -84,7 +84,7 @@ class NewsfeedTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            guard let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as? MapViewController else { return }
+            guard let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsfeedDetailsViewController") as? NewsfeedDetailsViewController else { return }
             
             let navVC = UINavigationController(rootViewController: mapVC)
             self.present(navVC, animated: true, completion: nil)

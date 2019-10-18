@@ -11,52 +11,88 @@ import UIKit
 class CompanyListDetailsViewController: UIViewController {
     
     @IBOutlet weak var companyImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var garbageTypeLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var mainStackView: UIStackView!
+    
     
     var company: Company?
+    private var companyNameView: DetailsLabelView?
+    private var companyAddressView: DetailsLabelView?
+    private var companyPhoneNumberView: DetailsLabelView?
+    private var companyEmail: DetailsLabelView?
+    private var companyGarbageType: DetailsLabelView?
+    private var companyDescriptionTextView: DetailsTextView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupBorder()
-        setup()
+        setupCompany()
     }
     
   
-    
-    func setupBorder() {
-        nameLabel.layer.cornerRadius = 6.0
-        nameLabel.layer.borderWidth = 0.5
-        nameLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        addressLabel.layer.cornerRadius = 6.0
-        addressLabel.layer.borderWidth = 0.5
-        addressLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        phoneLabel.layer.cornerRadius = 6.0
-        phoneLabel.layer.borderWidth = 0.5
-        phoneLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        emailLabel.layer.cornerRadius = 6.0
-        emailLabel.layer.borderWidth = 0.5
-        emailLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        garbageTypeLabel.layer.cornerRadius = 6.0
-        garbageTypeLabel.layer.borderWidth = 0.5
-        garbageTypeLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        descriptionTextView.layer.cornerRadius = 6.0
-        descriptionTextView.layer.borderWidth = 0.5
-        descriptionTextView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-    }
 
-    func setup() {
+    func setupCompany() {
         guard let company = company else { return }
-        nameLabel.text = company.name
-        addressLabel.text = company.address
-        phoneLabel.text = company.phone
-        emailLabel.text = company.email
-        garbageTypeLabel.text = company.garbageType
-        descriptionTextView.text = company.description
+        let width = Int(UIScreen.main.bounds.size.width) - 20
+        let height = 70
+        let x = 0
+        var y = 20
+        if let companyNameView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView, !company.name.isEmpty {
+            let frame = CGRect(x: x, y: y, width: width, height: height)
+            y += height
+            companyNameView.frame = frame
+            companyNameView.detailsLabel.text = "Անվանում"
+            companyNameView.detailsNameLabel.text = company.name
+            mainStackView.addSubview(companyNameView)
+            self.companyNameView = companyNameView
+        }
+        
+        if let companyAddressView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView, !company.address.isEmpty {
+            let frame = CGRect(x: x, y: y, width: width, height: height)
+            y += height
+            companyAddressView.frame = frame
+            companyAddressView.detailsLabel.text = "Հասցե"
+            companyAddressView.detailsNameLabel.text = company.address
+            mainStackView.addSubview(companyAddressView)
+            self.companyAddressView = companyAddressView
+        }
+        
+        if let companyPhoneNumberView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView, !company.phone.isEmpty {
+            let frame = CGRect(x: x, y: y, width: width, height: height)
+            y += height
+            companyPhoneNumberView.frame = frame
+            companyPhoneNumberView.detailsLabel.text = "Հեռախոսահամար"
+            companyPhoneNumberView.detailsNameLabel.text = company.phone
+            mainStackView.addSubview(companyPhoneNumberView)
+            self.companyPhoneNumberView = companyPhoneNumberView
+        }
+        
+        if let companyEmail = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView, !company.email.isEmpty {
+            let frame = CGRect(x: x, y: y, width: width, height: height)
+            y += height
+            companyEmail.frame = frame
+            companyEmail.detailsLabel.text = "Էլ. փոստ"
+            companyEmail.detailsNameLabel.text = company.email
+            mainStackView.addSubview(companyEmail)
+            self.companyEmail = companyEmail
+        }
+        
+        if let companyGarbageType = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView, !company.garbageType.isEmpty {
+            let frame = CGRect(x: x, y: y, width: width, height: height)
+            y += height
+            companyGarbageType.frame = frame
+            companyGarbageType.detailsLabel.text = "Վերամշակման տեսակ"
+            companyGarbageType.detailsNameLabel.text = company.garbageType
+            mainStackView.addSubview(companyGarbageType)
+            self.companyGarbageType = companyGarbageType
+        }
+        
+        if let companyDescriptionTextView = Bundle.main.loadNibNamed("DetailsTextView", owner: self, options: nil)?.first as? DetailsTextView, !company.description.isEmpty {
+            let frame = CGRect(x: x, y: y, width: width, height: 200)
+            companyDescriptionTextView.frame = frame
+            companyDescriptionTextView.detailsTextView.text = company.description
+            mainStackView.addSubview(companyDescriptionTextView)
+            self.companyDescriptionTextView = companyDescriptionTextView
+        }
+
         
         if let imageUrl = company.imageUrl {
             companyImageView.sd_setImage(with: imageUrl, completed: nil)
