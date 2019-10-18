@@ -13,12 +13,6 @@ import SDWebImage
 class EventListDetailsViewController: UIViewController {
     
     @IBOutlet weak var eventImageView: UIImageView!
-//    @IBOutlet weak var eventNameLabel: UILabel!
-//    @IBOutlet weak var eventAddressLabel: UILabel!
-//    @IBOutlet weak var eventDateLabel: UILabel!
-//    @IBOutlet weak var eventPhoneLabel: UILabel!
-//    @IBOutlet weak var eventRegistrationLinkLabel: UILabel!
-    @IBOutlet weak var eventDescriptionTextView: UITextView!
     @IBOutlet weak var mainStackView: UIStackView!
     
     var event: Event?
@@ -27,44 +21,17 @@ class EventListDetailsViewController: UIViewController {
     private var eventPhoneNumberView: DetailsLabelView?
     private var eventRegistrationLinkView: DetailsLabelView?
     private var eventDateView: DetailsLabelView?
+    private var eventDescriptionTextView: DetailsTextView?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        descriptionTextViewBorder()
         setupEvents()
     }
 
     
-    private  func descriptionTextViewBorder() {
-//        eventNameLabel.layer.cornerRadius = 6.0
-//        eventNameLabel.layer.borderWidth = 0.5
-//        eventNameLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-//        eventAddressLabel.layer.cornerRadius = 6.0
-//        eventAddressLabel.layer.borderWidth = 0.5
-//        eventAddressLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-//        eventPhoneLabel.layer.cornerRadius = 6.0
-//        eventPhoneLabel.layer.borderWidth = 0.5
-//        eventPhoneLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-//        eventRegistrationLinkLabel.layer.cornerRadius = 6.0
-//        eventRegistrationLinkLabel.layer.borderWidth = 0.5
-//        eventRegistrationLinkLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-//        eventDateLabel.layer.cornerRadius = 6.0
-//        eventDateLabel.layer.borderWidth = 0.5
-//        eventDateLabel.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        eventDescriptionTextView.layer.cornerRadius = 6.0
-        eventDescriptionTextView.layer.borderWidth = 0.5
-        eventDescriptionTextView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.6).cgColor
-        
-    }
-    
     func setupEvents() {
         guard let event = event else { return }
-//        eventNameLabel.text = event.name
-//        eventAddressLabel.text = event.address
-//        eventDateLabel.text = event.date
-//        eventPhoneLabel.text = event.phone
-//        eventRegistrationLinkLabel.text = event.registrationLink
         let width = Int(UIScreen.main.bounds.size.width) - 20
         let height = 70
         let x = 0
@@ -88,8 +55,6 @@ class EventListDetailsViewController: UIViewController {
             mainStackView.addSubview(eventAddressView)
             self.eventAddressView = eventAddressView
         }
-       
-       
         
         if let eventPhoneNumberView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView, !event.phone.isEmpty {
             let frame = CGRect(x: x, y: y, width: width, height: height)
@@ -115,13 +80,20 @@ class EventListDetailsViewController: UIViewController {
             let frame = CGRect(x: x, y: y, width: width, height: height)
             y += height
             eventDateView.frame = frame
-            eventDateView.detailsLabel.text = "Ամսաթիվ"
-            eventDateView.detailsNameLabel.text = event.date
+            eventDateView.detailsLabel.text = "Ամսաթիվ/Ժամ"
+            eventDateView.detailsNameLabel.text = event.date + ", " + event.time
             mainStackView.addSubview(eventDateView)
             self.eventDateView = eventDateView
         }
         
-        eventDescriptionTextView.text = event.description
+        if let eventDescriptionTextView = Bundle.main.loadNibNamed("DetailsTextView", owner: self, options: nil)?.first as? DetailsTextView, !event.description.isEmpty {
+            let frame = CGRect(x: x, y: y, width: width, height: 200)
+            eventDescriptionTextView.frame = frame
+            eventDescriptionTextView.detailsTextView.text = event.description
+            mainStackView.addSubview(eventDescriptionTextView)
+            self.eventDescriptionTextView = eventDescriptionTextView
+        }
+        
         if let imageUrl = event.imageUrl {
             eventImageView.sd_setImage(with: imageUrl, completed: nil)
         }

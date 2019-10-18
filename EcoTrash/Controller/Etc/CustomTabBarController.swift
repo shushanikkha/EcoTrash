@@ -15,7 +15,7 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
     var eventListController: EventListController!
     var addEcoTrashController: AddEcoTrashTableViewController!
     var newsFeedController: NewsfeedTableViewCell!
-    var reuseTrashTypeList: ReuseTrashTypeList!
+    var reuseTrashTypeList: RecycleWasteViewController!
     
     override func viewDidLoad(){
         super.viewDidLoad()
