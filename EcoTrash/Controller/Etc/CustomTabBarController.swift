@@ -8,6 +8,7 @@
 import UIKit
 
 class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
+    
     @IBOutlet var customTabBarView: UIView!
     
     var companyListController: CompanyListController!
@@ -23,9 +24,7 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
             
         }
     //    customTabBarView.frame.size.width = self.view.frame.width
-        customTabBarView.frame = CGRect(x: 0, y: view.frame.height - 100, width: view.frame.width, height: 100)
-        self.view.addSubview(customTabBarView)
-
+       
        companyListController = CompanyListController()
         eventListController = EventListController()
         addEcoTrashController = AddEcoTrashTableViewController()
@@ -38,6 +37,15 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
 //        AddEcoTrashTableViewController.tabBarItem.selectedImage = UIImage(named: "add")
 
 //        viewControllers = [companyListController, AddEcoTrashTableViewController, eventListController]
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        customTabBarView.frame = CGRect(x: 0, y: view.frame.height - 100, width: view.frame.width, height: 100)
+        self.view.addSubview(customTabBarView)
+        
         for tabBarItem in tabBar.items! {
             tabBarItem.title = ""
             tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)

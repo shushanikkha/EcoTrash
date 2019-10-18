@@ -52,6 +52,8 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        trashViewModel.refTrash = Database.database().reference(withPath: "trash")
 
         self.trashTypePickerView.delegate = self
         self.trashTypePickerView.dataSource = self
@@ -68,7 +70,11 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .medium
-        availableDateLabel.text = dateFormatter.string(from: availableDatePicker.date)
+        
+        trashViewModel.availableDate = dateFormatter.string(from: availableDatePicker.date)
+        trashViewModel.creationDate = dateFormatter.string(from: midnightTodey)
+        
+        availableDateLabel.text = trashViewModel.availableDate
     }
     
     // MARK: - UIPickerViewDataSource -
@@ -85,7 +91,7 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        trashViewModel.type = WasteType.allCases[trashTypePickerView.selectedRow(inComponent: 0)].rawValue
+        trashViewModel.type = WasteType.allCases[row].rawValue
         trashTypeLabel.text  = trashViewModel.type
     }
     
@@ -97,10 +103,8 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
         
         guard trashViewModel.addTrash() else { return }
         
-        guard let newVC = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController else { return }
-        
-        let navVC = UINavigationController(rootViewController: newVC)
-        self.present(navVC, animated: true, completion: nil)
+        guard let tabBarC = self.storyboard?.instantiateViewController(withIdentifier: "CustomTabBarController") else { return }
+        self.present(tabBarC, animated: true, completion: nil)
         //TODO: SaveTrashddd
         
     }
@@ -124,6 +128,11 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
         updateDateViews()
     }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -153,15 +162,17 @@ extension AddEcoTrashTableViewController {
             return isAvailableDatePickerShown ? 216.0 : 0.0
         case (addTrashImageIndexPath.section, addTrashImageIndexPath.row):
             return 100
-        case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row): if isTrashTypePickerShown {
-            return 150.0
-        } else {
-            return 0.0
+        case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row):
+            if isTrashTypePickerShown {
+                return 150.0
+            } else {
+                return 0.0
             }
-        case (availableDatePickerCellIndexPath.section, availableDatePickerCellIndexPath.row): if isAvailableDatePickerShown {
-            return 216.0
-        } else {
-            return 0.0
+        case (availableDatePickerCellIndexPath.section, availableDatePickerCellIndexPath.row):
+            if isAvailableDatePickerShown {
+                return 216.0
+            } else {
+                return 0.0
             }
         default:
             return 44.0
@@ -251,6 +262,7 @@ extension AddEcoTrashTableViewController: UICollectionViewDelegate, UICollection
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[.originalImage] as? UIImage else { return }
         self.images.append(pickedImage)
+        trashViewModel.images = images
         picker.dismiss(animated: true, completion: nil)
         addImageCollectionView.reloadData()
     }

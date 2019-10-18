@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 
-class User: Codable {
+class User {
+    
     var firstName: String
     var lastName: String
     var email: String
@@ -27,6 +28,16 @@ class User: Codable {
         self.password = password
         self.confirmPassword = confirmPassword
         self.id = id
+    }
+    
+    init() {
+        self.firstName = ""
+        self.lastName = ""
+        self.email = ""
+        self.phoneNumber = ""
+        self.password = ""
+        self.confirmPassword = ""
+        self.id = ""
     }
 
     func toAny() -> [String: Any] {

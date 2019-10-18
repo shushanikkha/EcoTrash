@@ -27,4 +27,8 @@ class NewsfeedTableViewCell: UITableViewCell {
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        trashImageView.image = #imageLiteral(resourceName: "trashDef")
+    }
 }

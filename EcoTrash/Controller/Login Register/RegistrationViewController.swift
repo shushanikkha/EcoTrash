@@ -23,7 +23,7 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRegistrationView()
-        }
+    }
        
     private func setupRegistrationView() {
         let width = UIScreen.main.bounds.size.width - 20

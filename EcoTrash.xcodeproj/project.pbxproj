@@ -17,7 +17,6 @@
 		47361CF6234229720014E8EF /* NewsfeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47361CF5234229720014E8EF /* NewsfeedTableViewCell.swift */; };
 		47361D1A2343AD930014E8EF /* TrashImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47361D192343AD930014E8EF /* TrashImageCollectionViewCell.swift */; };
 		47361D1B2343B7110014E8EF /* AddEcoTrashTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */; };
-		47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */; };
 		47C323CB2320184D00A62F4A /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C323CA2320184D00A62F4A /* Trash.swift */; };
 		47E0CD812344A93A0087185B /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E0CD802344A93A0087185B /* RegistrationView.swift */; };
 		47E0CD832344A9480087185B /* RegistrationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E0CD822344A9480087185B /* RegistrationView.xib */; };
@@ -46,6 +45,7 @@
 		841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EAB6D232FBB6F00D20294 /* RegisterViewControllerKyboard.swift */; };
 		841EB4522324DC0800495B87 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4512324DC0800495B87 /* MapViewController.swift */; };
 		841EB4772327978D00495B87 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841EB4762327978D00495B87 /* UserViewModel.swift */; };
+		842021B623564E8000DF8BCF /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842021B523564E8000DF8BCF /* MainNavigationController.swift */; };
 		84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84858A382322C6310010D8C8 /* CompanyListController.swift */; };
 		84858A3B2322C67E0010D8C8 /* EventListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84858A3A2322C67E0010D8C8 /* EventListController.swift */; };
 		84D08F16231C2AFC00402CE4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */; };
@@ -64,7 +64,6 @@
 		47361CF5234229720014E8EF /* NewsfeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedTableViewCell.swift; sourceTree = "<group>"; };
 		47361D192343AD930014E8EF /* TrashImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEcoTrashTableViewController.swift; sourceTree = "<group>"; };
-		47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseTrashTypeList.swift; sourceTree = "<group>"; };
 		47C323CA2320184D00A62F4A /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
 		47E0CD802344A93A0087185B /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		47E0CD822344A9480087185B /* RegistrationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationView.xib; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		841EAB6D232FBB6F00D20294 /* RegisterViewControllerKyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewControllerKyboard.swift; sourceTree = "<group>"; };
 		841EB4512324DC0800495B87 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		841EB4762327978D00495B87 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		842021B523564E8000DF8BCF /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		84858A382322C6310010D8C8 /* CompanyListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListController.swift; sourceTree = "<group>"; };
 		84858A3A2322C67E0010D8C8 /* EventListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListController.swift; sourceTree = "<group>"; };
 		84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				470D5505231BDFAB00B1FC27 /* AppDelegate.swift */,
+				842021B523564E8000DF8BCF /* MainNavigationController.swift */,
 				47F7C3F62323E4EF00135485 /* View */,
 				841EAB6C232FBB2800D20294 /* Extention */,
 				84858A3D2322C6D20010D8C8 /* Model */,
@@ -155,6 +156,8 @@
 				47E0CD822344A9480087185B /* RegistrationView.xib */,
 				47E0CD9823474C4D0087185B /* DetailsLabelView.swift */,
 				47E0CD9A23474C760087185B /* DetailsLabelView.xib */,
+				841C7B8D23475112001976E9 /* LocationMapView.swift */,
+				841C7B8F23477A8B001976E9 /* LocationMapView.xib */,
 			);
 			path = XIB;
 			sourceTree = "<group>";
@@ -163,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				47E0CD7B2344A80B0087185B /* XIB */,
-				841C7B8A23474FAF001976E9 /* Xib */,
 				47F7C3F72323E4FC00135485 /* Cell */,
 			);
 			path = View;
@@ -192,13 +194,45 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		841C7B8A23474FAF001976E9 /* Xib */ = {
+		841B309A234B20E1001A825F /* Login Register */ = {
 			isa = PBXGroup;
 			children = (
-				841C7B8D23475112001976E9 /* LocationMapView.swift */,
-				841C7B8F23477A8B001976E9 /* LocationMapView.xib */,
+				470D5507231BDFAB00B1FC27 /* LoginViewController.swift */,
+				84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */,
+				47E0CD842344ACAB0087185B /* RegistrationViewController.swift */,
 			);
-			path = Xib;
+			path = "Login Register";
+			sourceTree = "<group>";
+		};
+		841B309B234B2130001A825F /* Newsfeed */ = {
+			isa = PBXGroup;
+			children = (
+				841CA7342346746000346203 /* NewsfeedTableViewController.swift */,
+				47E0CD962347493A0087185B /* NewsfeedDetailsViewController.swift */,
+				841B3098234851F1001A825F /* LocationsMapViewController.swift */,
+			);
+			path = Newsfeed;
+			sourceTree = "<group>";
+		};
+		841B309C234B2264001A825F /* Etc */ = {
+			isa = PBXGroup;
+			children = (
+				47F7C3F22323A07F00135485 /* CustomTabBarController.swift */,
+				84858A382322C6310010D8C8 /* CompanyListController.swift */,
+				84858A3A2322C67E0010D8C8 /* EventListController.swift */,
+				47E0CD9223460A690087185B /* EventListDetailsViewController.swift */,
+				471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */,
+			);
+			path = Etc;
+			sourceTree = "<group>";
+		};
+		841B309D234B22C5001A825F /* Add Trash */ = {
+			isa = PBXGroup;
+			children = (
+				841EB4512324DC0800495B87 /* MapViewController.swift */,
+				47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */,
+			);
+			path = "Add Trash";
 			sourceTree = "<group>";
 		};
 		841EAB6C232FBB2800D20294 /* Extention */ = {
@@ -222,21 +256,10 @@
 		84858A3C2322C68A0010D8C8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				470D5507231BDFAB00B1FC27 /* LoginViewController.swift */,
-				84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */,
-				47E0CD842344ACAB0087185B /* RegistrationViewController.swift */,
-				47F7C3F22323A07F00135485 /* CustomTabBarController.swift */,
-				84858A382322C6310010D8C8 /* CompanyListController.swift */,
-				471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */,
-				841EB4512324DC0800495B87 /* MapViewController.swift */,
-				84858A3A2322C67E0010D8C8 /* EventListController.swift */,
-				47E0CD9223460A690087185B /* EventListDetailsViewController.swift */,
-				47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */,
-				47C0F72C233668CD00DEB8C2 /* ReuseTrashTypeList.swift */,
-				47E0CD962347493A0087185B /* NewsfeedDetailsViewController.swift */,
-				471C07DA2340CFCE00995C45 /* CompanyListDetailsViewController.swift */,
-				841CA7342346746000346203 /* NewsfeedTableViewController.swift */,
-				841B3098234851F1001A825F /* LocationsMapViewController.swift */,
+				841B309D234B22C5001A825F /* Add Trash */,
+				841B309C234B2264001A825F /* Etc */,
+				841B309B234B2130001A825F /* Newsfeed */,
+				841B309A234B20E1001A825F /* Login Register */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -386,7 +409,6 @@
 				841EAB6E232FBB6F00D20294 /* RegisterViewControllerKyboard.swift in Sources */,
 				47E0CD9D234770120087185B /* NewsfeedDetailsImageCell.swift in Sources */,
 				841C7B8E23475112001976E9 /* LocationMapView.swift in Sources */,
-				47C0F72D233668CD00DEB8C2 /* ReuseTrashTypeList.swift in Sources */,
 				47361D1B2343B7110014E8EF /* AddEcoTrashTableViewController.swift in Sources */,
 				841B3099234851F1001A825F /* LocationsMapViewController.swift in Sources */,
 				471C07D9233FA98700995C45 /* AddTrashImageCell.swift in Sources */,
@@ -398,6 +420,7 @@
 				47E0CD9323460A690087185B /* EventListDetailsViewController.swift in Sources */,
 				47F7C3F32323A07F00135485 /* CustomTabBarController.swift in Sources */,
 				47E0CD912345E28F0087185B /* Event.swift in Sources */,
+				842021B623564E8000DF8BCF /* MainNavigationController.swift in Sources */,
 				841CA7352346746000346203 /* NewsfeedTableViewController.swift in Sources */,
 				470D5506231BDFAB00B1FC27 /* AppDelegate.swift in Sources */,
 				841EB4772327978D00495B87 /* UserViewModel.swift in Sources */,

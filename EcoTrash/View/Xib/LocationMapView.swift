@@ -9,55 +9,56 @@
 import UIKit
 import MapKit
 
+
 class CustomPin: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var subTitle: String?
+    var tag: Int
     
-    init(title: String, subTitle: String, location: CLLocationCoordinate2D) {
+    init(title: String?, subTitle: String?, location: CLLocationCoordinate2D, tag: Int = 0) {
         self.title = title
         self.subTitle = subTitle
         self.coordinate = location
+        self.tag = tag
     }
 }
 
 class LocationMapView: UIView, MKMapViewDelegate {
     
+    
     @IBOutlet weak var tapGesture: UITapGestureRecognizer!
     @IBOutlet weak var mapView: MKMapView!
-    
-    var locArr: [[String: Double]]!
-    
-    let latitude = 40.24812337555176
-    let longitude = 44.927589187198095
-    let location = CLLocationCoordinate2D()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         mapView.delegate = self
-        
-        setLocation()
     }
     
-    func setLocation() {
+    func setLocation(locations: [[String: Double]]?) {
+        guard let locations = locations else { return }
         
-        locArr = [["latitude": 40.24812337555176, "longitude": 44.927589187198095], ["latitude": 41.24812337555176, "longitude": 44.927589187198095]]
-        
-        for loc in locArr {
+        for loc in locations {
             let location = CLLocationCoordinate2D(latitude: loc["latitude"]!, longitude: loc["longitude"]!)
-            let region = MKCoordinateRegion(center: location, latitudinalMeters: 100000, longitudinalMeters: 100000)
-            mapView.setRegion(region, animated: true)
-            let pin = CustomPin(title: "Title", subTitle: "Sub title", location: location)
+            let pin = CustomPin(title: nil, subTitle: nil, location: location)
             
             mapView.addAnnotation(pin)
         }
+        setRegion()
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print(777)
+    func setRegion() {
+        let regionInMeters: Double = 100000
+        let location = CLLocationCoordinate2D(latitude: 40.1872, longitude: 44.5152)
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+        mapView.setRegion(region, animated: true)
     }
-
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "tt")
+        annotationView.image = UIImage(named: "locPin")
+        return annotationView
+    }
     
 }

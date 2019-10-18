@@ -9,6 +9,8 @@ import UIKit
 import Foundation
 import FirebaseDatabase
 import FirebaseAuth
+import SwiftKeychainWrapper
+
 
 enum UserType {
     case firstName, lastName, email, phoneNumber, password, confirmPassword
@@ -119,10 +121,9 @@ class UserViewModel {
         let key = refUser.childByAutoId().key
         
         guard let id = key else { return false }
-
+        
         user = User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, password: password, confirmPassword: confirmPassword, id: id)
         refUser.child(id).setValue(user.toAny())
-        
         return true
     }
     

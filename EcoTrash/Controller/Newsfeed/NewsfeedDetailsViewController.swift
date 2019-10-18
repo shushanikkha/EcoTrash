@@ -11,11 +11,12 @@ import MapKit
 import FirebaseDatabase
 import SDWebImage
 
-class NewsfeedDetailsViewController: UIViewController {
+class NewsfeedDetailsViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var detailsStackView: UIStackView!
     @IBOutlet weak var newsfeedCollectionView: UICollectionView!
     @IBOutlet weak var newsfeedMapView: MKMapView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     private  var addressView: DetailsLabelView?
     private  var creationDateView: DetailsLabelView?
@@ -24,12 +25,27 @@ class NewsfeedDetailsViewController: UIViewController {
     private  var amountView: DetailsLabelView?
     
     var trash: Trash?
-    var imagesArray = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scrollView.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
+
+        
+        newsfeedCollectionView.delegate = self
+        newsfeedCollectionView.dataSource = self
+        
+        newsfeedMapView.delegate = self
+
         setupDetailsLabels()
+        setLocation()
+        newsfeedCollectionView.reloadData()
     }
+    
+    @IBAction func cancelAction(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     private func setupDetailsLabels() {
          guard let trash = trash else { return }
@@ -79,25 +95,34 @@ class NewsfeedDetailsViewController: UIViewController {
         }
         amountView?.detailsLabel.text = "Քանակ"
         amountView?.detailsNameLabel.text = "\(trash.amount) կգ"
-      
     }
+    
+    func setLocation() {
+        guard let trash = trash else { return }
+        
+        let location = CLLocationCoordinate2D(latitude: trash.latitude, longitude: trash.longitude)
+        let pin = CustomPin(title: nil, subTitle: nil, location: location)
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: 100000, longitudinalMeters: 100000)
+        
+        newsfeedMapView.addAnnotation(pin)
+        newsfeedMapView.setRegion(region, animated: true)
+    }
+    
 }
 
 
 extension NewsfeedDetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    private var images: [UIImage] {
+        return trash?.images ?? []
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imagesArray.count
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsfeedDetailsImageCell", for: indexPath) as? NewsfeedDetailsImageCell
-        cell?.setup(with: imagesArray[indexPath.row - 1])
-//        if let imageUrl = trash!.image {
-//          cell?.newsfeedDetailsImageView.sd_setImage(with: imageUrl, completed: nil)
-//        }
-        return cell ?? UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsfeedDetailsImageCell", for: indexPath) as? NewsfeedDetailsImageCell else { return UICollectionViewCell() }
+        cell.setup(with: images[indexPath.row])
+        return cell
     }
-    
-    
 }

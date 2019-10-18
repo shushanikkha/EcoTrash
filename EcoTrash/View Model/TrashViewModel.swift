@@ -18,13 +18,25 @@ class TrashViewModel {
     var latitude: Double?
     var longitude: Double?
     
-    var creationDate: String?
+    var creationDate: String!
     var availableDate: String?
-    var user = User(firstName: "Aaaaaa", lastName: "Aaaaaaa", email: "as@aa.aa", phoneNumber: "+77777777777", password: "aaaaaaaa", confirmPassword: "aaaaaaaaa", id: "aaaaaaaa")
     var type: String?
     var images: [UIImage]?
     var amount: Int?
-    var address: String?
+    var address: String!
+    
+    let userDict = UserDefaults.standard.dictionary(forKey: "userDict")
+
+    var user: User {
+        let firstName = userDict!["firstName"] as! String
+        let lastName = userDict!["lastName"] as! String
+        let email = userDict!["email"] as! String
+        let phoneNumber = userDict!["phoneNumber"] as! String
+        let id = userDict!["id"] as! String
+        
+        return User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, id: id)
+    }
+
     
     var refTrash = DatabaseReference()
     
@@ -51,7 +63,7 @@ class TrashViewModel {
             "longitude": longitude!,
             "creationDate": creationDate!,
             "availableDate": availableDate!,
-            "user": user.toAny(),
+            "user": userDict as Any,
             "type": type!,
             "images": imagesStrData,
             "amount": amount!,
@@ -60,11 +72,11 @@ class TrashViewModel {
     }
     
     private func chackTrash() -> Bool {
-        guard let latitude = latitude, let longitude = longitude, let creationDate = creationDate, let type = type, let amount = amount, let address = address else { return false }
+        guard let latitude = latitude, let longitude = longitude, let type = type,
+            let amount = amount else { return false }
         
         trash = Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: type, images: images, amount: amount, address: address)
         
-        print("chackTrash")
         return true
     }
     
@@ -73,10 +85,7 @@ class TrashViewModel {
         
         let key = refTrash.childByAutoId().key
         guard let id = key else { return false }
-        print(toAny())
-        
         refTrash.child(id).setValue(toAny())
-        
         return true
     }
     

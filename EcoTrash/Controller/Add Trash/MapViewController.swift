@@ -18,7 +18,6 @@ class MapViewController: UIViewController {
     
     let locetionManager = CLLocationManager()
     let regionInMeters: Double = 10000
-    
     var previousLocation: CLLocation?
     
     typealias completionHandler = [String: Any]
@@ -36,21 +35,17 @@ class MapViewController: UIViewController {
     }
     
     private func centerViewOnUserLocation() {
-        if let location = locetionManager.location?.coordinate {
+        guard let location = locetionManager.location?.coordinate else { return }
             let region = MKCoordinateRegion(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
             mapView.setRegion(region, animated: true)
-        }
     }
 
     private func chackLocationServices() {
-        if CLLocationManager.locationServicesEnabled() {
+        guard CLLocationManager.locationServicesEnabled() else { return }
             setupLocationManager()
             chackLocationAuthorisation()
             locetionManager.startUpdatingLocation()
             startTackingUserLocation()
-        } else {
-            
-        }
     }
     
     func startTackingUserLocation() {
@@ -92,7 +87,6 @@ class MapViewController: UIViewController {
         guard let setAddres = setAddres else { return }
         
         setAddres(dict)
-        
         self.dismiss(animated: true, completion: nil)
     }
     
