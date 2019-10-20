@@ -127,4 +127,24 @@ class UserViewModel {
         return true
     }
     
+    func login(with email: String?, and password: String?, from vc: UIViewController, completion: @escaping (Error?) -> Void) {
+        guard let email = email, let password = password else { return }
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error == nil {
+                self.loginLogic(with: email, from: vc)
+            }
+            completion(error)
+        }
+    }
+    
+    func reg() {
+        
+    }
+    
+    private func loginLogic(with email: String, from vc: UIViewController) {
+        UserDefaults.standard.set(email, forKey: "mail")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarC = storyboard.instantiateViewController(withIdentifier: "CustomTabBarController")
+        vc.present(tabBarC, animated: true, completion: nil)
+    }
 }

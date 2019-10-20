@@ -18,6 +18,7 @@ class NewsfeedTableViewController: UITableViewController {
     var users = [User]()
     var user = User()
 
+    var showOnlyMy: Bool = false
     var ref = DatabaseReference()
     
     typealias StringAny = [String: Any]
@@ -63,14 +64,12 @@ class NewsfeedTableViewController: UITableViewController {
                     let locDict = ["latitude": latitude, "longitude": longitude]
                     let trash = Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: type, images: images, amount: amount, address: address)
                     
-                    self.locations.append(locDict)
-                    self.changedLocations.append(locDict)
-                    
-                    self.trashes.append(trash)
-                    
                     DispatchQueue.main.async {
-                        self.changedTreshes = self.sortByDate(self.trashes)
-                        self.tableView.reloadData()
+                        self.locations.append(locDict)
+                        self.changedLocations.append(locDict)
+                        
+                        self.trashes.append(trash)
+                        self.updateTrashes()
                     }
                 }
             }
@@ -82,6 +81,15 @@ class NewsfeedTableViewController: UITableViewController {
         dateFormatter.dateFormat = "MMM d, yyyy 'at' h:mm:ss a"
         return dateFormatter
     }()
+    
+    func updateTrashes() {
+        var trashes = sortByDate(self.trashes)
+        if showOnlyMy {
+            trashes = trashes.filter { $0.user.id == self.user.id }
+        }
+        changedTreshes = trashes
+        tableView.reloadData()
+    }
     
     func sortByDate(_ trashes: [Trash]) -> [Trash] {
         var sorted = trashes
@@ -139,21 +147,11 @@ class NewsfeedTableViewController: UITableViewController {
 //    }
     
     @IBAction func myAction(_ sender: UIBarButtonItem) {
-        if sender.title == "My" {
-            sender.title = "All"
-            changedTreshes.removeAll()
-            trashes.forEach { (trash) in
-                if trash.user.id == self.user.id {
-                    changedTreshes.append(trash)
-                }
-            }
-        } else {
-            sender.title = "My"
-            changedTreshes = sortByDate(trashes)
-        }
-        
-        tableView.reloadData()
+        showOnlyMy.toggle()
+        sender.title = showOnlyMy ? "My" : "All"
+        updateTrashes()
     }
+    
     @IBAction func settingsButtonTapped(_ sender: Any) {
         guard let userSettingsVC = storyboard?.instantiateViewController(withIdentifier: "UserSettingsViewController") as? UserSettingsViewController else { return }
         

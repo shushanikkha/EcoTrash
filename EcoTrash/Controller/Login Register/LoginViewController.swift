@@ -34,7 +34,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let mail = loginTextField.text, let password = passwordTextField.text else { return }
         Auth.auth().signIn(withEmail: mail, password: password) { (user, error) in
             if error != nil {
-                print("Error", error!)
+                print("Error", error!.localizedDescription)
                 sender.backgroundColor = .red
             } else {
                 sender.backgroundColor = .white
