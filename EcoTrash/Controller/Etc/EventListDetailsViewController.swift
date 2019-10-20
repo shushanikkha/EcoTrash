@@ -90,6 +90,7 @@ class EventListDetailsViewController: UIViewController {
             let frame = CGRect(x: x, y: y, width: width, height: 200)
             eventDescriptionTextView.frame = frame
             eventDescriptionTextView.detailsTextView.text = event.description
+            eventDescriptionTextView.isExclusiveTouch = false
             mainStackView.addSubview(eventDescriptionTextView)
             self.eventDescriptionTextView = eventDescriptionTextView
         }

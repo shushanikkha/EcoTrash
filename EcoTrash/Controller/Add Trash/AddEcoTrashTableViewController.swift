@@ -132,7 +132,8 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        guard let tabBarC = storyboard?.instantiateViewController(withIdentifier: "CustomTabBarController") as? CustomTabBarController else { return }
+        present(tabBarC, animated: false, completion: nil)
     }
     
 }
@@ -152,17 +153,9 @@ extension AddEcoTrashTableViewController {
         case (addTrashImageIndexPath.section, addTrashImageIndexPath.row):
             return 100
         case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row):
-            if isTrashTypePickerShown {
-                return 150.0
-            } else {
-                return 0.0
-            }
+            return isTrashTypePickerShown ? 150.0 : 0.0
         case (availableDatePickerCellIndexPath.section, availableDatePickerCellIndexPath.row):
-            if isAvailableDatePickerShown {
-                return 216.0
-            } else {
-                return 0.0
-            }
+            return isAvailableDatePickerShown ? 216.0 : 0.0
         default:
             return 44.0
         }
@@ -172,20 +165,12 @@ extension AddEcoTrashTableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         switch (indexPath.section, indexPath.row) {
         case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row - 1):
-            if isTrashTypePickerShown {
-                isTrashTypePickerShown = false
-            } else {
-                isTrashTypePickerShown = true
-            }
+            isTrashTypePickerShown = !isTrashTypePickerShown
             tableView.beginUpdates()
             tableView.endUpdates()
     
         case (availableDatePickerCellIndexPath.section, availableDatePickerCellIndexPath.row - 1):
-            if isAvailableDatePickerShown {
-                isAvailableDatePickerShown = false
-            } else {
-                isAvailableDatePickerShown = true
-            }
+            isAvailableDatePickerShown = !isAvailableDatePickerShown
             tableView.beginUpdates()
             tableView.endUpdates()
             
@@ -200,7 +185,7 @@ extension AddEcoTrashTableViewController: UICollectionViewDelegate, UICollection
     // Mark: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-          setupPickerImage()
+            setupPickerImage()
         } else {
             removeImage(at: indexPath.row - 1)
         }

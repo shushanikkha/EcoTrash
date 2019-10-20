@@ -83,9 +83,9 @@ class EventListController: UITableViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.text = titleForSection(section)
-        let view = UIView()
+//        let view = UIView()
         
-        return view
+        return label
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -96,13 +96,13 @@ class EventListController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let eventDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "EventListDetailsViewController") as? EventListDetailsViewController else { return }
-        eventDetailsVC.event = sortedEvents[0][indexPath.row]
+        eventDetailsVC.event = sortedEvents[indexPath.section][indexPath.row]
         let navVC = UINavigationController(rootViewController: eventDetailsVC)
         self.present(navVC, animated: true, completion: nil)
     }
     
     private func titleForSection(_ section: Int) -> String {
-        return "Title"
+        return section == 0 ? "After" : "Previous"
     }
     
     private func sortEventsByDate(events: [Event]) -> [[Event]] {

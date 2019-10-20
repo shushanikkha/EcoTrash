@@ -64,19 +64,12 @@ class LocationsMapViewController: UIViewController, MKMapViewDelegate {
             annotationView!.annotation = annotation
         }
         annotationView?.canShowCallout = true
-//        annotationView?.image = #imageLiteral(resourceName: "locPin")
-        
-        // Resize image
         let pinImage = UIImage(named: "locPin")
-        let size = CGSize(width: 50, height: 50)
-        UIGraphicsBeginImageContext(size)
-        pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        
-        annotationView?.image = resizedImage
+        annotationView?.image = pinImage
         
         return annotationView
     }
+    
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

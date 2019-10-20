@@ -27,6 +27,10 @@
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textFieldDidEnd:" destination="iN0-l3-epB" eventType="editingDidEnd" id="9KY-yr-ba8"/>
+                                <action selector="textFieldEditingChanged:" destination="iN0-l3-epB" eventType="editingDidEnd" id="gNy-EU-dYR"/>
+                            </connections>
                         </textField>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpt-K0-pTw">
                             <rect key="frame" x="20" y="55" width="451" height="30"/>

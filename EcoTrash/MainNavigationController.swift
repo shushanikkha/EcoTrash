@@ -38,4 +38,30 @@ class RootViewController: UIViewController {
         present(tabBarC, animated: false, completion: nil)
     }
 
+    
+//    func loadUsers() {
+//        self.ref.child("users").observe(.value) { (snapshot) in
+//            DispatchQueue.main.async {
+//                guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+//                
+//                for snap in snapshot {
+//                    guard let userDict = snap.value as? StringAny else { return }
+//                    
+//                    let user = self.parsUser(userDict)
+//                    self.users.append(user)
+//                }
+//            }
+//        }
+//    }
+//    
+//    func getUser() -> User {
+//        guard let mail = UserDefaults.standard.object(forKey: "mail") as? String else { return User() }
+//        
+//        for user in users {
+//            if user.email == mail {
+//                return user
+//            }
+//        }
+//        return User()
+//    }
 }
