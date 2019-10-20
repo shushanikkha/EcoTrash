@@ -865,7 +865,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2rC-gq-pdW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1770" y="3447"/>
+            <point key="canvasLocation" x="1770" y="4882"/>
         </scene>
         <!--Նոր Թափոն-->
         <scene sceneID="ilu-Ud-oJn">
@@ -933,12 +933,35 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YRi-gy-9OR">
+                                        <rect key="frame" x="0.0" y="123" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YRi-gy-9OR" id="AMf-zW-idq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vr5-1b-V6K">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <state key="normal" title="Վերամշակվող թափոնների ցանկ"/>
+                                                    <connections>
+                                                        <segue destination="VzW-qe-czZ" kind="presentation" id="kHV-ME-I6O"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Vr5-1b-V6K" secondAttribute="trailing" id="OEo-rY-uuR"/>
+                                                <constraint firstItem="Vr5-1b-V6K" firstAttribute="top" secondItem="AMf-zW-idq" secondAttribute="top" id="RkM-Gp-y1P"/>
+                                                <constraint firstItem="Vr5-1b-V6K" firstAttribute="leading" secondItem="AMf-zW-idq" secondAttribute="leading" id="TrP-P0-B0y"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vr5-1b-V6K" secondAttribute="bottom" id="jWf-Mc-Zxs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="P7U-dK-jDF">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="h3C-7B-C2R">
-                                        <rect key="frame" x="0.0" y="159" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="203" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h3C-7B-C2R" id="5Hk-g1-JVa">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -973,7 +996,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eSI-JD-aoj">
-                                        <rect key="frame" x="0.0" y="203" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="247" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eSI-JD-aoj" id="Vhq-0M-21d">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -1002,7 +1025,7 @@
                             <tableViewSection id="UAX-7x-XOO">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eIg-aD-IVQ">
-                                        <rect key="frame" x="0.0" y="283" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="327" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eIg-aD-IVQ" id="vTe-db-WlJ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -1042,7 +1065,7 @@
                             <tableViewSection id="CRR-sQ-zyg">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="CMk-bu-0ST">
-                                        <rect key="frame" x="0.0" y="363" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="407" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CMk-bu-0ST" id="ide-sW-tpS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -1081,7 +1104,7 @@
                             <tableViewSection headerTitle="ԱՎԵԼԱՑՆԵԼ ՆԿԱՐՆԵՐ" id="CrW-Wo-fBS">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="Zmz-Gb-LSm">
-                                        <rect key="frame" x="0.0" y="463" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="507" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zmz-Gb-LSm" id="f1B-Jz-Xcr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
@@ -1264,7 +1287,7 @@
             </objects>
             <point key="canvasLocation" x="2619" y="2738"/>
         </scene>
-        <!--Recycle-->
+        <!--Վերամշակվող թափոնների ցանկ-->
         <scene sceneID="ubb-le-7Nz">
             <objects>
                 <viewController storyboardIdentifier="RecycleWasteViewController" id="i3W-pY-tQF" customClass="RecycleWasteViewController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
@@ -1273,14 +1296,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="oa8-zw-omB">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="K2B-hf-aQ5"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rQU-g3-ZPP">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecycleWasteTableViewCell" rowHeight="100" id="Zwx-c7-hIE" customClass="RecycleWasteTableViewCell" customModule="EcoTrash" customModuleProvider="target">
@@ -1346,7 +1369,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DMG-P2-Ui9"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recycle" image="reuse" id="XA6-QH-xSc"/>
+                    <navigationItem key="navigationItem" title="Վերամշակվող թափոնների ցանկ" id="nZq-bD-69l">
+                        <barButtonItem key="rightBarButtonItem" title="Փակել" id="naf-8Y-Gsc"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="oa8-zw-omB" id="PjV-Dt-nOD"/>
                         <outlet property="wasteTableView" destination="rQU-g3-ZPP" id="M4v-J0-9FV"/>
@@ -1354,7 +1379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etv-SQ-jkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3741" y="2019"/>
+            <point key="canvasLocation" x="1770" y="4176"/>
         </scene>
         <!--Մանրամասներ-->
         <scene sceneID="QvR-dh-eYf">
@@ -1428,7 +1453,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3c-VC-u4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2619" y="3447"/>
+            <point key="canvasLocation" x="2619" y="3481"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ncR-GO-Qvd">
@@ -1482,6 +1507,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YhW-iQ-B6V"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Ahn-2y-kl6"/>
                     <navigationItem key="navigationItem" title="Settings" id="vLA-PH-zfx">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="byP-ED-ycj"/>
                         <barButtonItem key="rightBarButtonItem" title="Log out" id="hgT-Xy-lVk">
@@ -1494,7 +1520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRd-RI-GFQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-852" y="3447"/>
+            <point key="canvasLocation" x="3568" y="2032"/>
         </scene>
         <!--Location-->
         <scene sceneID="mxq-nh-526">
@@ -1646,7 +1672,7 @@
                         <segue destination="0XD-Jb-6Lr" kind="relationship" relationship="viewControllers" id="5Bs-vM-Ser"/>
                         <segue destination="uM6-yc-6dE" kind="relationship" relationship="viewControllers" id="eKv-eX-88y"/>
                         <segue destination="JhV-yp-NKo" kind="relationship" relationship="viewControllers" id="z24-J2-nvB"/>
-                        <segue destination="i3W-pY-tQF" kind="relationship" relationship="viewControllers" id="S64-61-RUo"/>
+                        <segue destination="lEF-QX-6Wg" kind="relationship" relationship="viewControllers" id="3VV-AK-bPa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2JM-Tv-uqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1783,6 +1809,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WP2-ST-hlp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2620" y="2032"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gVE-ex-NsX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VzW-qe-czZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K5V-tH-1pi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="i3W-pY-tQF" kind="relationship" relationship="rootViewController" id="fVS-AL-qCM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VGj-V2-KQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1769.5652173913045" y="3480.8035714285711"/>
         </scene>
     </scenes>
     <resources>
