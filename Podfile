@@ -10,5 +10,4 @@ target 'EcoTrash' do
   pod 'SwiftKeychainWrapper'
   pod 'SDWebImage'
 
-
 end

@@ -154,9 +154,9 @@ class RegisterViewController: UIViewController {
                 print("Error", error!)
                 sender.backgroundColor = .red
             } else {
-                print("Registration succesful")
                 sender.backgroundColor = .white
                 guard let tabBarC = self.storyboard?.instantiateViewController(withIdentifier: "CustomTabBarController") else { return }
+                UserDefaults.standard.set(self.viewModel.email, forKey: "mail")
                 self.present(tabBarC, animated: true, completion: nil)
             }
         }

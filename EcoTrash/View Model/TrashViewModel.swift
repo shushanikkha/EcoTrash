@@ -76,7 +76,6 @@ class TrashViewModel {
             let amount = amount else { return false }
         
         trash = Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: type, images: images, amount: amount, address: address)
-        
         return true
     }
     

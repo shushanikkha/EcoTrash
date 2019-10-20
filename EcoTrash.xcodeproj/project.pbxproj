@@ -40,6 +40,7 @@
 		8419C31223300EEA00AE2CCB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */; };
 		841A627D231ED6B200DA56C2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A627C231ED6B200DA56C2 /* User.swift */; };
 		841B3099234851F1001A825F /* LocationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B3098234851F1001A825F /* LocationsMapViewController.swift */; };
+		841B5181235C5341004FA239 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B5180235C5341004FA239 /* UserSettingsViewController.swift */; };
 		841B8001234090780074BE9B /* TrashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B8000234090780074BE9B /* TrashViewModel.swift */; };
 		841B80032340DA7C0074BE9B /* CompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B80022340DA7C0074BE9B /* CompanyViewModel.swift */; };
 		841B80052341DC7B0074BE9B /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B80042341DC7B0074BE9B /* Company.swift */; };
@@ -92,6 +93,7 @@
 		8419C31123300EEA00AE2CCB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		841A627C231ED6B200DA56C2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		841B3098234851F1001A825F /* LocationsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsMapViewController.swift; sourceTree = "<group>"; };
+		841B5180235C5341004FA239 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		841B8000234090780074BE9B /* TrashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewModel.swift; sourceTree = "<group>"; };
 		841B80022340DA7C0074BE9B /* CompanyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyViewModel.swift; sourceTree = "<group>"; };
 		841B80042341DC7B0074BE9B /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				470D5507231BDFAB00B1FC27 /* LoginViewController.swift */,
 				84D08F15231C2AFC00402CE4 /* RegisterViewController.swift */,
 				47E0CD842344ACAB0087185B /* RegistrationViewController.swift */,
+				841B5180235C5341004FA239 /* UserSettingsViewController.swift */,
 			);
 			path = "Login Register";
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				841C7B89234749D4001976E9 /* ShowMapCell.swift in Sources */,
 				47C323CB2320184D00A62F4A /* Trash.swift in Sources */,
 				84858A392322C6310010D8C8 /* CompanyListController.swift in Sources */,
+				841B5181235C5341004FA239 /* UserSettingsViewController.swift in Sources */,
 				47E0CD972347493A0087185B /* NewsfeedDetailsViewController.swift in Sources */,
 				4737FE8F2353305500FD72B2 /* RecycleWaste.swift in Sources */,
 				84858A3B2322C67E0010D8C8 /* EventListController.swift in Sources */,

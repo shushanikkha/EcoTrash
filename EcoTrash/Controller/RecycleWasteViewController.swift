@@ -25,7 +25,7 @@ class RecycleWasteViewController: UIViewController, UISearchBarDelegate {
 
     // MARK: - UISearchBarDelegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text else { return }
+//        guard let searchText = searchBar.text else { return }
     }
 }
 

@@ -409,7 +409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0Q-cB-wCO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="933" y="-558"/>
+            <point key="canvasLocation" x="648" y="-260"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="LJ8-b4-4ez">
@@ -671,6 +671,9 @@
                                             </stackView>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="reb-nO-gBY">
                                                 <rect key="frame" x="0.0" y="710" width="414" height="148"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="148" id="d0p-NZ-Ikm"/>
+                                                </constraints>
                                             </mapView>
                                         </subviews>
                                         <constraints>
@@ -691,7 +694,6 @@
                                     <constraint firstItem="jwO-24-xlf" firstAttribute="top" secondItem="VY8-mH-NB0" secondAttribute="top" id="Bpa-7o-Szj"/>
                                     <constraint firstItem="jwO-24-xlf" firstAttribute="width" secondItem="VY8-mH-NB0" secondAttribute="width" id="MoK-N3-oy1"/>
                                     <constraint firstAttribute="trailing" secondItem="jwO-24-xlf" secondAttribute="trailing" id="Pgj-Zw-qyc"/>
-                                    <constraint firstItem="jwO-24-xlf" firstAttribute="centerY" secondItem="VY8-mH-NB0" secondAttribute="centerY" placeholder="YES" id="Wsg-MC-RO5"/>
                                     <constraint firstItem="jwO-24-xlf" firstAttribute="leading" secondItem="VY8-mH-NB0" secondAttribute="leading" id="Xk3-1L-M6Y"/>
                                     <constraint firstAttribute="bottom" secondItem="jwO-24-xlf" secondAttribute="bottom" id="x8Q-jP-Pkb"/>
                                 </constraints>
@@ -707,7 +709,7 @@
                         <viewLayoutGuide key="safeArea" id="Kgm-Kr-4RS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Մանրամասներ" id="oJe-Cu-Ecb">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Inc-t3-eHQ">
+                        <barButtonItem key="leftBarButtonItem" title="Չեղարկել" id="Inc-t3-eHQ">
                             <connections>
                                 <action selector="cancelAction:" destination="aiL-IE-Df3" id="ZTD-0m-y6R"/>
                             </connections>
@@ -784,7 +786,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Մանրամասներ" id="4Pg-tz-WJ5">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="K8B-N2-bKC">
+                        <barButtonItem key="leftBarButtonItem" title="Չեղարկել" id="K8B-N2-bKC">
                             <connections>
                                 <action selector="cancelAction" destination="dOU-6T-KaX" id="50z-WH-hkf"/>
                             </connections>
@@ -800,7 +802,7 @@
             </objects>
             <point key="canvasLocation" x="925" y="3447"/>
         </scene>
-        <!--Map-->
+        <!--Քարտեզ-->
         <scene sceneID="ceX-iK-Pf2">
             <objects>
                 <viewController storyboardIdentifier="MapViewController" id="liE-tU-ds3" customClass="MapViewController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
@@ -842,13 +844,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UTj-sk-ga8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="Q24-DH-E5N">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tL1-bE-drP">
+                    <navigationItem key="navigationItem" title="Քարտեզ" id="Q24-DH-E5N">
+                        <barButtonItem key="leftBarButtonItem" title="Չեղարկել" id="tL1-bE-drP">
                             <connections>
                                 <action selector="cancelAction:" destination="liE-tU-ds3" id="yxH-i6-CpR"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jwb-lY-59f">
+                        <barButtonItem key="rightBarButtonItem" title="Հաստատել" id="jwb-lY-59f">
                             <connections>
                                 <action selector="doneAction:" destination="liE-tU-ds3" id="Rab-aF-BEM"/>
                             </connections>
@@ -865,7 +867,7 @@
             </objects>
             <point key="canvasLocation" x="1770" y="3447"/>
         </scene>
-        <!--Ավելացնել թափոն-->
+        <!--Նոր Թափոն-->
         <scene sceneID="ilu-Ud-oJn">
             <objects>
                 <tableViewController storyboardIdentifier="AddEcoTrashTableViewController" id="Zjx-R7-onL" customClass="AddEcoTrashTableViewController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
@@ -1160,13 +1162,13 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Ավելացնել թափոն" id="OGV-yX-fYl">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OIF-g0-KJT">
+                    <navigationItem key="navigationItem" title="Նոր Թափոն" id="OGV-yX-fYl">
+                        <barButtonItem key="leftBarButtonItem" title="Չեղարկել" id="OIF-g0-KJT">
                             <connections>
                                 <action selector="cancelAction:" destination="Zjx-R7-onL" id="Ebq-6U-Hrf"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="eaw-Z4-8uk">
+                        <barButtonItem key="rightBarButtonItem" title="Գրանցել" id="eaw-Z4-8uk">
                             <connections>
                                 <action selector="saveButtonTapeed:" destination="Zjx-R7-onL" id="mWY-Bp-gm6"/>
                             </connections>
@@ -1412,7 +1414,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Մանրամասներ" id="Nvd-pk-p0s">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1kw-uG-mNo">
+                        <barButtonItem key="leftBarButtonItem" title="Չեղարկել" id="1kw-uG-mNo">
                             <connections>
                                 <action selector="cancelAction" destination="ozS-45-hxG" id="4kZ-5I-xJL"/>
                             </connections>
@@ -1426,7 +1428,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3c-VC-u4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3741" y="2738"/>
+            <point key="canvasLocation" x="2619" y="3447"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="ncR-GO-Qvd">
+            <objects>
+                <viewController storyboardIdentifier="UserSettingsViewController" id="lEF-QX-6Wg" customClass="UserSettingsViewController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hTh-VM-5Zn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aAS-h1-iLH">
+                                <rect key="frame" x="20" y="188" width="374" height="270"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m72-98-L2z">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GwX-yW-6nv">
+                                        <rect key="frame" x="0.0" y="60" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NdP-X0-Gg2">
+                                        <rect key="frame" x="0.0" y="120" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mel-GK-dSZ">
+                                        <rect key="frame" x="0.0" y="180" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HKf-H8-EPR">
+                                        <rect key="frame" x="0.0" y="240" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YhW-iQ-B6V" firstAttribute="trailing" secondItem="aAS-h1-iLH" secondAttribute="trailing" constant="20" id="Mie-hG-Zy2"/>
+                            <constraint firstItem="aAS-h1-iLH" firstAttribute="top" secondItem="YhW-iQ-B6V" secondAttribute="top" constant="100" id="Mr8-bE-5dD"/>
+                            <constraint firstItem="aAS-h1-iLH" firstAttribute="leading" secondItem="YhW-iQ-B6V" secondAttribute="leading" constant="20" id="yEh-vX-clm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YhW-iQ-B6V"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="vLA-PH-zfx">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="byP-ED-ycj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="hgT-Xy-lVk">
+                            <connections>
+                                <action selector="logoutAction:" destination="lEF-QX-6Wg" id="cRa-wd-uo7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NRd-RI-GFQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-852" y="3447"/>
         </scene>
         <!--Location-->
         <scene sceneID="mxq-nh-526">
@@ -1547,9 +1615,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="QtU-bK-A1v">
-                        <barButtonItem key="leftBarButtonItem" title="All" id="25I-iZ-Xyw">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="xeI-aK-UEU">
                             <connections>
-                                <action selector="allAction:" destination="KQ8-nB-DLe" id="RfN-gk-wWC"/>
+                                <action selector="settingsButtonTapped:" destination="KQ8-nB-DLe" id="aua-Yl-blQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="My" id="bZ1-nV-5cI">

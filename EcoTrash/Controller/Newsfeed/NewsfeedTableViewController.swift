@@ -12,10 +12,12 @@ import FirebaseDatabase
 class NewsfeedTableViewController: UITableViewController {
     
     var trashes = [Trash]()
-    
-    var users = [User]()
-
+    var changedTreshes = [Trash]()
     var locations = [[String: Double]]()
+    var changedLocations = [[String: Double]]()
+    var users = [User]()
+    var user = User()
+
     var ref = DatabaseReference()
     
     typealias StringAny = [String: Any]
@@ -23,7 +25,7 @@ class NewsfeedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Nefsfeed"
+        navigationItem.title = "ԹԱՓՈՆՆԵՐ"
         ref = Database.database().reference()
         loadTrash()
         loadUsers()
@@ -62,10 +64,12 @@ class NewsfeedTableViewController: UITableViewController {
                     let trash = Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: type, images: images, amount: amount, address: address)
                     
                     self.locations.append(locDict)
+                    self.changedLocations.append(locDict)
                     
                     self.trashes.append(trash)
-                    self.sortByDate()
+                    
                     DispatchQueue.main.async {
+                        self.changedTreshes = self.sortByDate(self.trashes)
                         self.tableView.reloadData()
                     }
                 }
@@ -79,7 +83,7 @@ class NewsfeedTableViewController: UITableViewController {
         return dateFormatter
     }()
     
-    func sortByDate() {
+    func sortByDate(_ trashes: [Trash]) -> [Trash] {
         var sorted = trashes
         sorted.sort { trash1, trash2 in
             guard let firstDate = dateFormatter.date(from: trash1.creationDate),
@@ -87,7 +91,8 @@ class NewsfeedTableViewController: UITableViewController {
             
             return firstDate < secondDate
         }
-        trashes = sorted
+        
+        return sorted
     }
     
     func parsUser(_ userDict: StringAny) -> User {
@@ -101,6 +106,7 @@ class NewsfeedTableViewController: UITableViewController {
     }
     
     func loadUsers() {
+        guard let mail = UserDefaults.standard.object(forKey: "mail") as? String else { return }
         self.ref.child("users").observe(.value) { (snapshot) in
             DispatchQueue.main.async {
                 guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -110,54 +116,63 @@ class NewsfeedTableViewController: UITableViewController {
                     
                     let user = self.parsUser(userDict)
                     self.users.append(user)
+                    
+                    if user.email == mail {
+                        UserDefaults.standard.set(user.toAny(), forKey: "userDict")
+                        self.user = user
+                    }
                 }
             }
         }
+        
     }
     
-    func getUserId() -> String? {
-        guard let mail = UserDefaults.standard.object(forKey: "mail") as? String else { return nil }
-        
-        for user in users {
-            if user.email == mail {
-                return user.id
-            }
-        }
-        return nil
-    }
+//    func getUser() -> User {
+//        guard let mail = UserDefaults.standard.object(forKey: "mail") as? String else { return User() }
+//
+//        for user in users {
+//            if user.email == mail {
+//                return user
+//            }
+//        }
+//        return User()
+//    }
     
     @IBAction func myAction(_ sender: UIBarButtonItem) {
-        guard let id = getUserId() else { return }
-        
-        print("trashes.count: ", trashes.count)
-        print("getUserId: ", id)
-        
-        var index = 0
-        for trash in trashes {
-            print("user id: ", trash.user.id)
-            if trash.user.id != id {
-                trashes.remove(at: index)
-                index -= 1
+        if sender.title == "My" {
+            sender.title = "All"
+            changedTreshes.removeAll()
+            trashes.forEach { (trash) in
+                if trash.user.id == self.user.id {
+                    changedTreshes.append(trash)
+                }
             }
-            index += 1
+        } else {
+            sender.title = "My"
+            changedTreshes = sortByDate(trashes)
         }
+        
         tableView.reloadData()
     }
-    
-    @IBAction func allAction(_ sender: UIBarButtonItem) {
-        print(trashes)
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+        guard let userSettingsVC = storyboard?.instantiateViewController(withIdentifier: "UserSettingsViewController") as? UserSettingsViewController else { return }
+        
+        userSettingsVC.user = user
+        let navVC = UINavigationController(rootViewController: userSettingsVC)
+        present(navVC, animated: true, completion: nil)
     }
+    
     
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trashes.count
+        return changedTreshes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsfeedTableViewCell") as? NewsfeedTableViewCell else { return UITableViewCell() }
         
-        let trash = trashes[indexPath.row]
+        let trash = changedTreshes[indexPath.row]
         cell.setup(with: trash)
         
         return cell
@@ -165,7 +180,7 @@ class NewsfeedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let newsfeedDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsfeedDetailsViewController") as? NewsfeedDetailsViewController else { return }
-        newsfeedDetailsVC.trash = trashes[indexPath.row]
+        newsfeedDetailsVC.trash = changedTreshes[indexPath.row]
         
         let navVC = UINavigationController(rootViewController: newsfeedDetailsVC)
         self.present(navVC, animated: true, completion: nil)
@@ -185,7 +200,7 @@ class NewsfeedTableViewController: UITableViewController {
         guard let locMapView = Bundle.main.loadNibNamed("LocationMapView", owner: self, options: nil)?.first as? LocationMapView else { return UIView()}
         
         locMapView.tapGesture.addTarget(self, action: #selector(tapGesturTapped))
-        locMapView.setLocation(locations: locations)
+        locMapView.setLocation(locations: changedLocations)
         return locMapView
     }
     
