@@ -14,10 +14,8 @@ class NewsfeedTableViewController: UITableViewController {
     var trashes = [Trash]()
     var changedTreshes = [Trash]()
     var locations = [[String: Double]]()
-    var changedLocations = [[String: Double]]()
     var users = [User]()
     var user = User()
-
     var showOnlyMy: Bool = false
     var ref = DatabaseReference()
     
@@ -27,6 +25,7 @@ class NewsfeedTableViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.title = "ԹԱՓՈՆՆԵՐ"
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
         ref = Database.database().reference()
         loadTrash()
         loadUsers()
@@ -47,7 +46,6 @@ class NewsfeedTableViewController: UITableViewController {
                     let type = dict["type"] as! String
                     let amount = dict["amount"] as! Int
                     let address = dict["address"] as! String
-                    
                     let userDict = dict["user"] as! StringAny
                     let imagesStr = dict["images"] as! [String]
                     
@@ -61,13 +59,9 @@ class NewsfeedTableViewController: UITableViewController {
                         }
                     }
                     
-                    let locDict = ["latitude": latitude, "longitude": longitude]
                     let trash = Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: type, images: images, amount: amount, address: address)
                     
                     DispatchQueue.main.async {
-                        self.locations.append(locDict)
-                        self.changedLocations.append(locDict)
-                        
                         self.trashes.append(trash)
                         self.updateTrashes()
                     }
@@ -88,7 +82,17 @@ class NewsfeedTableViewController: UITableViewController {
             trashes = trashes.filter { $0.user.id == self.user.id }
         }
         changedTreshes = trashes
+        locations = getLocations(changedTreshes)
         tableView.reloadData()
+    }
+    
+    func getLocations(_ trashes: [Trash]) -> [[String: Double]] {
+        var locations = [[String: Double]]()
+        trashes.forEach { (trash) in
+            let locDict = ["latitude": trash.latitude, "longitude": trash.longitude]
+            locations.append(locDict)
+        }
+        return locations
     }
     
     func sortByDate(_ trashes: [Trash]) -> [Trash] {
@@ -132,33 +136,14 @@ class NewsfeedTableViewController: UITableViewController {
                 }
             }
         }
-        
     }
-    
-//    func getUser() -> User {
-//        guard let mail = UserDefaults.standard.object(forKey: "mail") as? String else { return User() }
-//
-//        for user in users {
-//            if user.email == mail {
-//                return user
-//            }
-//        }
-//        return User()
-//    }
     
     @IBAction func myAction(_ sender: UIBarButtonItem) {
         showOnlyMy.toggle()
-        sender.title = showOnlyMy ? "My" : "All"
+        sender.title = showOnlyMy ? "All" : "My"
         updateTrashes()
     }
-    
-    @IBAction func settingsButtonTapped(_ sender: Any) {
-        guard let userSettingsVC = storyboard?.instantiateViewController(withIdentifier: "UserSettingsViewController") as? UserSettingsViewController else { return }
-        
-        userSettingsVC.user = user
-        let navVC = UINavigationController(rootViewController: userSettingsVC)
-        present(navVC, animated: true, completion: nil)
-    }
+ 
     
     
     // MARK: - Table view data source
@@ -189,7 +174,7 @@ class NewsfeedTableViewController: UITableViewController {
     @objc func tapGesturTapped() {
         guard let locMapVC = self.storyboard?.instantiateViewController(withIdentifier: "LocationsMapViewController") as? LocationsMapViewController else { return }
 
-        locMapVC.trashes = self.trashes
+        locMapVC.trashes = self.changedTreshes
         let navVC = UINavigationController(rootViewController: locMapVC)
         self.present(navVC, animated: true, completion: nil)
     }
@@ -198,7 +183,7 @@ class NewsfeedTableViewController: UITableViewController {
         guard let locMapView = Bundle.main.loadNibNamed("LocationMapView", owner: self, options: nil)?.first as? LocationMapView else { return UIView()}
         
         locMapView.tapGesture.addTarget(self, action: #selector(tapGesturTapped))
-        locMapView.setLocation(locations: changedLocations)
+        locMapView.setLocation(locations: locations)
         return locMapView
     }
     

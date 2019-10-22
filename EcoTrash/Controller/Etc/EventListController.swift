@@ -23,6 +23,8 @@ class EventListController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
         ref = Database.database().reference()
         loadDada()
     }
@@ -81,11 +83,17 @@ class EventListController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.text = titleForSection(section)
-//        let view = UIView()
         
-        return label
+        let view = UIView()
+        view.backgroundColor = .white
+        view.addSubview(label)
+        label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        label.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        label.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        return view
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

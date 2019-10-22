@@ -119,7 +119,6 @@ class UserViewModel {
         guard notError() else { return  false }
         
         let key = refUser.childByAutoId().key
-        
         guard let id = key else { return false }
         
         user = User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, password: password, confirmPassword: confirmPassword, id: id)

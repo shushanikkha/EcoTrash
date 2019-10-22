@@ -1641,11 +1641,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="QtU-bK-A1v">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="xeI-aK-UEU">
-                            <connections>
-                                <action selector="settingsButtonTapped:" destination="KQ8-nB-DLe" id="aua-Yl-blQ"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="My" id="bZ1-nV-5cI">
                             <connections>
                                 <action selector="myAction:" destination="KQ8-nB-DLe" id="lPU-YL-b7c"/>

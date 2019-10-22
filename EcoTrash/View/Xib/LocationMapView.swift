@@ -49,9 +49,9 @@ class LocationMapView: UIView, MKMapViewDelegate {
     }
     
     func setRegion() {
-        let regionInMeters: Double = 100000
+        let regionInMeters: Double = 10000
         let location = CLLocationCoordinate2D(latitude: 40.1872, longitude: 44.5152)
-        let region = MKCoordinateRegion(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: 500)
         mapView.setRegion(region, animated: true)
     }
     

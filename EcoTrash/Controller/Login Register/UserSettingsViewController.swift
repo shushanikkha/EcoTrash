@@ -10,12 +10,10 @@ import UIKit
 
 class UserSettingsViewController: UIViewController {
     
-    var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
     
     @IBAction func logoutAction(_ sender: UIBarButtonItem) {
         guard let loginVC = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
