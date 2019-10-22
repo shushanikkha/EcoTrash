@@ -27,6 +27,10 @@ class RecycleWasteViewController: UIViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 //        guard let searchText = searchBar.text else { return }
     }
+    
+    @IBAction private func cancelAction() {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
 }
 
 //extension RecycleWasteViewController: UITableViewDataSource {

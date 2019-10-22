@@ -29,8 +29,5 @@ class Company {
         self.email = email
         self.garbageType = garbageType
     }
-    
-    
-    
 }
 

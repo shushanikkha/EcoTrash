@@ -151,14 +151,14 @@ class NewsfeedTableViewController: UITableViewController {
         sender.title = showOnlyMy ? "My" : "All"
         updateTrashes()
     }
-    
-    @IBAction func settingsButtonTapped(_ sender: Any) {
-        guard let userSettingsVC = storyboard?.instantiateViewController(withIdentifier: "UserSettingsViewController") as? UserSettingsViewController else { return }
-        
-        userSettingsVC.user = user
-        let navVC = UINavigationController(rootViewController: userSettingsVC)
-        present(navVC, animated: true, completion: nil)
-    }
+//    
+//    @IBAction func settingsButtonTapped(_ sender: Any) {
+//        guard let userSettingsVC = storyboard?.instantiateViewController(withIdentifier: "UserSettingsViewController") as? UserSettingsViewController else { return }
+//        
+//        userSettingsVC.user = user
+//        let navVC = UINavigationController(rootViewController: userSettingsVC)
+//        present(navVC, animated: true, completion: nil)
+//    }
     
     
     // MARK: - Table view data source
