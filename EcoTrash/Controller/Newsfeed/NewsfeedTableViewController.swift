@@ -143,9 +143,7 @@ class NewsfeedTableViewController: UITableViewController {
         sender.title = showOnlyMy ? "All" : "My"
         updateTrashes()
     }
- 
-    
-    
+
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

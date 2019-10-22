@@ -247,6 +247,7 @@
 			children = (
 				841EB4512324DC0800495B87 /* MapViewController.swift */,
 				47C0F72823364A3600DEB8C2 /* AddEcoTrashTableViewController.swift */,
+				4737FE8A2353255700FD72B2 /* RecycleWasteViewController.swift */,
 			);
 			path = "Add Trash";
 			sourceTree = "<group>";
@@ -276,7 +277,6 @@
 				841B309C234B2264001A825F /* Etc */,
 				841B309B234B2130001A825F /* Newsfeed */,
 				841B309A234B20E1001A825F /* Login Register */,
-				4737FE8A2353255700FD72B2 /* RecycleWasteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
