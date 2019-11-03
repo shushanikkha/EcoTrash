@@ -107,8 +107,6 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
         
         guard let tabBarC = self.storyboard?.instantiateViewController(withIdentifier: "CustomTabBarController") else { return }
         self.present(tabBarC, animated: true, completion: nil)
-        //TODO: SaveTrashddd
-        
     }
 
     
