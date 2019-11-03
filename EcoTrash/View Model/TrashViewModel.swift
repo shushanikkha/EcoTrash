@@ -36,10 +36,8 @@ class TrashViewModel {
         
         return User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, id: id)
     }
-
     
     var refTrash = DatabaseReference()
-    
     
     func convertImageToBase64String(image: UIImage?) -> String {
         guard let image = image else { return "" }
@@ -71,21 +69,23 @@ class TrashViewModel {
         ]
     }
     
-    private func chackTrash() -> Bool {
+    private func getTrashWithChack() -> Trash? {
         guard let latitude = latitude, let longitude = longitude, let type = type,
-            let amount = amount else { return false }
+            let amount = amount else { return nil }
         
         trash = Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: type, images: images, amount: amount, address: address)
-        return true
+        return trash
     }
     
     func addTrash() -> Bool {
-        guard chackTrash() else { return false }
+        guard let _ = getTrashWithChack() else { return false }
         
         let key = refTrash.childByAutoId().key
         guard let id = key else { return false }
         refTrash.child(id).setValue(toAny())
         return true
     }
+    
+    
     
 }

@@ -19,5 +19,5 @@ class CompanyShortList {
         self.imageUrl = imageUrl
         self.address = address
     }
-    
+
 }

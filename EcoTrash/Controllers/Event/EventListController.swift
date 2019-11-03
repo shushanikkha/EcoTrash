@@ -24,7 +24,7 @@ class EventListController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: kTabBarHeight, right: 0)
         ref = Database.database().reference()
         loadDada()
     }

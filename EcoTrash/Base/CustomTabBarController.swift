@@ -7,6 +7,8 @@
 //
 import UIKit
 
+let kTabBarHeight: CGFloat = 100
+
 class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
     
     @IBOutlet var customTabBarView: UIView!
@@ -43,7 +45,7 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        customTabBarView.frame = CGRect(x: 0, y: view.frame.height - 100, width: view.frame.width, height: 100)
+        customTabBarView.frame = CGRect(x: 0, y: view.frame.height - kTabBarHeight, width: view.frame.width, height: kTabBarHeight)
         self.view.addSubview(customTabBarView)
         
         for tabBarItem in tabBar.items! {

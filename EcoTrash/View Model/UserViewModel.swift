@@ -13,7 +13,7 @@ import SwiftKeychainWrapper
 
 
 enum UserType {
-    case firstName, lastName, email, phoneNumber, password, confirmPassword
+    case firstName1, lastName1, email1, phoneNumber1, password1, confirmPassword1
 }
 
 class UserViewModel {
@@ -29,6 +29,8 @@ class UserViewModel {
     var confirmPassword: String!
     
     var user: User!
+    
+    var users = [User]()
     
     var refUser = DatabaseReference()
     
@@ -72,6 +74,7 @@ class UserViewModel {
         guard text.count >= 3 && validateTextField(text: text, predicatStyl: predicatStyl) else {
             return "Էլ հասցեն վավեր չէ, օր.(contact@onex.am)"
         }
+        email = text
         return nil
     }
     
@@ -136,14 +139,50 @@ class UserViewModel {
         }
     }
     
-    func reg() {
-        
+    func reg(from vc: UIViewController, completion: @escaping (Error?) -> Void) {
+        guard addUser() else { return }
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            if error == nil {
+                self.loginLogic(with: self.email, from: vc)
+            }
+            completion(error)
+        }
     }
     
     private func loginLogic(with email: String, from vc: UIViewController) {
         UserDefaults.standard.set(email, forKey: "mail")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        loadUsersWithMail(mail: email)
         let tabBarC = storyboard.instantiateViewController(withIdentifier: "CustomTabBarController")
         vc.present(tabBarC, animated: true, completion: nil)
+    }
+    
+    func loadUsersWithMail(mail: String) {
+//        guard let mail = UserDefaults.standard.object(forKey: "mail") as? String else { return }
+        refUser = Database.database().reference().child("users")
+        
+        refUser.observe(.value) { (snapshot) in
+            DispatchQueue.main.async {
+                guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+                
+                for snap in snapshot {
+                    guard let userDict = snap.value as? [String: Any] else { return }
+                    
+                    let firstName = userDict["firstName"] as! String
+                    let lastName = userDict["lastName"] as! String
+                    let email = userDict["email"] as! String
+                    let phoneNumber = userDict["phoneNumber"] as! String
+                    let id = userDict["id"] as! String
+                    
+                    let user = User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, id: id)
+                    self.users.append(user)
+                    
+                    if user.email == mail {
+                        UserDefaults.standard.set(user.toAny(), forKey: "userDict")
+                        self.user = user
+                    }
+                }
+            }
+        }
     }
 }

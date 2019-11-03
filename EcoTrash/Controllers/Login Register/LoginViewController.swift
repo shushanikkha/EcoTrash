@@ -11,14 +11,17 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
    
-    @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var rememberButton: UIButton!
     @IBOutlet weak var rememberImageView: UIImageView!
+    @IBOutlet weak var rememberLayer: UIView!
+    
+    var viewModel = UserViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rememberButton.layer.borderWidth = 0.5
+        rememberLayer.layer.borderWidth = 0.5
     }
     
     // MARK: - IBActions -
@@ -31,23 +34,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        guard let mail = loginTextField.text, let password = passwordTextField.text else { return }
-        Auth.auth().signIn(withEmail: mail, password: password) { (user, error) in
-            if error != nil {
-                print("Error", error!.localizedDescription)
-                sender.backgroundColor = .red
-            } else {
-                sender.backgroundColor = .white
-                guard let tabBarC = self.storyboard?.instantiateViewController(withIdentifier: "CustomTabBarController") else { return }
-                UserDefaults.standard.set(mail, forKey: "mail")
-                self.present(tabBarC, animated: true, completion: nil)
-            }
+        
+        viewModel.login(with: emailTextField.text, and: passwordTextField.text, from: self) { (error) in
+            guard let error = error else { return }
+            print(error)
+            sender.backgroundColor = .red
+            UserDefaults.standard.set(!self.rememberImageView.isHidden, forKey: "isLogged")
         }
     }
     
     @IBAction func rememberTapped(_ sender: UIButton) {
         rememberImageView.isHidden = !rememberImageView.isHidden
-        UserDefaults.standard.set(!rememberImageView.isHidden, forKey: "isLogged")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

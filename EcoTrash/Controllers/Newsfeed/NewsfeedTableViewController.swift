@@ -14,21 +14,31 @@ class NewsfeedTableViewController: UITableViewController {
     var trashes = [Trash]()
     var changedTreshes = [Trash]()
     var locations = [[String: Double]]()
-    var users = [User]()
-    var user = User()
+//    var users = [User]()
     var showOnlyMy: Bool = false
     var ref = DatabaseReference()
     
     typealias StringAny = [String: Any]
     
+    var user: User {
+        guard let userDict = UserDefaults.standard.dictionary(forKey: "userDict") else { return User() }
+        
+        let firstName = userDict["firstName"] as! String
+        let lastName = userDict["lastName"] as! String
+        let email = userDict["email"] as! String
+        let phoneNumber = userDict["phoneNumber"] as! String
+        let id = userDict["id"] as! String
+        return User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, id: id)
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "ԹԱՓՈՆՆԵՐ"
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: kTabBarHeight, right: 0)
         ref = Database.database().reference()
         loadTrash()
-        loadUsers()
     }
     
     private func loadTrash() {
@@ -101,7 +111,7 @@ class NewsfeedTableViewController: UITableViewController {
             guard let firstDate = dateFormatter.date(from: trash1.creationDate),
                 let secondDate = dateFormatter.date(from: trash2.creationDate) else { return false }
             
-            return firstDate < secondDate
+            return firstDate > secondDate
         }
         
         return sorted
@@ -115,27 +125,6 @@ class NewsfeedTableViewController: UITableViewController {
         let id = userDict["id"] as! String
         
         return User(firstName: firstName, lastName: lastName, email: email, phoneNumber: phoneNumber, id: id)
-    }
-    
-    func loadUsers() {
-        guard let mail = UserDefaults.standard.object(forKey: "mail") as? String else { return }
-        self.ref.child("users").observe(.value) { (snapshot) in
-            DispatchQueue.main.async {
-                guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
-                
-                for snap in snapshot {
-                    guard let userDict = snap.value as? StringAny else { return }
-                    
-                    let user = self.parsUser(userDict)
-                    self.users.append(user)
-                    
-                    if user.email == mail {
-                        UserDefaults.standard.set(user.toAny(), forKey: "userDict")
-                        self.user = user
-                    }
-                }
-            }
-        }
     }
     
     @IBAction func myAction(_ sender: UIBarButtonItem) {
