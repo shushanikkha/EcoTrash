@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RecycleWasteTableViewCell: UITableViewCell {
     
@@ -14,16 +15,13 @@ class RecycleWasteTableViewCell: UITableViewCell {
     @IBOutlet weak var recycleWasteName: UILabel!
     @IBOutlet weak var recycleWasteResult: UILabel! // yes or no
     
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func updateRecycleWaste(with waste: RecycleWaste) {
+        self.recycleWasteName.text = waste.name
+        self.recycleWasteResult.text = waste.recycle
+        
+        if let imageUrl = waste.imageUrl {
+            self.recycleWasteImageView.sd_setImage(with: imageUrl, completed: nil)
+        }
     }
 
 }

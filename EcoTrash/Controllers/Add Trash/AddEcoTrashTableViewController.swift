@@ -11,13 +11,13 @@ import MapKit
 import FirebaseDatabase
 
 enum WasteType: String, CaseIterable {
-    case Plastic
-    case Papaer
-    case Glass
-    case Metal
-    case Battery
-    case Polyethylene
-    case Other
+    case Պլաստիկ
+    case Թուղթ
+    case Ապակի
+    case Մետաղ
+    case Մարտկոց
+    case Պոլիեթիլեն
+    case Այլ
 }
 
 class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -67,14 +67,13 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
     // MARK: - Update Date Method -
     
     func updateDateViews() {
-        let midnightTodey = Calendar.current.startOfDay(for: Date())
-        availableDatePicker.minimumDate = midnightTodey
+        availableDatePicker.minimumDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .medium
         
         trashViewModel.availableDate = dateFormatter.string(from: availableDatePicker.date)
-        trashViewModel.creationDate = dateFormatter.string(from: midnightTodey)
+        trashViewModel.creationDate = dateFormatter.string(from: Date())
         
         availableDateLabel.text = trashViewModel.availableDate
     }

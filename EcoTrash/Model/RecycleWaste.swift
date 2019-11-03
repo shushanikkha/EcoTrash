@@ -7,17 +7,19 @@
 //
 
 import Foundation
+import UIKit
+
 
 class RecycleWaste {
     var imageUrl: URL?
-    var recycleResult: String
-    var recycleWasteName: String
+    var recycle: String
+    var name: String
     
-    
-    init(imageUrl: URL?, recycleResult: String, recycleWasteName: String) {
+    init(imageUrl: URL?, recycleResult: String, name: String) {
         self.imageUrl = imageUrl
-        self.recycleResult = recycleResult
-        self.recycleWasteName = recycleWasteName
+        self.recycle = recycleResult
+        self.name = name
+    
     }
     
 }

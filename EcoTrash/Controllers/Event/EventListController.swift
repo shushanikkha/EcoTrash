@@ -84,7 +84,8 @@ class EventListController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = UIColor(red: 152.0/255.0, green: 186.0/255.0, blue: 99.0/255.0, alpha: 1.0)
         label.text = titleForSection(section)
         
         let view = UIView()
@@ -110,7 +111,7 @@ class EventListController: UITableViewController {
     }
     
     private func titleForSection(_ section: Int) -> String {
-        return section == 0 ? "After" : "Previous"
+        return section == 0 ? "Գալիք միջոցառումներ" : "Անցած իրադարձություններ"
     }
     
     private func sortEventsByDate(events: [Event]) -> [[Event]] {

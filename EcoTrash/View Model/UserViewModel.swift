@@ -38,74 +38,74 @@ class UserViewModel {
     
     func isValidFirstName(_ text: String?) -> String? {
         guard let text = text, text != "" else {
-            return "First name is empty"
+            return "Լրացրեք Ձեր անունը"
         }
         guard text.count >= 3  else {
-            return "First name count less then 3"
+            return "Անունը 3 տառից պակաս չի կարող լինել"
         }
         let predicatStyl = "[A-Z]+[A-Z0-9a-z]{3,10}"
         guard validateTextField(text: text, predicatStyl: predicatStyl) else {
-            return "First name is not valid Ex.(Adam)"
+            return "Անունը վավեր չէ, օր.(Արամ)"
         }
         return nil
     }
     
     func isValidLastName(_ text: String?) -> String? {
         guard let text = text, text != "" else {
-            return "Last name is empty"
+            return "Լրացրեք Ձեր ազգանունը"
         }
         guard text.count >= 3  else {
-            return "Last name count less then 3"
+            return "Ազգանունը 3 տառից պակաս չի կարող լինել"
         }
         let predicatStyl = "[A-Z]+[A-Z0-9a-z]{3,10}"
         guard validateTextField(text: text, predicatStyl: predicatStyl) else {
-            return "Last name is not valid Ex.(Adamyan)"
+            return "Ազգանունը վավեր չէ, օր.(Ադամյան)"
         }
         return nil
     }
     
     func isValidEmail(_ text: String?) -> String? {
         guard let text = text, text != "" else {
-            return "Email is empty"
+            return "Լրացրեք էլ հասցեն"
         }
         let predicatStyl = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         guard text.count >= 3 && validateTextField(text: text, predicatStyl: predicatStyl) else {
-            return "Email is not valid Ex.(contact@onex.am)"
+            return "Էլ հասցեն վավեր չէ, օր.(contact@onex.am)"
         }
         return nil
     }
     
     func isValidPhone(_ text: String?) -> String? {
         guard let text = text, text != "" else {
-            return "Phone is empty"
+            return "Լրացրեք հեռախոսահամարը"
         }
         let predicatStyl = "[+]+[0-9]{11}"
         guard text.count >= 7 || validateTextField(text: text, predicatStyl: predicatStyl) else {
-            return "Phone is not valid Ex.(077777777)"
+            return "Հեռախոսահամարը վավեր չէ, օր.(077777777)"
         }
         return nil
     }
     
     func isValidPsaaword(_ text: String?) -> String? {
         guard let text = text, text != "" else {
-            return "Password is empty"
+            return "Լրացրեք գաղտնաբառը"
         }
         guard text.count >= 6  else {
-            return "Password count less then 6"
+            return "Գաղտնաբառը 6 տառից պակաս չի կարող լինել"
         }
         let predicatStyl = "[A-Z0-9a-z!-+]{6,}"
         guard validateTextField(text: text, predicatStyl: predicatStyl) else {
-            return "Password is not valid Ex.(_______)"
+            return "Գաղտնաբառը վավեր չէ, օր.(_______)"
         }
         return nil
     }
     
     func isValidConfirmP(_ text: String?) -> String? {
         guard let text = text, text != "" else {
-            return "Confirm password is empty"
+            return "Կրկնել գաղտնաբառը"
         }
         guard let password = password, text == password else {
-            return "Wrong confirm password"
+            return "Գաղտնաբառը սխալ է գրված"
         }
         return nil
     }
