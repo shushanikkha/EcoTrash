@@ -14,7 +14,6 @@ class NewsfeedTableViewController: UITableViewController {
     var trashes = [Trash]()
     var changedTreshes = [Trash]()
     var locations = [[String: Double]]()
-//    var users = [User]()
     var showOnlyMy: Bool = false
     var ref = DatabaseReference()
     
@@ -56,6 +55,7 @@ class NewsfeedTableViewController: UITableViewController {
                     let type = dict["type"] as! String
                     let amount = dict["amount"] as! Int
                     let address = dict["address"] as! String
+                    let id = dict["id"] as! String
                     let userDict = dict["user"] as! StringAny
                     let imagesStr = dict["images"] as! [String]
                     
@@ -69,7 +69,7 @@ class NewsfeedTableViewController: UITableViewController {
                         }
                     }
                     
-                    let trash = Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: type, images: images, amount: amount, address: address)
+                    let trash = Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: type, images: images, amount: amount, address: address, id: id)
                     
                     DispatchQueue.main.async {
                         self.trashes.append(trash)
@@ -113,7 +113,6 @@ class NewsfeedTableViewController: UITableViewController {
             
             return firstDate > secondDate
         }
-        
         return sorted
     }
     
@@ -148,6 +147,8 @@ class NewsfeedTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Table view delegate
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let newsfeedDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsfeedDetailsViewController") as? NewsfeedDetailsViewController else { return }
         newsfeedDetailsVC.trash = changedTreshes[indexPath.row]
@@ -156,8 +157,36 @@ class NewsfeedTableViewController: UITableViewController {
         self.present(navVC, animated: true, completion: nil)
     }
     
-    // MARK: - Table view delegate
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            print("Delete")
+//        }
+//    }
 
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if self.changedTreshes[indexPath.row].user.id == self.user.id && showOnlyMy {
+            let deletAction = UITableViewRowAction(style: .destructive, title: "Deleteee") { (action, indexPath) in
+               
+                print(self.trashes.count)
+                let id = self.changedTreshes[indexPath.row].id
+                let filtered = self.trashes.filter({ (trash) -> Bool in
+                    return trash.id != id
+                })
+                
+                print(filtered.count)
+                self.trashes = filtered
+                
+                self.ref.child("trash").child(self.changedTreshes[indexPath.row].id).setValue(nil)
+                self.changedTreshes.remove(at: indexPath.row)
+                
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+//                self.updateTrashes()
+            }
+            return [deletAction]
+        }
+        return nil
+    }
+    
     @objc func tapGesturTapped() {
         guard let locMapVC = self.storyboard?.instantiateViewController(withIdentifier: "LocationsMapViewController") as? LocationsMapViewController else { return }
 
@@ -176,6 +205,10 @@ class NewsfeedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 100
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return showOnlyMy
     }
 }
 

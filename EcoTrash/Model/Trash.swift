@@ -22,8 +22,9 @@ class Trash {
     var images: [UIImage]?
     var amount: Int
     var address: String
+    var id: String
 
-    init(latitude: Double, longitude: Double, creationDate: String, availableDate: String?,  user: User, type: String, images: [UIImage]?, amount: Int, address: String) {
+    init(latitude: Double, longitude: Double, creationDate: String, availableDate: String?, user: User, type: String, images: [UIImage]?, amount: Int, address: String, id: String) {
         self.latitude = latitude
         self.longitude = longitude
         self.creationDate = creationDate
@@ -33,5 +34,6 @@ class Trash {
         self.images = images
         self.amount = amount
         self.address = address
+        self.id = id
     }
 }

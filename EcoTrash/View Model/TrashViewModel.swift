@@ -24,10 +24,12 @@ class TrashViewModel {
     var images: [UIImage]?
     var amount: Int?
     var address: String!
+    var id: String!
     
-    let userDict = UserDefaults.standard.dictionary(forKey: "userDict")
 
     var user: User {
+        let userDict = UserDefaults.standard.dictionary(forKey: "userDict")
+
         let firstName = userDict!["firstName"] as! String
         let lastName = userDict!["lastName"] as! String
         let email = userDict!["email"] as! String
@@ -61,28 +63,29 @@ class TrashViewModel {
             "longitude": longitude!,
             "creationDate": creationDate!,
             "availableDate": availableDate!,
-            "user": userDict as Any,
+            "user": user.toAny(),
             "type": type!,
             "images": imagesStrData,
             "amount": amount!,
-            "address": address!
+            "address": address!,
+            "id": id!
         ]
     }
     
     private func getTrashWithChack() -> Trash? {
         guard let latitude = latitude, let longitude = longitude, let type = type,
             let amount = amount else { return nil }
+        guard let key = refTrash.childByAutoId().key  else { return nil }
         
-        trash = Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: type, images: images, amount: amount, address: address)
+        id = key
+        trash = Trash(latitude: latitude, longitude: longitude, creationDate: creationDate, availableDate: availableDate, user: user, type: type, images: images, amount: amount, address: address, id: id)
         return trash
     }
     
     func addTrash() -> Bool {
         guard let _ = getTrashWithChack() else { return false }
         
-        let key = refTrash.childByAutoId().key
-        guard let id = key else { return false }
-        refTrash.child(id).setValue(toAny())
+        refTrash.child(trash.id).setValue(toAny())
         return true
     }
     

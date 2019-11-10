@@ -50,6 +50,7 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
     }
     
     let addTrashImageIndexPath = IndexPath(row: 0, section: 4)
+    let mapInndexPath = IndexPath(row: 0, section: 3)
     
     
     override func viewDidLoad() {
@@ -107,22 +108,6 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
         guard let tabBarC = self.storyboard?.instantiateViewController(withIdentifier: "CustomTabBarController") else { return }
         self.present(tabBarC, animated: true, completion: nil)
     }
-
-    
-    @IBAction func mapButtonTapeed(_ sender: UIButton) {
-        guard let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as? MapViewController else { return }
-        
-        mapVC.setAddres = { (dict) -> () in
-            self.trashViewModel.address = (dict["addres"] as! String)
-            self.trashViewModel.latitude = (dict["latitude"] as! Double)
-            self.trashViewModel.longitude = (dict["longitude"] as! Double)
-            
-            self.addressLabel.text = self.trashViewModel.address
-        }
-        
-        let navVC = UINavigationController(rootViewController: mapVC)
-        self.present(navVC, animated: true, completion: nil)
-    }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
         updateDateViews()
@@ -136,11 +121,9 @@ class AddEcoTrashTableViewController:  UITableViewController, UIPickerViewDelega
 }
 
 
-
-
 extension AddEcoTrashTableViewController {
-    // MARK: - Table view data source
-    
+    // MARK: - Table view delegate
+
     override  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch (indexPath.section, indexPath.row){
         case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row):
@@ -161,19 +144,33 @@ extension AddEcoTrashTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch (indexPath.section, indexPath.row) {
-        case(trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row - 1):
+        case (trashTypePickerCellIndexPath.section, trashTypePickerCellIndexPath.row - 1):
             isTrashTypePickerShown = !isTrashTypePickerShown
             tableView.beginUpdates()
             tableView.endUpdates()
-    
+            
         case (availableDatePickerCellIndexPath.section, availableDatePickerCellIndexPath.row - 1):
             isAvailableDatePickerShown = !isAvailableDatePickerShown
             tableView.beginUpdates()
             tableView.endUpdates()
             
+        case (mapInndexPath.section, mapInndexPath.row):
+            guard let mapVC = self.storyboard?.instantiateViewController(withIdentifier: "MapViewController") as? MapViewController else { return }
+            
+            mapVC.setAddres = { (dict) -> () in
+                self.trashViewModel.address = (dict["addres"] as! String)
+                self.trashViewModel.latitude = (dict["latitude"] as! Double)
+                self.trashViewModel.longitude = (dict["longitude"] as! Double)
+                
+                self.addressLabel.text = self.trashViewModel.address
+            }
+            let navVC = UINavigationController(rootViewController: mapVC)
+            self.present(navVC, animated: true, completion: nil)
+            
         default:
             break
         }
+        
     }
 }
 

@@ -12,8 +12,6 @@ import SDWebImage
 
 class RecycleWasteViewController: UIViewController {
  
-    
-    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var wasteTableView: UITableView!
     
