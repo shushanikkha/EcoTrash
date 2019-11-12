@@ -20,7 +20,7 @@
                     <rect key="frame" x="0.0" y="44" width="542" height="146"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="146" id="Fys-8S-9rB"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="146" id="Fys-8S-9rB"/>
                     </constraints>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="NfI-l6-09J" appends="YES" id="p6s-he-KP7"/>

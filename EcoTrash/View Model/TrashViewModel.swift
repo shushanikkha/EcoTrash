@@ -25,7 +25,6 @@ class TrashViewModel {
     var amount: Int?
     var address: String!
     var id: String!
-    
 
     var user: User {
         let userDict = UserDefaults.standard.dictionary(forKey: "userDict")

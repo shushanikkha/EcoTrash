@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 class NewsfeedTableViewController: UITableViewController {
     
+    
     var trashes = [Trash]()
     var changedTreshes = [Trash]()
     var locations = [[String: Double]]()
@@ -43,7 +44,7 @@ class NewsfeedTableViewController: UITableViewController {
     private func loadTrash() {
         ref.child("trash").observe(.value) { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
-            
+            self.trashes.removeAll()
             for snap in snapshot {
                 DispatchQueue.global().async {
                     guard let dict = snap.value as? StringAny else { return }
@@ -165,22 +166,8 @@ class NewsfeedTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         if self.changedTreshes[indexPath.row].user.id == self.user.id && showOnlyMy {
-            let deletAction = UITableViewRowAction(style: .destructive, title: "Deleteee") { (action, indexPath) in
-               
-                print(self.trashes.count)
-                let id = self.changedTreshes[indexPath.row].id
-                let filtered = self.trashes.filter({ (trash) -> Bool in
-                    return trash.id != id
-                })
-                
-                print(filtered.count)
-                self.trashes = filtered
-                
+            let deletAction = UITableViewRowAction(style: .destructive, title: "Ջնջել") { (action, indexPath) in
                 self.ref.child("trash").child(self.changedTreshes[indexPath.row].id).setValue(nil)
-                self.changedTreshes.remove(at: indexPath.row)
-                
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-//                self.updateTrashes()
             }
             return [deletAction]
         }

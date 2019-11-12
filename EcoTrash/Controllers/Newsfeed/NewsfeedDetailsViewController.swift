@@ -30,7 +30,6 @@ class NewsfeedDetailsViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         scrollView.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
-
         
         newsfeedCollectionView.delegate = self
         newsfeedCollectionView.dataSource = self
@@ -40,6 +39,12 @@ class NewsfeedDetailsViewController: UIViewController, MKMapViewDelegate {
         setupDetailsLabels()
         setLocation()
         newsfeedCollectionView.reloadData()
+        
+        if images.count == 0 {
+            newsfeedCollectionView.heightAnchor.constraint(equalToConstant: 0).isActive = true
+//            newsfeedCollectionView.isHidden = true
+        }
+        detailsStackView.backgroundColor = .red
     }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
@@ -52,7 +57,7 @@ class NewsfeedDetailsViewController: UIViewController, MKMapViewDelegate {
         let width = Int(UIScreen.main.bounds.size.width) - 20
         let height = 50
         let x = 0
-        var y = 100
+        var y = 0
         if let addressView = Bundle.main.loadNibNamed("DetailsLabelView", owner: self, options: nil)?.first as? DetailsLabelView, !trash.address.isEmpty  {
             let frame = CGRect(x: x, y: y, width: width, height: height)
             y += height
