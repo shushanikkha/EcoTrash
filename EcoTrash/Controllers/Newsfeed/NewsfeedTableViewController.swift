@@ -35,7 +35,7 @@ class NewsfeedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "ԹԱՓՈՆՆԵՐ"
+        navigationItem.title = "ԲՈԼՈՐ ԹԱՓՈՆՆԵՐ"
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: kTabBarHeight, right: 0)
         ref = Database.database().reference()
         loadTrash()
@@ -129,8 +129,8 @@ class NewsfeedTableViewController: UITableViewController {
     
     @IBAction func myAction(_ sender: UIBarButtonItem) {
         showOnlyMy.toggle()
-        sender.title = showOnlyMy ? "Բոլոր" : "Իմ"
-        title = showOnlyMy ? "Իմ թափոններ" : "Բոլոր թափոններ"
+        sender.title = showOnlyMy ? "ԲՈԼՈՐ" : "ԻՄ"
+        title = showOnlyMy ? "ԻՄ ԹԱՓՈՆՆԵՐ" : "ԲՈԼՈՐ ԹԱՓՈՆՆԵՐ"
         updateTrashes()
     }
 
