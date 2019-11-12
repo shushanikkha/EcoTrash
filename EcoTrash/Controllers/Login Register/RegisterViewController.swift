@@ -36,6 +36,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        viewModel.refUser = Database.database().reference()
         viewModel.refUser = Database.database().reference().child("users")
         
         subbmitButton.backgroundColor = .white
@@ -61,17 +62,17 @@ class RegisterViewController: UIViewController {
     
     private func validField(textField: UITextField, userType: UserType) -> String? {
         switch userType {
-        case .firstName:
+        case .firstName1:
             return viewModel.isValidFirstName(textField.text)
-        case .lastName:
+        case .lastName1:
             return viewModel.isValidLastName(textField.text)
-        case .email:
+        case .email1:
             return viewModel.isValidEmail(textField.text)
-        case .phoneNumber:
+        case .phoneNumber1:
             return viewModel.isValidPhone(textField.text)
-        case .password:
+        case .password1:
             return viewModel.isValidPsaaword(textField.text)
-        case .confirmPassword:
+        case .confirmPassword1:
             return viewModel.isValidConfirmP(textField.text)
         }
     }
@@ -124,42 +125,35 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func firstNameDidEnd(_ sender: UITextField) {
-        setup(textField: sender, label: firstNameLabel, userType: .firstName)
+        setup(textField: sender, label: firstNameLabel, userType: .firstName1)
     }
     
     @IBAction func lastNameDidEnd(_ sender: UITextField) {
-        setup(textField: sender, label: lastNameLabel, userType: .lastName)
+        setup(textField: sender, label: lastNameLabel, userType: .lastName1)
     }
     
     @IBAction func emailDidEnd(_ sender: UITextField) {
-        setup(textField: sender, label: emailLabel, userType: .email)
+        setup(textField: sender, label: emailLabel, userType: .email1)
     }
     
     @IBAction func phoneDidEnd(_ sender: UITextField) {
-        setup(textField: sender, label: phoneLabel, userType: .phoneNumber)
+        setup(textField: sender, label: phoneLabel, userType: .phoneNumber1)
     }
     
     @IBAction func passwordDidEnd(_ sender: UITextField) {
-        setup(textField: sender, label: passwordLabel, userType: .password)
+        setup(textField: sender, label: passwordLabel, userType: .password1)
     }
     
     @IBAction func confirmPDidEnd(_ sender: UITextField) {
-        setup(textField: sender, label: confirmPLabel, userType: .confirmPassword)
+        setup(textField: sender, label: confirmPLabel, userType: .confirmPassword1)
     }
     
     @IBAction func subbmitTapped(_ sender: UIButton) {
-        guard viewModel.addUser() else { return }
-        Auth.auth().createUser(withEmail: viewModel.email, password: viewModel.password) { (user, error) in
+        viewModel.reg(from: self) { (error) in
             if error != nil {
-                print("Error", error!)
+                print(error.debugDescription)
                 sender.backgroundColor = .red
-            } else {
-                sender.backgroundColor = .white
-                guard let tabBarC = self.storyboard?.instantiateViewController(withIdentifier: "CustomTabBarController") else { return }
-                UserDefaults.standard.set(self.viewModel.email, forKey: "mail")
-                self.present(tabBarC, animated: true, completion: nil)
-            }
+            } 
         }
     }
-    
 }

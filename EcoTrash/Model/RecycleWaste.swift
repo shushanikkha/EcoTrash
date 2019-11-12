@@ -19,7 +19,6 @@ class RecycleWaste {
         self.imageUrl = imageUrl
         self.recycle = recycleResult
         self.name = name
-    
     }
     
 }

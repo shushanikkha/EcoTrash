@@ -1,5 +1,5 @@
 //
-//  ExtentionKyboard.swift
+//  RegisterViewController+Kyboard.swift
 //  EcoTrash
 //
 //  Created by Admin on 9/16/19.
@@ -27,8 +27,6 @@ extension RegisterViewController: UITextFieldDelegate {
         let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height - 40.0, right: 0.0)
         self.scrollView.contentInset = contentInsets
         self.scrollView.scrollIndicatorInsets = contentInsets
-        
-        
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
