@@ -129,7 +129,8 @@ class NewsfeedTableViewController: UITableViewController {
     
     @IBAction func myAction(_ sender: UIBarButtonItem) {
         showOnlyMy.toggle()
-        sender.title = showOnlyMy ? "All" : "My"
+        sender.title = showOnlyMy ? "Բոլոր" : "Իմ"
+        title = showOnlyMy ? "Իմ թափոններ" : "Բոլոր թափոններ"
         updateTrashes()
     }
 

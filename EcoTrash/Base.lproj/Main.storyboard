@@ -567,7 +567,7 @@
             </objects>
             <point key="canvasLocation" x="647.82608695652175" y="537.05357142857144"/>
         </scene>
-        <!--Company-->
+        <!--Ընկերություններ-->
         <scene sceneID="6g2-xe-TuP">
             <objects>
                 <tableViewController storyboardIdentifier="CompanyListController" id="Cje-Ba-ZVG" customClass="CompanyListController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
@@ -628,7 +628,7 @@
                             <outlet property="delegate" destination="Cje-Ba-ZVG" id="gRU-mA-1os"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Company" id="z6Q-gu-24h"/>
+                    <navigationItem key="navigationItem" title="Ընկերություններ" id="z6Q-gu-24h"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UL8-Cr-1Tf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -908,14 +908,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TU9-qH-0Zl">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Տնտրել տեսակը" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TU9-qH-0Zl">
                                                     <rect key="frame" x="178" y="8" width="216" height="27.5"/>
                                                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waste type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUn-d8-Rn9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Թափոն" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUn-d8-Rn9">
                                                     <rect key="frame" x="20" y="8" width="138" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -987,7 +987,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWM-xz-f2a">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Հասանելի է" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWM-xz-f2a">
                                                     <rect key="frame" x="20" y="8" width="138" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1049,13 +1049,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clz-5I-x5B">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Քանակ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clz-5I-x5B">
                                                     <rect key="frame" x="20" y="8" width="299" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="kg" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKq-fB-6j7">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="կգ" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKq-fB-6j7">
                                                     <rect key="frame" x="319" y="8" width="75" height="27.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1085,7 +1085,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cn3-M2-iAh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Հասցե" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cn3-M2-iAh">
                                                     <rect key="frame" x="20" y="8" width="326" height="27.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="326" id="nO3-ak-Req"/>
@@ -1699,7 +1699,7 @@
             </objects>
             <point key="canvasLocation" x="3592.753623188406" y="2737.5"/>
         </scene>
-        <!--Location-->
+        <!--Հասցե-->
         <scene sceneID="mxq-nh-526">
             <objects>
                 <viewController storyboardIdentifier="LocationsMapViewController" id="ugf-VK-esg" customClass="LocationsMapViewController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
@@ -1720,7 +1720,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YzY-Th-bT2"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Location" id="psQ-fB-o3c">
+                    <navigationItem key="navigationItem" title="Հասցե" id="psQ-fB-o3c">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="sff-62-tqN">
                             <connections>
                                 <action selector="cancelAction:" destination="ugf-VK-esg" id="HlN-jX-bKG"/>
@@ -1736,7 +1736,7 @@
             </objects>
             <point key="canvasLocation" x="-852" y="2738"/>
         </scene>
-        <!--Newsfeed Table View Controller-->
+        <!--Բոլոր թափոններ-->
         <scene sceneID="wD2-EN-uZA">
             <objects>
                 <tableViewController storyboardIdentifier="NewsfeedTableViewController" id="KQ8-nB-DLe" customClass="NewsfeedTableViewController" customModule="EcoTrash" customModuleProvider="target" sceneMemberID="viewController">
@@ -1817,8 +1817,8 @@
                             <outlet property="delegate" destination="KQ8-nB-DLe" id="wlu-9w-e3G"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="QtU-bK-A1v">
-                        <barButtonItem key="rightBarButtonItem" title="My" id="bZ1-nV-5cI">
+                    <navigationItem key="navigationItem" title="Բոլոր թափոններ" id="QtU-bK-A1v">
+                        <barButtonItem key="rightBarButtonItem" title="Իմ" id="bZ1-nV-5cI">
                             <connections>
                                 <action selector="myAction:" destination="KQ8-nB-DLe" id="lPU-YL-b7c"/>
                             </connections>
