@@ -11,11 +11,14 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
    
+    @IBOutlet weak var ecoImageView: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var rememberButton: UIButton!
     @IBOutlet weak var rememberImageView: UIImageView!
     @IBOutlet weak var rememberLayer: UIView!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -23,6 +26,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    func setup() {
+        registerButton.layer.cornerRadius = registerButton.frame.height / 4
+        loginButton.layer.cornerRadius = loginButton.frame.height / 4
+        ecoImageView.layer.cornerRadius = ecoImageView.frame.height / 16
         rememberLayer.layer.borderWidth = 0.5
         registerForKeyboardNotifications()
     }
@@ -36,13 +46,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.present(navVC, animated: true, completion: nil)
     }
     
-    @IBAction func loginButton(_ sender: UIButton) {
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
         
+        UserDefaults.standard.set(!self.rememberImageView.isHidden, forKey: "isLogged")
         viewModel.login(with: emailTextField.text, and: passwordTextField.text, from: self) { (error) in
             guard let error = error else { return }
             print(error)
             sender.backgroundColor = .red
-            UserDefaults.standard.set(!self.rememberImageView.isHidden, forKey: "isLogged")
         }
     }
     

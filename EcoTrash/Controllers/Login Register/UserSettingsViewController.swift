@@ -17,9 +17,6 @@ class UserSettingsViewController: UIViewController {
     @IBOutlet weak var oldPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
     
-   
-   
-    let userDict = UserDefaults.standard.dictionary(forKey: "userDict")
     var user: User {
         guard let userDict = UserDefaults.standard.dictionary(forKey: "userDict") else { return User()}
         
@@ -44,6 +41,8 @@ class UserSettingsViewController: UIViewController {
         self.emailTextField.text = user.email
         self.phoneNumberTextField.text = user.phoneNumber
     }
+    
+    
     
     
     @IBAction func editAction(_ sender: UIBarButtonItem) {

@@ -29,9 +29,7 @@ class UserViewModel {
     var confirmPassword: String!
     
     var user: User!
-    
     var users = [User]()
-    
     var refUser = DatabaseReference()
     
     private func validateTextField(text: String, predicatStyl: String) -> Bool {
